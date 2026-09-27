@@ -3,7 +3,7 @@ from datetime import datetime, timezone
 from sqlalchemy import DateTime, Integer, String, Text
 from sqlalchemy.orm import Mapped, mapped_column
 
-from backend.database import Base
+from apps.backend.database import Base
 
 
 class Ticket(Base):
