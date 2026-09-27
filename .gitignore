@@ -1,0 +1,20 @@
+# Secrets
+.env
+.env.*
+
+# Python virtual environments
+myenv/
+
+# Python cache and test output
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Editor files
+.vscode/
+.idea/
