@@ -5,10 +5,6 @@ from pydantic import BaseModel, ConfigDict, Field
 
 
 class TicketCreate(BaseModel):
-    customer_id: int = Field(
-        gt=0,
-        examples=[1],
-    )
     subject: str = Field(
         min_length=5,
         max_length=150,
@@ -19,7 +15,6 @@ class TicketCreate(BaseModel):
         max_length=2000,
         examples=["My card shows two successful payments for the same order."],
     )
-
 
 class TicketResponse(BaseModel):
     id: int

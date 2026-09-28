@@ -5,8 +5,13 @@ from sqlalchemy.orm import Session
 
 from backend.auth.schemas import TokenResponse
 from backend.database import get_db
-from backend.security import create_access_token, verify_password
+from backend.security import (
+    create_access_token,
+    get_current_user,
+    verify_password,
+)
 from backend.users.models import User
+from backend.users.schemas import userResponse
 
 router = APIRouter(
     prefix="/auth",
@@ -40,3 +45,9 @@ def login(
     )
 
     return TokenResponse(access_token=access_token)
+
+@router.get("/me", response_model=userResponse)
+def read_current_user(
+    current_user: User = Depends(get_current_user),
+):
+    return current_user
