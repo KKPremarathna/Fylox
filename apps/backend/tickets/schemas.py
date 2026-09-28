@@ -13,8 +13,13 @@ class TicketCreate(BaseModel):
     description: str = Field(
         min_length=10,
         max_length=2000,
-        examples=["My card shows two successful payments for the same order."],
+        examples=["My card shows two successful payment records for the same order."],
     )
+
+
+class TicketStatusUpdate(BaseModel):
+    status: Literal["OPEN", "IN_PROGRESS", "RESOLVED"]
+
 
 class TicketResponse(BaseModel):
     id: int

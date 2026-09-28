@@ -3,9 +3,13 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from backend.database import get_db
-from backend.tickets.models import Ticket
-from backend.tickets.schemas import TicketCreate, TicketResponse
 from backend.security import get_current_user
+from backend.tickets.models import Ticket
+from backend.tickets.schemas import (
+    TicketCreate,
+    TicketResponse,
+    TicketStatusUpdate,
+)
 from backend.users.models import User
 
 router = APIRouter(
@@ -13,9 +17,9 @@ router = APIRouter(
     tags=["Tickets"],
 )
 
-# Create ticket
+
 @router.post(
-    "/tickets",
+    "",
     response_model=TicketResponse,
     status_code=status.HTTP_201_CREATED,
 )
@@ -35,8 +39,9 @@ def create_ticket(
     db.refresh(new_ticket)
 
     return new_ticket
-# Get all tickets
-@router.get("/tickets", response_model=list[TicketResponse])
+
+
+@router.get("", response_model=list[TicketResponse])
 def list_tickets(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
@@ -52,8 +57,8 @@ def list_tickets(
 
     return tickets
 
-# Get a ticket ny ID
-@router.get("/tickets/{ticket_id}", response_model=TicketResponse)
+
+@router.get("/{ticket_id}", response_model=TicketResponse)
 def get_ticket(
     ticket_id: int,
     db: Session = Depends(get_db),
@@ -75,5 +80,36 @@ def get_ticket(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="Not allowed to access this ticket",
         )
+
+    return ticket
+
+
+@router.patch(
+    "/{ticket_id}/status",
+    response_model=TicketResponse,
+)
+def update_ticket_status(
+    ticket_id: int,
+    update: TicketStatusUpdate,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    if current_user.role != "ADMIN":
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Admin access required",
+        )
+
+    ticket = db.get(Ticket, ticket_id)
+
+    if ticket is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Ticket not found",
+        )
+
+    ticket.status = update.status
+    db.commit()
+    db.refresh(ticket)
 
     return ticket
