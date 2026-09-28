@@ -1,18 +1,28 @@
-import os
-from dotenv import load_dotenv
+from pathlib import Path
+
+from pydantic_settings import BaseSettings, SettingsConfigDict
 from sqlalchemy import create_engine
 from sqlalchemy.orm import DeclarativeBase, sessionmaker
 
-load_dotenv()
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
-DATABASE_URL = os.getenv("DATABASE_URL")
 
-if not DATABASE_URL:
-    raise RuntimeError(
-        "DATABASE_URL is missing. Create a .env file from .env.example."
+class Settings(BaseSettings):
+    database_url: str
+    jwt_secret_key: str
+    jwt_algorithm: str = "HS256"
+    access_token_expire_minutes: int = 30
+
+    model_config = SettingsConfigDict(
+        env_file=PROJECT_ROOT / ".env",
+        env_file_encoding="utf-8",
+        extra="ignore",
     )
 
-engine = create_engine(DATABASE_URL)
+
+settings = Settings()
+
+engine = create_engine(settings.database_url)
 
 SessionLocal = sessionmaker(
     autocommit=False,

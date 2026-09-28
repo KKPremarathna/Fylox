@@ -3,7 +3,7 @@ from datetime import datetime
 from sqlalchemy import DateTime, Integer, String, func
 from sqlalchemy.orm import Mapped, mapped_column
 
-from apps.backend.database import Base
+from backend.database import Base
 
 
 class User(Base):
@@ -13,6 +13,7 @@ class User(Base):
         Integer,
         primary_key=True,
         index=True,
+        unique=True
     )
 
     username: Mapped[str] = mapped_column(

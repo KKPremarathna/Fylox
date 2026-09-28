@@ -3,17 +3,17 @@ from sqlalchemy import select
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
-from apps.backend.database import get_db
-from apps.backend.users.models import User
-from apps.backend.users.schemas import userCreate, userResponse
-from apps.backend.security import hash_password,verify_password
+from backend.database import get_db
+from backend.users.models import User
+from backend.users.schemas import userCreate, userResponse
+from backend.security import hash_password,verify_password
 
 router = APIRouter(
     prefix="/users",
     tags=["Users"]
 )
 
-# Add user
+# Add user / Register
 @router.post(
     "",
     response_model=userResponse,

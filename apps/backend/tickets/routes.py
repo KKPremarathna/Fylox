@@ -2,9 +2,9 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from apps.backend.database import get_db
-from apps.backend.tickets.models import Ticket
-from apps.backend.tickets.schemas import TicketCreate, TicketResponse
+from backend.database import get_db
+from backend.tickets.models import Ticket
+from backend.tickets.schemas import TicketCreate, TicketResponse
 
 router = APIRouter(
     prefix="/tickets",
