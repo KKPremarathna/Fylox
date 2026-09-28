@@ -1,9 +1,13 @@
 from datetime import datetime
+from typing import TYPE_CHECKING
 
 from sqlalchemy import DateTime, Integer, String, func
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from backend.database import Base
+
+if TYPE_CHECKING:
+    from backend.tickets.models import Ticket
 
 
 class User(Base):
@@ -13,7 +17,6 @@ class User(Base):
         Integer,
         primary_key=True,
         index=True,
-        unique=True
     )
 
     username: Mapped[str] = mapped_column(
@@ -43,4 +46,8 @@ class User(Base):
         DateTime(timezone=True),
         nullable=False,
         server_default=func.now(),
+    )
+
+    tickets: Mapped[list["Ticket"]] = relationship(
+        back_populates="customer",
     )

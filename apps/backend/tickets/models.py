@@ -1,9 +1,13 @@
 from datetime import datetime, timezone
+from typing import TYPE_CHECKING
 
-from sqlalchemy import DateTime, Integer, String, Text
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy import DateTime, ForeignKey, Integer, String, Text
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from backend.database import Base
+
+if TYPE_CHECKING:
+    from backend.users.models import User
 
 
 class Ticket(Base):
@@ -16,7 +20,7 @@ class Ticket(Base):
     )
 
     customer_id: Mapped[int] = mapped_column(
-        Integer,
+        ForeignKey("users.user_id", ondelete="RESTRICT"),
         index=True,
         nullable=False,
     )
@@ -41,4 +45,8 @@ class Ticket(Base):
         DateTime(timezone=True),
         nullable=False,
         default=lambda: datetime.now(timezone.utc),
+    )
+
+    customer: Mapped["User"] = relationship(
+        back_populates="tickets",
     )

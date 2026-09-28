@@ -6,6 +6,8 @@ from backend.tickets.models import Ticket
 from backend.tickets.routes import router as tickets_router
 from backend.users.models import User
 from backend.users.routes import router as users_router
+from backend.messages.models import TicketMessage
+from backend.messages.routes import router as messages_router
 
 Base.metadata.create_all(bind=engine)
 
@@ -18,6 +20,7 @@ app = FastAPI(
 app.include_router(users_router)
 app.include_router(auth_router)
 app.include_router(tickets_router)
+app.include_router(messages_router)
 
 
 @app.get("/")
