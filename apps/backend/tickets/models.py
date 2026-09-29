@@ -1,7 +1,7 @@
 from datetime import datetime, timezone
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Optional
 
-from sqlalchemy import DateTime, ForeignKey, Integer, String, Text
+from sqlalchemy import DateTime, ForeignKey, Integer, String, Text, func
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from backend.database import Base
@@ -23,6 +23,12 @@ class Ticket(Base):
         ForeignKey("users.user_id", ondelete="RESTRICT"),
         index=True,
         nullable=False,
+    )
+
+    assigned_admin_id: Mapped[Optional[int]] = mapped_column(
+        ForeignKey("users.user_id", ondelete="SET NULL"),
+        index=True,
+        nullable=True,
     )
 
     subject: Mapped[str] = mapped_column(
@@ -47,6 +53,20 @@ class Ticket(Base):
         default=lambda: datetime.now(timezone.utc),
     )
 
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True),
+        nullable=False,
+        server_default=func.now(),
+        onupdate=func.now(),
+    )
+
     customer: Mapped["User"] = relationship(
+        "User",
+        foreign_keys=[customer_id],
         back_populates="tickets",
+    )
+
+    assigned_admin: Mapped[Optional["User"]] = relationship(
+        "User",
+        foreign_keys=[assigned_admin_id],
     )

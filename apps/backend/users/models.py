@@ -49,5 +49,7 @@ class User(Base):
     )
 
     tickets: Mapped[list["Ticket"]] = relationship(
+        "Ticket",
+        foreign_keys="Ticket.customer_id",
         back_populates="customer",
     )
