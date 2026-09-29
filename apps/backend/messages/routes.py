@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
+from backend.activity.service import record_activity
 from backend.database import get_db
 from backend.messages.models import TicketMessage
 from backend.messages.schemas import (
@@ -11,6 +12,7 @@ from backend.messages.schemas import (
 from backend.security import get_current_user
 from backend.tickets.models import Ticket
 from backend.users.models import User
+
 
 router = APIRouter(
     prefix="/tickets",
@@ -74,6 +76,21 @@ def create_ticket_message(
     )
 
     db.add(new_message)
+
+    activity_message = (
+        "Admin added a message."
+        if sender_type == "ADMIN"
+        else "Customer added a message."
+    )
+
+    record_activity(
+        db=db,
+        ticket_id=ticket_id,
+        actor_id=current_user.user_id,
+        event_type="MESSAGE_CREATED",
+        message=activity_message,
+    )
+
     db.commit()
     db.refresh(new_message)
 
@@ -98,9 +115,10 @@ def list_ticket_messages(
     statement = (
         select(TicketMessage)
         .where(TicketMessage.ticket_id == ticket_id)
-        .order_by(TicketMessage.created_at.asc())
+        .order_by(
+            TicketMessage.created_at.asc(),
+            TicketMessage.id.asc(),
+        )
     )
 
-    messages = db.scalars(statement).all()
-
-    return messages
+    return db.scalars(statement).all()

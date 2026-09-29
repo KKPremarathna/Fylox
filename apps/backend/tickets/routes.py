@@ -8,9 +8,9 @@ from backend.tickets.models import Ticket
 from backend.tickets.schemas import (
     TicketCreate,
     TicketResponse,
-    TicketStatusUpdate,
 )
 from backend.users.models import User
+from backend.activity.service import record_activity
 
 router = APIRouter(
     prefix="/tickets",
@@ -35,7 +35,22 @@ def create_ticket(
     )
 
     db.add(new_ticket)
+
+    # Sends the ticket insert to PostgreSQL so new_ticket.id is available,
+    # but does not permanently save the transaction yet.
+    db.flush()
+
+    record_activity(
+        db=db,
+        ticket_id=new_ticket.id,
+        actor_id=current_user.user_id,
+        event_type="TICKET_CREATED",
+        message="Ticket created.",
+    )
+
+    # One commit saves both the ticket and its first activity record.
     db.commit()
+
     db.refresh(new_ticket)
 
     return new_ticket
@@ -83,33 +98,3 @@ def get_ticket(
 
     return ticket
 
-
-@router.patch(
-    "/{ticket_id}/status",
-    response_model=TicketResponse,
-)
-def update_ticket_status(
-    ticket_id: int,
-    update: TicketStatusUpdate,
-    db: Session = Depends(get_db),
-    current_user: User = Depends(get_current_user),
-):
-    if current_user.role != "ADMIN":
-        raise HTTPException(
-            status_code=status.HTTP_403_FORBIDDEN,
-            detail="Admin access required",
-        )
-
-    ticket = db.get(Ticket, ticket_id)
-
-    if ticket is None:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="Ticket not found",
-        )
-
-    ticket.status = update.status
-    db.commit()
-    db.refresh(ticket)
-
-    return ticket

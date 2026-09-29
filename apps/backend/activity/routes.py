@@ -59,7 +59,10 @@ def list_ticket_activity(
     statement = (
         select(TicketActivity)
         .where(TicketActivity.ticket_id == ticket_id)
-        .order_by(TicketActivity.created_at.asc())
+        .order_by(
+            TicketActivity.created_at.asc(),
+            TicketActivity.id.asc(),
+        )
     )
 
     return db.scalars(statement).all()

@@ -41,28 +41,3 @@ def create_user(
         )
 
     return new_user
-
-# Get all users
-@router.get("", response_model=list[userResponse])
-def list_users(db: Session = Depends(get_db)):
-    statement = select(User).order_by(User.created_at.desc())
-    users = db.scalars(statement).all()
-
-    return users
-
-# Get user by userId
-@router.get("/{user_id}", response_model=userResponse)
-def get_user(
-    user_id: int,
-    db: Session = Depends(get_db),
-):
-    user = db.get(User, user_id)
-
-    if user is None:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="User not found",
-        )
-
-    return user
-
