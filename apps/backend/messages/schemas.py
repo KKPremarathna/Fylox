@@ -8,7 +8,9 @@ class TicketMessageCreate(BaseModel):
     content: str = Field(
         min_length=1,
         max_length=5000,
-        examples=["I was charged twice. Please help me check the payment."],
+        examples=[
+            "I was charged twice. Please help me check the payment."
+        ],
     )
 
 

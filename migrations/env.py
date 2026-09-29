@@ -11,6 +11,7 @@ APPS_DIR = PROJECT_ROOT / "apps"
 sys.path.insert(0, str(APPS_DIR))
 
 from backend.database import Base, settings
+from backend.messages.models import TicketMessage
 from backend.tickets.models import Ticket
 from backend.users.models import User
 

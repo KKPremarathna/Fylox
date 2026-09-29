@@ -22,7 +22,7 @@ class TicketMessage(Base):
     )
 
     sender_id: Mapped[int] = mapped_column(
-        ForeignKey("users.user_id"),
+        ForeignKey("users.user_id", ondelete="RESTRICT"),
         index=True,
         nullable=False,
     )
