@@ -14,6 +14,7 @@ from backend.database import Base, settings
 from backend.messages.models import TicketMessage
 from backend.tickets.models import Ticket
 from backend.users.models import User
+from backend.activity.models import TicketActivity
 
 config = context.config
 
