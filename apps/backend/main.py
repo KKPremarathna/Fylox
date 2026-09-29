@@ -1,15 +1,12 @@
 from fastapi import FastAPI
 
 from backend.auth.routes import router as auth_router
-from backend.database import Base, engine
 from backend.tickets.models import Ticket
 from backend.tickets.routes import router as tickets_router
 from backend.users.models import User
 from backend.users.routes import router as users_router
 from backend.messages.models import TicketMessage
 from backend.messages.routes import router as messages_router
-
-Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="Fylox API",
