@@ -6,6 +6,7 @@ from backend.tickets.routes import router as tickets_router
 from backend.users.routes import router as users_router
 from backend.messages.routes import router as messages_router
 from backend.admin.routes import router as admin_router
+from backend.activity.routes import admin_router as activity_admin_router
 from backend.activity.routes import router as activity_router
 
 app = FastAPI(
@@ -33,6 +34,7 @@ app.include_router(tickets_router)
 app.include_router(messages_router)
 app.include_router(admin_router)
 app.include_router(activity_router)
+app.include_router(activity_admin_router)
 
 @app.get("/")
 def read_root():

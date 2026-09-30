@@ -4,6 +4,7 @@ import { AdminRoute } from "./components/AdminRoute";
 import { AppLayout } from "./components/AppLayout";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { AdminTicketsPage } from "./pages/AdminTicketsPage";
+import { AdminActivityHistoryPage } from "./pages/AdminActivityHistoryPage";
 import { CustomerTicketsPage } from "./pages/CustomerTicketsPage";
 import { LoginPage } from "./pages/LoginPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
@@ -28,6 +29,10 @@ function App() {
             <Route
               path="/admin/tickets"
               element={<AdminTicketsPage />}
+            />
+            <Route
+              path="/admin/activity"
+              element={<AdminActivityHistoryPage />}
             />
           </Route>
         </Route>
