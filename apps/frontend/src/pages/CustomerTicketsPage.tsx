@@ -2,14 +2,19 @@ import { useCallback, useEffect, useState } from "react";
 
 import { createTicket, getTickets } from "../api/tickets";
 import { CreateTicketForm } from "../components/CreateTicketForm";
+import { TicketFilters } from "../components/TicketFilters";
 import { TicketList } from "../components/TicketList";
 import { useAuth } from "../context/AuthContext";
-import type { Ticket } from "../types/api";
+import type { Ticket, TicketStatus } from "../types/api";
 
 export function CustomerTicketsPage() {
-  const { user, token, logout } = useAuth();
+  const { user, token } = useAuth();
 
   const [tickets, setTickets] = useState<Ticket[]>([]);
+  const [statusFilter, setStatusFilter] = useState<
+    "ALL" | TicketStatus
+  >("ALL");
+
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -56,7 +61,14 @@ export function CustomerTicketsPage() {
       newTicket,
       ...currentTickets,
     ]);
+
+    setStatusFilter("ALL");
   }
+
+  const filteredTickets =
+    statusFilter === "ALL"
+      ? tickets
+      : tickets.filter((ticket) => ticket.status === statusFilter);
 
   return (
     <main className="dashboard-page">
@@ -69,17 +81,19 @@ export function CustomerTicketsPage() {
             support requests here.
           </p>
         </div>
-
-        <button type="button" onClick={logout}>
-          Sign out
-        </button>
       </header>
 
       <CreateTicketForm onSubmit={handleCreateTicket} />
 
+      <TicketFilters
+        value={statusFilter}
+        onChange={setStatusFilter}
+      />
+
       {error ? (
         <section className="form-error" role="alert">
           {error}
+
           <button
             className="retry-button"
             type="button"
@@ -91,11 +105,11 @@ export function CustomerTicketsPage() {
       ) : null}
 
       {isLoading ? (
-        <section className="empty-state">
+        <section className="empty-state" role="status">
           <p>Loading your tickets...</p>
         </section>
       ) : (
-        <TicketList tickets={tickets} />
+        <TicketList tickets={filteredTickets} />
       )}
     </main>
   );

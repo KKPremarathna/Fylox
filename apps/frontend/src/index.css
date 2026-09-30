@@ -133,7 +133,7 @@ a:hover {
 .dashboard-page {
   width: min(100% - 2rem, 70rem);
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 2rem 0 3rem;
 }
 
 .dashboard-header {
@@ -595,6 +595,138 @@ a:hover {
 }
 
 
+.app-shell {
+  min-height: 100vh;
+}
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  min-height: 4.5rem;
+  padding: 0.75rem max(1rem, calc((100% - 70rem) / 2));
+  border-bottom: 1px solid #d9e1ee;
+  background: rgb(255 255 255 / 90%);
+  backdrop-filter: blur(12px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: #172033;
+  font-size: 1.1rem;
+  font-weight: 850;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+}
+
+.brand:hover {
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border-radius: 0.6rem;
+  color: #ffffff;
+  background: linear-gradient(135deg, #2457d6, #5c8cff);
+  box-shadow: 0 0.35rem 0.8rem rgb(36 87 214 / 24%);
+}
+
+.app-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.nav-link {
+  padding: 0.55rem 0.7rem;
+  border-radius: 0.5rem;
+  color: #64748b;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: #2457d6;
+  background: #eef4ff;
+  text-decoration: none;
+}
+
+.nav-link-active {
+  color: #2457d6;
+  background: #e7efff;
+}
+
+.app-user-menu {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-left: auto;
+}
+
+.app-user-details {
+  display: grid;
+  text-align: right;
+}
+
+.app-user-name {
+  color: #172033;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.app-user-role {
+  color: #64748b;
+  font-size: 0.75rem;
+}
+
+.sign-out-button {
+  padding: 0.5rem 0.7rem;
+  color: #475569;
+  background: #edf2f8;
+  font-size: 0.85rem;
+}
+
+.sign-out-button:hover:not(:disabled) {
+  color: #172033;
+  background: #dfe8f3;
+}
+
+.ticket-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0 -0.75rem;
+}
+
+.filter-button {
+  padding: 0.45rem 0.7rem;
+  border: 1px solid #d9e1ee;
+  color: #64748b;
+  background: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.filter-button:hover:not(:disabled) {
+  color: #2457d6;
+  background: #eef4ff;
+}
+
+.filter-button-active {
+  border-color: #b9ceff;
+  color: #2457d6;
+  background: #e7efff;
+}
+
 @media (max-width: 720px) {
   .admin-ticket-card {
     flex-direction: column;
@@ -610,5 +742,23 @@ a:hover {
   .dashboard-header {
     align-items: flex-start;
     flex-direction: column;
+  }
+  .app-header {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .app-nav {
+    order: 3;
+    width: 100%;
+  }
+
+  .app-user-menu {
+    gap: 0.55rem;
+  }
+
+  .app-user-details {
+    display: none;
   }
 }

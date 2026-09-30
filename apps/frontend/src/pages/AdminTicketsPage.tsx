@@ -5,13 +5,18 @@ import {
   updateAdminTicket,
 } from "../api/tickets";
 import { AdminTicketQueue } from "../components/AdminTicketQueue";
+import { TicketFilters } from "../components/TicketFilters";
 import { useAuth } from "../context/AuthContext";
-import type { Ticket } from "../types/api";
+import type { Ticket, TicketStatus } from "../types/api";
 
 export function AdminTicketsPage() {
-  const { user, token, logout } = useAuth();
+  const { user, token } = useAuth();
 
   const [tickets, setTickets] = useState<Ticket[]>([]);
+  const [statusFilter, setStatusFilter] = useState<
+    "ALL" | TicketStatus
+  >("ALL");
+
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -84,6 +89,11 @@ export function AdminTicketsPage() {
     await applyTicketUpdate(ticketId, { status });
   }
 
+  const filteredTickets =
+    statusFilter === "ALL"
+      ? tickets
+      : tickets.filter((ticket) => ticket.status === statusFilter);
+
   return (
     <main className="dashboard-page">
       <header className="dashboard-header">
@@ -95,15 +105,17 @@ export function AdminTicketsPage() {
             customer support requests.
           </p>
         </div>
-
-        <button type="button" onClick={logout}>
-          Sign out
-        </button>
       </header>
+
+      <TicketFilters
+        value={statusFilter}
+        onChange={setStatusFilter}
+      />
 
       {error ? (
         <section className="form-error" role="alert">
           {error}
+
           <button
             className="retry-button"
             type="button"
@@ -120,7 +132,7 @@ export function AdminTicketsPage() {
         </section>
       ) : (
         <AdminTicketQueue
-          tickets={tickets}
+          tickets={filteredTickets}
           currentAdminId={user?.user_id}
           onClaimTicket={handleClaimTicket}
           onUpdateStatus={handleUpdateStatus}

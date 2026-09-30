@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import { AdminRoute } from "./components/AdminRoute";
+import { AppLayout } from "./components/AppLayout";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { AdminTicketsPage } from "./pages/AdminTicketsPage";
 import { CustomerTicketsPage } from "./pages/CustomerTicketsPage";
@@ -16,14 +17,19 @@ function App() {
       <Route path="/register" element={<RegisterPage />} />
 
       <Route element={<ProtectedRoute />}>
-        <Route path="/tickets" element={<CustomerTicketsPage />} />
-        <Route path="/tickets/:ticketId" element={<TicketDetailPage />} />
-
-        <Route element={<AdminRoute />}>
+        <Route element={<AppLayout />}>
+          <Route path="/tickets" element={<CustomerTicketsPage />} />
           <Route
-            path="/admin/tickets"
-            element={<AdminTicketsPage />}
+            path="/tickets/:ticketId"
+            element={<TicketDetailPage />}
           />
+
+          <Route element={<AdminRoute />}>
+            <Route
+              path="/admin/tickets"
+              element={<AdminTicketsPage />}
+            />
+          </Route>
         </Route>
       </Route>
 
