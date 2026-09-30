@@ -1,21 +1,38 @@
 import type {
   Ticket,
   TicketActivity,
+  TicketCategory,
   TicketMessage,
   TicketStatus,
 } from "../types/api";
 import { apiRequest } from "./client";
+
 
 type CreateTicketPayload = {
   subject: string;
   description: string;
 };
 
+
+export type AdminTicketUpdate = {
+  assigned_admin_id?: number | null;
+  status?: TicketStatus;
+};
+
+
+export type TicketCategorySuggestion = {
+  ticket_id: number;
+  suggested_category: TicketCategory;
+  confidence: number;
+};
+
+
 export function getTickets(token: string): Promise<Ticket[]> {
   return apiRequest<Ticket[]>("/tickets", {
     token,
   });
 }
+
 
 export function getTicket(
   token: string,
@@ -25,6 +42,7 @@ export function getTicket(
     token,
   });
 }
+
 
 export function createTicket(
   token: string,
@@ -37,6 +55,7 @@ export function createTicket(
   });
 }
 
+
 export function getTicketMessages(
   token: string,
   ticketId: number,
@@ -48,6 +67,7 @@ export function getTicketMessages(
     },
   );
 }
+
 
 export function createTicketMessage(
   token: string,
@@ -64,6 +84,7 @@ export function createTicketMessage(
   );
 }
 
+
 export function getTicketActivity(
   token: string,
   ticketId: number,
@@ -76,10 +97,6 @@ export function getTicketActivity(
   );
 }
 
-export type AdminTicketUpdate = {
-  assigned_admin_id?: number | null;
-  status?: TicketStatus;
-};
 
 export function getAdminTickets(
   token: string,
@@ -88,6 +105,7 @@ export function getAdminTickets(
     token,
   });
 }
+
 
 export function updateAdminTicket(
   token: string,
@@ -100,6 +118,52 @@ export function updateAdminTicket(
       method: "PATCH",
       token,
       body: JSON.stringify(payload),
+    },
+  );
+}
+
+
+export function requestAiCategorySuggestion(
+  token: string,
+  ticketId: number,
+): Promise<TicketCategorySuggestion> {
+  return apiRequest<TicketCategorySuggestion>(
+    `/tickets/${ticketId}/ai/category-suggestion`,
+    {
+      method: "POST",
+      token,
+    },
+  );
+}
+
+
+export function acceptAiCategorySuggestion(
+  token: string,
+  ticketId: number,
+): Promise<Ticket> {
+  return apiRequest<Ticket>(
+    `/tickets/${ticketId}/accept-ai-category`,
+    {
+      method: "PATCH",
+      token,
+    },
+  );
+}
+
+
+export function reviewTicketCategory(
+  token: string,
+  ticketId: number,
+  finalCategory: TicketCategory,
+): Promise<Ticket> {
+  return apiRequest<Ticket>(
+    `/tickets/${ticketId}/category-review`,
+    {
+      method: "PATCH",
+      token,
+      body: JSON.stringify({
+        final_category: finalCategory,
+      }),
     },
   );
 }

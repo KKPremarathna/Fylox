@@ -1,10 +1,21 @@
 export type UserRole = "ADMIN" | "CUSTOMER";
 
+
 export type TicketStatus =
   | "OPEN"
   | "IN_PROGRESS"
   | "RESOLVED"
   | "CLOSED";
+
+
+export type TicketCategory =
+  | "ACCOUNT_ACCESS"
+  | "BILLING_PAYMENT"
+  | "TECHNICAL_ISSUE"
+  | "FEATURE_REQUEST"
+  | "HOW_TO_SUPPORT"
+  | "OTHER";
+
 
 export type User = {
   user_id: number;
@@ -14,10 +25,12 @@ export type User = {
   created_at: string;
 };
 
+
 export type LoginResponse = {
   access_token: string;
   token_type: "bearer";
 };
+
 
 export type Ticket = {
   id: number;
@@ -26,9 +39,14 @@ export type Ticket = {
   subject: string;
   description: string;
   status: TicketStatus;
+  ai_suggested_category: TicketCategory | null;
+  ai_category_confidence: number | null;
+  final_category: TicketCategory | null;
+  ai_category_approved: boolean | null;
   created_at: string;
   updated_at: string;
 };
+
 
 export type TicketMessage = {
   id: number;
@@ -38,6 +56,7 @@ export type TicketMessage = {
   content: string;
   created_at: string;
 };
+
 
 export type TicketActivity = {
   id: number;
