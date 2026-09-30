@@ -13,6 +13,7 @@ from backend.tickets.schemas import (
     TicketCreate,
     TicketResponse,
 )
+from backend.tickets.service import get_ticket_for_owner_or_admin
 from backend.users.models import User
 from backend.activity.service import record_activity
 
@@ -245,22 +246,9 @@ def get_ticket(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
-    ticket = db.get(Ticket, ticket_id)
-
-    if ticket is None:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="Ticket not found",
-        )
-
-    is_owner = ticket.customer_id == current_user.user_id
-    is_admin = current_user.role == "ADMIN"
-
-    if not is_owner and not is_admin:
-        raise HTTPException(
-            status_code=status.HTTP_403_FORBIDDEN,
-            detail="Not allowed to access this ticket",
-        )
-
-    return ticket
+    return get_ticket_for_owner_or_admin(
+        db=db,
+        ticket_id=ticket_id,
+        current_user=current_user,
+    )
 

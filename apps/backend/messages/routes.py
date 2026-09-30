@@ -10,6 +10,7 @@ from backend.messages.schemas import (
     TicketMessageResponse,
 )
 from backend.security import get_current_user
+from backend.tickets.service import get_ticket_for_owner_or_admin
 from backend.tickets.models import Ticket
 from backend.users.models import User
 
@@ -20,29 +21,7 @@ router = APIRouter(
 )
 
 
-def get_accessible_ticket(
-    ticket_id: int,
-    db: Session,
-    current_user: User,
-) -> Ticket:
-    ticket = db.get(Ticket, ticket_id)
 
-    if ticket is None:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="Ticket not found",
-        )
-
-    is_owner = ticket.customer_id == current_user.user_id
-    is_admin = current_user.role == "ADMIN"
-
-    if not is_owner and not is_admin:
-        raise HTTPException(
-            status_code=status.HTTP_403_FORBIDDEN,
-            detail="Not allowed to access this ticket",
-        )
-
-    return ticket
 
 
 @router.post(
@@ -56,9 +35,9 @@ def create_ticket_message(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
-    get_accessible_ticket(
-        ticket_id=ticket_id,
+    get_ticket_for_owner_or_admin(
         db=db,
+        ticket_id=ticket_id,
         current_user=current_user,
     )
 
@@ -106,9 +85,9 @@ def list_ticket_messages(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
-    get_accessible_ticket(
-        ticket_id=ticket_id,
+    get_ticket_for_owner_or_admin(
         db=db,
+        ticket_id=ticket_id,
         current_user=current_user,
     )
 

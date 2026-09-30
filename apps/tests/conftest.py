@@ -96,13 +96,36 @@ def customer_ticket(db_session, customer_user):
 def admin_client(client, admin_user):
     app.dependency_overrides[get_current_user] = lambda: admin_user
     yield client
-    app.dependency_overrides.clear()
+    # app.dependency_overrides is cleared by the base client fixture.
 
 @pytest.fixture(scope="function")
 def customer_client(client, customer_user):
     app.dependency_overrides[get_current_user] = lambda: customer_user
     yield client
-    app.dependency_overrides.clear()
+    # app.dependency_overrides is cleared by the base client fixture.
+
+
+@pytest.fixture(scope="function")
+def second_customer_user(db_session):
+    """A second distinct customer who does not own customer_ticket."""
+    user = User(
+        username="other_customer",
+        email="other@example.com",
+        password_hash="fakehash",
+        role="CUSTOMER",
+    )
+    db_session.add(user)
+    db_session.commit()
+    db_session.refresh(user)
+    return user
+
+
+@pytest.fixture(scope="function")
+def second_customer_client(client, second_customer_user):
+    """TestClient authenticated as the second (non-owning) customer."""
+    app.dependency_overrides[get_current_user] = lambda: second_customer_user
+    yield client
+    # app.dependency_overrides is cleared by the base client fixture.
 
 
 @pytest.fixture(autouse=True)
