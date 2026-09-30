@@ -106,6 +106,14 @@ def create_category_suggestion(
     ticket.ai_suggested_category = suggestion["suggested_category"]
     ticket.ai_category_confidence = suggestion["confidence"]
 
+    record_activity(
+        db=db,
+        ticket_id=ticket.id,
+        actor_id=current_user.user_id,
+        event_type="AI_CATEGORY_SUGGESTED",
+        message="AI suggested the stored category.",
+    )
+
     db.commit()
     db.refresh(ticket)
 
