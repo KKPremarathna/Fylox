@@ -27,6 +27,23 @@ class TicketCreate(BaseModel):
         ],
     )
 
+class TicketCategorySuggestionResponse(BaseModel):
+    ticket_id: int
+    suggested_category: str
+    confidence: float
+    
+TicketCategory = Literal[
+    "ACCOUNT_ACCESS",
+    "BILLING_PAYMENT",
+    "TECHNICAL_ISSUE",
+    "FEATURE_REQUEST",
+    "HOW_TO_SUPPORT",
+    "OTHER",
+]
+
+
+class TicketCategoryReview(BaseModel):
+    final_category: TicketCategory
 
 class TicketResponse(BaseModel):
     id: int
@@ -35,6 +52,10 @@ class TicketResponse(BaseModel):
     subject: str
     description: str
     status: TicketStatus
+    ai_suggested_category: Optional[str]
+    ai_category_confidence: Optional[float]
+    final_category: Optional[str]
+    ai_category_approved: Optional[bool]
     created_at: datetime
     updated_at: datetime
 
