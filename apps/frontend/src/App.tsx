@@ -7,6 +7,7 @@ import { CustomerTicketsPage } from "./pages/CustomerTicketsPage";
 import { LoginPage } from "./pages/LoginPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { RegisterPage } from "./pages/RegisterPage";
+import { TicketDetailPage } from "./pages/TicketDetailPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
 
       <Route element={<ProtectedRoute />}>
         <Route path="/tickets" element={<CustomerTicketsPage />} />
+        <Route path="/tickets/:ticketId" element={<TicketDetailPage />} />
 
         <Route element={<AdminRoute />}>
           <Route

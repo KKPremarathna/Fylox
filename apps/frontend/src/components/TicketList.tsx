@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import type { Ticket } from "../types/api";
 
 type TicketListProps = {
@@ -37,14 +39,16 @@ export function TicketList({
           <h2>Tickets</h2>
         </div>
 
-        <span className="count-badge">
-          {tickets.length}
-        </span>
+        <span className="count-badge">{tickets.length}</span>
       </div>
 
       <div className="ticket-list">
         {tickets.map((ticket) => (
-          <article className="ticket-card" key={ticket.id}>
+          <Link
+            className="ticket-card ticket-card-link"
+            key={ticket.id}
+            to={`/tickets/${ticket.id}`}
+          >
             <div className="ticket-card-main">
               <div className="ticket-card-title">
                 <span className="ticket-id">#{ticket.id}</span>
@@ -60,12 +64,18 @@ export function TicketList({
               </p>
             </div>
 
-            <span
-              className={`status status-${ticket.status.toLowerCase()}`}
-            >
-              {statusLabel(ticket.status)}
-            </span>
-          </article>
+            <div className="ticket-card-meta">
+              <span
+                className={`status status-${ticket.status.toLowerCase()}`}
+              >
+                {statusLabel(ticket.status)}
+              </span>
+
+              <span className="ticket-arrow" aria-hidden="true">
+                →
+              </span>
+            </div>
+          </Link>
         ))}
       </div>
     </section>
