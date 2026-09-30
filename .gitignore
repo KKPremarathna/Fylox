@@ -19,4 +19,8 @@ __pycache__/
 .vscode/
 .idea/
 
+# frontend
 frontend/.env.local
+
+# ML
+backend/ml/models/*.joblib

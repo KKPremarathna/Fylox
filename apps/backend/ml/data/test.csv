@@ -1,0 +1,1501 @@
+ticket_id,text,category
+5396,"Dear support team, I need to talk to someone but I do not know what to select. Let me know what to do.",OTHER
+4697,"Dear support team, I forgot my password and the reset link says it has expired.",ACCOUNT_ACCESS
+1137,Do you support customers based in Sri Lanka? Please respond soon.,OTHER
+542,"Hello team, The VAT number is missing from my invoice. Thanks in advance",BILLING_PAYMENT
+5904,"Dear support team, Thank you for your help, everything is fine now",OTHER
+7432,"My changes are not saved, the calendar reverts to the old values.",TECHNICAL_ISSUE
+9332,Could you tell me how to restore a deleted file?,HOW_TO_SUPPORT
+8741,I have some questions about your company before I proceed. Let me know what to do,OTHER
+9743,Which page lets me manage my privacy settings? Thank you.,HOW_TO_SUPPORT
+406,It would be great to have a kanban view in the admin console.,FEATURE_REQUEST
+1268,"Greetings, I am trying to change my notification settings but I cannot find the option. Where is it?",HOW_TO_SUPPORT
+8799,The mboile app closes immediately after opening on my Linux machine.,TECHNICAL_ISSUE
+5445,"Greetings, It would be great to have saved views in the settings page.",FEATURE_REQUEST
+5697,I cannot log in after turning on two-factor authentication. Please respond soon.,ACCOUNT_ACCESS
+6754,"Hi team, My card was charged three times for my anunal plan.",BILLING_PAYMENT
+9789,I was billed $59.99 twice for the same subscription.,BILLING_PAYMENT
+6355,I am locked out after too many failed login attempts. Thanks in advance.,ACCOUNT_ACCESS
+2737,The system says the ZIP file format is not supported even though it is valid.,TECHNICAL_ISSUE
+7817,"Hello, I want to switch to annual billing to get the discount, how is the payment handled?",BILLING_PAYMENT
+7947,The API returns a 502 bad gateway when I call the endpoint.,TECHNICAL_ISSUE
+781,I paid for the Enterprise plan but my account still shows the free tier.,BILLING_PAYMENT
+6563,It would be useful to receive quarterly team updates by email. Thanks a lot.,FEATURE_REQUEST
+477,data i entered yesterday disappeared from the admin console.,TECHNICAL_ISSUE
+8426,The system says the PNG image format is not supported even though it is valid. Please respond soon.,TECHNICAL_ISSUE
+2550,"Dear support team, Could you tell me how to delete a workspace?",HOW_TO_SUPPORT
+3005,"Hello team, I saw your ad and want to learn more.",OTHER
+5061,Can someone contact me about an issue? Let me know what to do.,OTHER
+3164,The payment went through but I did not get a confirmation and my account is not upgraded. Any help would be appreciated.,BILLING_PAYMENT
+9761,The API returns a timeout error when I call the endpoint. Thanks in advance.,TECHNICAL_ISSUE
+3217,"Dear support team, I need a receipt for my payment this month for tax purposes.",BILLING_PAYMENT
+444,"Hi, I am not sure who to ask about this.",OTHER
+8342,I cannot log in after changing my email address.,ACCOUNT_ACCESS
+4112,"Greetings, Any documentation on how to change my time zone?",HOW_TO_SUPPORT
+6100,"Hey, I never received the SMS code, I already checked my spam folder. Please respond soon",ACCOUNT_ACCESS
+1565,"Greetings, Can someone contact me about an issue?",OTHER
+6970,Is it possible to share a dashboard with a client? I cannot find where. Thanks.,HOW_TO_SUPPORT
+659,"Greetings, Please add Tamil language support.",FEATURE_REQUEST
+157,"Good morning, How did your company start? I am curious.",OTHER
+4770,"Hi team, I would like to get in touch with the legal department. Please advise.",OTHER
+62,My payment was successful but my subscription is still inactive. Thank you.,BILLING_PAYMENT
+4417,The save button does nothing on the settings page.,TECHNICAL_ISSUE
+4753,I cancelled my subscription weeks ago and you still took money from my account. Let me know what to do.,BILLING_PAYMENT
+6336,I am not sure who to ask aobut this.,OTHER
+8834,Feature request: the ability to add custom fields to every project. Thanks.,FEATURE_REQUEST
+1224,"Hi team, I would like to speak with a sales representative about enterprise options. Please advise",OTHER
+1183,The submit button does nothing on the inbox.,TECHNICAL_ISSUE
+455,How can I remove a user from my team? Thank you,HOW_TO_SUPPORT
+5747,"Hello team, Product idea: let us attach several files at once. Thanks.",FEATURE_REQUEST
+5028,"Hello support, We really need auto save on the workspace, please consider it. Please advise.",FEATURE_REQUEST
+8576,"Hey, My account is blocekd and I cannot do my work.",ACCOUNT_ACCESS
+5858,How do I use the inbox to create a template?,HOW_TO_SUPPORT
+9649,"Dear support team, I want to leave general feedback about my experience.",OTHER
+833,"Good afternoon, Test message, please ignore.",OTHER
+5361,"I cannot log into my account, it says the eamil address is not registered but I have used it before. Thanks.",ACCOUNT_ACCESS
+499,I paid for the Starter plan but my account still shows the free tier. Thanks in advance.,BILLING_PAYMENT
+8476,"Hello, Text is cut off and overlapping on the calendar on my work computer.",TECHNICAL_ISSUE
+5286,"Hey, The coupon code did not apply at checkout and I was charged the full price. Thank you.",BILLING_PAYMENT
+4052,Please consider adding a way to add custom fields to every project. Thanks.,FEATURE_REQUEST
+2016,I get a something went wrong message when I try to save on the admin console. Any help would be appreciated.,TECHNICAL_ISSUE
+13,Please add dark mode to the dashboard.,FEATURE_REQUEST
+5196,Do you have a tutorial on how to change my display name?,HOW_TO_SUPPORT
+4110,"Hello support, Which page lets me manage my privacy settings?",HOW_TO_SUPPORT
+6574,"Good afternoon, Can someone explain how to use the mobile app?",HOW_TO_SUPPORT
+9208,It would improve my workflow if I could use the product without an internet connection. Thanks a lot,FEATURE_REQUEST
+7136,my invitation link to join the team does not let me sign in. thank you.,ACCOUNT_ACCESS
+2228,I wish the admin console had saved views.,FEATURE_REQUEST
+4517,It would be great if we could add comments to reports.,FEATURE_REQUEST
+695,It would be great if we could use the product without an internet connection. Thanks.,FEATURE_REQUEST
+3407,i wish the task list had dark mode.,FEATURE_REQUEST
+9325,"Greetings, I wish the reports page had bulk actions.",FEATURE_REQUEST
+1808,"Good afternoon, Do you support customers based in Kenya?",OTHER
+5333,Which menu do I use to print a report?,HOW_TO_SUPPORT
+4078,I do not have acecss to my old email address and need to recover my account.,ACCOUNT_ACCESS
+9790,Everything works on my computer but the admin console crashes on my iPhone.,TECHNICAL_ISSUE
+6623,"Hi, I would like to get in touch with sales.",OTHER
+649,"Hey, I cannot recover my account because the security questions are not working.",ACCOUNT_ACCESS
+4272,An option for saved views would make the product much better.,FEATURE_REQUEST
+2925,"Hi, I was removed from the workspace by mistake and cannot get back in. Please help.",ACCOUNT_ACCESS
+7370,A pop up with a something went wrong message appears every time I try to share.,TECHNICAL_ISSUE
+4876,The system says the JPEG photo format is not supported even though it is valid.,TECHNICAL_ISSUE
+3297,"Add keyboard shortcuts please, it is missing from the team page.",FEATURE_REQUEST
+7894,How do I use the calendar to set up a recurring report? Thanks a lot.,HOW_TO_SUPPORT
+6354,Please let us epxort project lists to PowerPoint.,FEATURE_REQUEST
+9544,"Dear support team, Any plans to support Portuguese in the interface",FEATURE_REQUEST
+4473,Do you have a partnership program? Let me know what to do.,OTHER
+4932,I see a spinning loader that never finihses on the search page.,TECHNICAL_ISSUE
+75,"Hello, I cannot log in since last night. Regards.",ACCOUNT_ACCESS
+9362,Can you send me an invoice for the $9.99 payment? Please help.,BILLING_PAYMENT
+8161,"Hello team, Iamges are not displaying correctly on the profile page in Edge. Please respond soon.",TECHNICAL_ISSUE
+7621,"Hi there, The two-factor code is reejcted every time I try to sign in.",ACCOUNT_ACCESS
+3832,"Hey, My account is disabled and I need it restored as soon as possible. Please advise.",ACCOUNT_ACCESS
+3700,I cnanot log in on my Android phone. Regards,ACCOUNT_ACCESS
+5400,"Hello team, I would love to see an integration with Google Drive.",FEATURE_REQUEST
+1664,"Good afternoon, I was charged $249 for a plan I never upgraded to.",BILLING_PAYMENT
+2291,"I have been overcharged last month, please look into my billing.",BILLING_PAYMENT
+702,Can I get a call back from smoeone on your team? Regards.,OTHER
+55,"Greetings, The login page keeps redirecting me back to the sign in screen. Please advise.",ACCOUNT_ACCESS
+2132,"Good afternoon, I was charged $9.99 for a plan I never upgraded to.",BILLING_PAYMENT
+1884,"Greetings, My renewal payment failed and now my subscription shows as past due.",BILLING_PAYMENT
+9196,"Hi there, The mobile app closes immediately after opening on my work computer. Please respond soon.",TECHNICAL_ISSUE
+9570,The download link gives a error 500 instead of the file.,TECHNICAL_ISSUE
+8940,"Greetings, I cannot log in for two days. Please advise.",ACCOUNT_ACCESS
+3006,"Hello team, Do you have a tutorial on how to print a report?",HOW_TO_SUPPORT
+1088,"account recovery is not working, the password reset email is not being sent.",ACCOUNT_ACCESS
+8448,Would you consider adding a Zapier connection to your product?,FEATURE_REQUEST
+2509,What is the easiest way to share a dashboard with a client?,HOW_TO_SUPPORT
+2788,"hi team, the payment page rejects my card and i cannot renew my business plan.",BILLING_PAYMENT
+7475,"Good morning, Any documentation on how to find my activity history?",HOW_TO_SUPPORT
+2958,Please consider adding a way to duplicate an entire project.,FEATURE_REQUEST
+7857,"Hi there, What is the easiest way to create a new project?",HOW_TO_SUPPORT
+4341,I get a error 404 when I try to import on the project board.,TECHNICAL_ISSUE
+9218,I was removed from the workspace by mistake and cnanot get back in.,ACCOUNT_ACCESS
+4274,There is a bug where the billing page shows duplicate entries after I sync.,TECHNICAL_ISSUE
+9830,"Hi, Please add offline mode to the analytics page.",FEATURE_REQUEST
+3774,Is there a guide that shows how to restore a deleted file?,HOW_TO_SUPPORT
+6039,Please send an invoice for my latest monthly subscirption payment. Regards.,BILLING_PAYMENT
+1950,Where do I go in the project board to change my team permissions?,HOW_TO_SUPPORT
+5542,The system says the video file format is not supported even though it is valid.,TECHNICAL_ISSUE
+3410,"Hello, Images are not displaying correctly on the dashboard in Brave. Thank you.",TECHNICAL_ISSUE
+1971,"Account recovery is not working, the login code is not being sent.",ACCOUNT_ACCESS
+6035,Please credit my account for the payment error this quarter.,BILLING_PAYMENT
+8364,The password I created during sign up is not accepted at login.,ACCOUNT_ACCESS
+1925,Where is your company located?,OTHER
+9279,"Hi team, I cannot log in after resetting my password.",ACCOUNT_ACCESS
+9722,I have a question about your service. Regards.,OTHER
+8717,"Good afternoon, Can someone contact me about an issue?",OTHER
+2334,The workspace becomes blank when I upload a Excel file. Thanks a lot.,TECHNICAL_ISSUE
+7724,I want to leave genearl feedback about my experience,OTHER
+8773,"hello support, why was i billed gbp 12 when my plan should be cheaper? thank you.",BILLING_PAYMENT
+4838,Do you support customers based in France? Thanks in advance.,OTHER
+7440,"Please add a GitHub integration, our whloe team uses it.",FEATURE_REQUEST
+2876,"dear support team, could you tell me how to change my time zone?",HOW_TO_SUPPORT
+7654,"Hi team, Which page lets me manage my email preferences?",HOW_TO_SUPPORT
+5429,"Dear support team, I downgraded to the Business plan but I was still billed the higher price.",BILLING_PAYMENT
+9681,"hello team, can you explain how to find my activity history?",HOW_TO_SUPPORT
+6676,"Greetings, My changes are not saved, the analytics page reverts to the old values.",TECHNICAL_ISSUE
+7782,"Hi, Which menu do I use to merge duplicate entries?",HOW_TO_SUPPORT
+1924,"Good morning, Where can I find the language settings?",HOW_TO_SUPPORT
+5014,Are you planning to release an undo button in the future,FEATURE_REQUEST
+1033,"Hi, My account is locked and I need access urgently.",ACCOUNT_ACCESS
+2822,"Hello, Login fails on Opera with an authentication failed message.",ACCOUNT_ACCESS
+5526,It would be great to have version history in the dashboard.,FEATURE_REQUEST
+4365,"Hi team, Would you consider adding a Google Drive connection to your product?",FEATURE_REQUEST
+9697,"Dear support team, I cannot log in after changing my email address.",ACCOUNT_ACCESS
+9017,Text is cut off and overlapping on the inbox on my MacBook.,TECHNICAL_ISSUE
+9715,"Greetings, Hello, is anyone there? Any help would be appreciated.",OTHER
+8689,The app freezes when I try to save a large spreadsheet. Please advise,TECHNICAL_ISSUE
+2663,"Hi, I want a refund because I was billed after cancelling.",BILLING_PAYMENT
+7889,Images are not displaying correctly on the admin console in Safari.,TECHNICAL_ISSUE
+4634,"Hello support, My card was charged twice for March.",BILLING_PAYMENT
+4232,I am unable to sign in to my account since yesterday. Thanks a lot.,ACCOUNT_ACCESS
+7476,Please add a search bar to the profile page.,FEATURE_REQUEST
+4766,Do you have a partnership program? Thanks a lot.,OTHER
+7470,Can you explain how to assign a task to a colleague?,HOW_TO_SUPPORT
+777,"Hi there, I wuold like to know who I should contact regarding a collaboration.",OTHER
+3656,"Hello team, I was billed $19 twice for the same subscription. Thanks a lot.",BILLING_PAYMENT
+3004,The verification eamil takes forever to arrive and then it has expired.,ACCOUNT_ACCESS
+1448,How do I use the profile page to remove a user from my team,HOW_TO_SUPPORT
+9768,"Greetings, The app freezes when I try to download a large spreadsheet.",TECHNICAL_ISSUE
+2528,"Hey, Uploading a spreadsheet gets stuck at 1 percent and never finishes.",TECHNICAL_ISSUE
+3453,Could you please implement authenticator app support in a comnig update?,FEATURE_REQUEST
+1852,Can you explain how to archive old projects? Any help would be appreciated.,HOW_TO_SUPPORT
+4737,I cannot log in after changing my email address. Thanks in advance.,ACCOUNT_ACCESS
+6142,"Hello team, Do you have a tutorial on how to set up a recurring report? Please help.",HOW_TO_SUPPORT
+8946,Can you recommend which team I should cotnact for my request? Regards.,OTHER
+8967,I am trying to create a new project but I cannot find the option. Where is it?,HOW_TO_SUPPORT
+5678,"Dear support team, Unable to sign in on Firefox, it just keeps reloading the login page. Regards.",ACCOUNT_ACCESS
+3729,"Greetings, I would like to know who I should contact regarding a collaboration.",OTHER
+7506,Is it possible to pin a dashboard as my home page? I cannot find where.,HOW_TO_SUPPORT
+2516,I am not able to log in from my MacBook but it works on my computer. Thanks.,ACCOUNT_ACCESS
+8467,"Greetings, I have been overcharged last month, please look into my billing.",BILLING_PAYMENT
+3132,I was charged $49 this quarter but I expected a different amount.,BILLING_PAYMENT
+9853,There is an unknown chrage of $14 from your company on my bank statement.,BILLING_PAYMENT
+4103,"Hi, Why is my account suspended? I need it restored as soon as possible.",ACCOUNT_ACCESS
+6103,"Greetings, Charts on the task list do not load.",TECHNICAL_ISSUE
+5477,"good morning, do you offer any events or webinars?",OTHER
+6050,The team page shows a error 500 since last night.,TECHNICAL_ISSUE
+7020,"Hi there, An option for a search bar would make the product much better.",FEATURE_REQUEST
+6495,The VAT nmuber is missing from my invoice.,BILLING_PAYMENT
+6360,"Good morning, Data I entered yesterday disappeared from the admin console. Thanks in advance.",TECHNICAL_ISSUE
+6838,"Good afternoon, The application crashes when I click publish.",TECHNICAL_ISSUE
+8464,"Hello support, I cannot log in after the latest update. Please respond soon.",ACCOUNT_ACCESS
+3802,Can I pay by bank transfer instead of card? My card keeps getting declined. Let me know what to do.,BILLING_PAYMENT
+9815,"The verification step keeps failing when I try to sign in, since Monday.",ACCOUNT_ACCESS
+6513,"Account recovery is not working, the one-time passcode is not being sent. Please advise.",ACCOUNT_ACCESS
+6724,"Hello team, The reset link does nothing when I click it.",ACCOUNT_ACCESS
+7862,Scheduled reports are not running at the set time. Regards.,TECHNICAL_ISSUE
+4531,"Dear support team, I changed my email address and now I cannot access my account. Please respond soon.",ACCOUNT_ACCESS
+1911,"Dear support team, I cannot log in after resetting my password.",ACCOUNT_ACCESS
+2853,my payment keeps failing at checkout even though my card is valid. please help.,BILLING_PAYMENT
+2574,"Hello support, Can you walk me through how to make a teammate an admin?",HOW_TO_SUPPORT
+6451,"Greetings, It would improve my workflow if I could duplicate an entire project.",FEATURE_REQUEST
+7887,Wolud you consider adding a Google Calendar connection to your product?,FEATURE_REQUEST
+8195,"just started using the product, need to know how to delete a workspace. please advise.",HOW_TO_SUPPORT
+6912,Please forward this message to your security team. Thanks.,OTHER
+6577,The mobile app does not display anything after the latest update.,TECHNICAL_ISSUE
+2732,"Hi team, Do you offer any events or webinars?",OTHER
+1787,"Greetings, Why was I billed $9.99 when my plan should be cheaper?",BILLING_PAYMENT
+2801,can soemone explain how to use the dashboard?,HOW_TO_SUPPORT
+6604,"Please get back to me when you can, I have a few questions. Let me know what to do.",OTHER
+968,Which page lets me manage my notification settings?,HOW_TO_SUPPORT
+1876,"hello support, why was i billed $59.99 when my plan should be cheaper?",BILLING_PAYMENT
+4135,I need a receipt for my payment for June for tax purposes. Thanks a lot.,BILLING_PAYMENT
+6007,"add a compact layout please, it is missing from the calendar.",FEATURE_REQUEST
+9473,I need to change the credit card used for my subscription payments. Thanks a lot,BILLING_PAYMENT
+5241,Images are not displaying correctly on the team page in Chrome.,TECHNICAL_ISSUE
+6148,"Hello support, The exported video file is corrupted and cannot be opened",TECHNICAL_ISSUE
+7112,Please add Arabic language support.,FEATURE_REQUEST
+4601,"Hello support, My account has been blocked and I do not know why. Thank you.",ACCOUNT_ACCESS
+6771,It would be great to have bulk actions in the calendar.,FEATURE_REQUEST
+5508,"Hello team, Feature request: the ability to schedule reports in advance.",FEATURE_REQUEST
+3488,The download link gives a server error instead of the file.,TECHNICAL_ISSUE
+3128,"Dear support team, I cannot log in on my Android phone.",ACCOUNT_ACCESS
+3813,"I cannot log into my account, it says the email address is not registered but I have used it before. Please advise.",ACCOUNT_ACCESS
+3924,"Hi team, The page keeps refreshing by itself and I lose what I typed. Thank you",TECHNICAL_ISSUE
+1721,There is a bug where the calendar shows duplicate entries after I share. Please help.,TECHNICAL_ISSUE
+1642,"good afternoon, someone changed my password and i no longer have access to my account.",ACCOUNT_ACCESS
+894,"Dear support team, My team would love to have templates. Is it on the roadmap?",FEATURE_REQUEST
+2,My account is locked and I need access urgently.,ACCOUNT_ACCESS
+1126,"Good morning, Which page lets me manage my time zone settings?",HOW_TO_SUPPORT
+2032,The mobile app closes immediately after opening on my Windows laptop.,TECHNICAL_ISSUE
+4363,Text is cut off and overlapping on the billing page on my iPhone. Regards.,TECHNICAL_ISSUE
+9104,"payment status says pending for days, and my subscription is still not active. please help.",BILLING_PAYMENT
+554,"The verification step keeps failing when I try to sign in, for the past few days.",ACCOUNT_ACCESS
+7228,"Hi there, A pop up with a error code 403 appears every time I try to publish.",TECHNICAL_ISSUE
+5246,"Hello, Can someone explain how to use the inbox?",HOW_TO_SUPPORT
+3553,Where do I go in the workspace to change my report templates?,HOW_TO_SUPPORT
+5447,I get an access denied message when I try to open my workspace. Thanks in advance.,ACCOUNT_ACCESS
+2695,I saw your ad and want to laern more,OTHER
+2551,"Hello, Can you walk me through how to restore a deleted file?",HOW_TO_SUPPORT
+3145,Wehre do I go in the reports page to change my team permissions?,HOW_TO_SUPPORT
+8502,My account is deactivated and I have a deadline today. Regards.,ACCOUNT_ACCESS
+8457,Is there a guide that shows how to updtae my profile picture?,HOW_TO_SUPPORT
+8327,Is there someone I can meet in person to talk abuot your product? Thanks in advance.,OTHER
+6043,"We really need dark mode on the reports page, please consider it. Please respond soon.",FEATURE_REQUEST
+7151,"Hi there, My renewal payment failed and now my subscription shows as past due.",BILLING_PAYMENT
+8531,I see a spinning loader that never finishes on the analytics page. Thanks a lot,TECHNICAL_ISSUE
+7203,"Hello support, My credit card was declined but my bank says there is no problem.",BILLING_PAYMENT
+8485,"Hey, I want to switch to annual billing to get the discount, how is the payment handled? Thanks a lot.",BILLING_PAYMENT
+5188,"hi there, i would like instructions on how to change my password from the settings page.",HOW_TO_SUPPORT
+2728,"Dear support team, Add a calendar view please, it is missing from the notiifcations panel",FEATURE_REQUEST
+719,"Hello, Is there someone I can meet in person to talk about your product?",OTHER
+3517,"Hi team, Please send an invoice for my latest annual subscription payment. Let me know what to do.",BILLING_PAYMENT
+6928,"Hey, Would it be possible to customize the dashboard layout? That would save us a lot of time.",FEATURE_REQUEST
+3049,"Hello team, What is the easiest way to export my data?",HOW_TO_SUPPORT
+9076,"hey, i am not able to log in from my ipad but it works on my computer. please advise.",ACCOUNT_ACCESS
+6807,My bank shows a pending charge of $19 that I do not recognize. Please advise.,BILLING_PAYMENT
+8286,"Hello, I cannot log in after resetting my password.",ACCOUNT_ACCESS
+6450,"Good morning, Please add two-factor authentication for account security",FEATURE_REQUEST
+2872,The app freezes when I try to print a large JPEG photo.,TECHNICAL_ISSUE
+7364,"hi team, is your service avialable in australia? please advise.",OTHER
+2049,"hey, could you add version history to the reports page?",FEATURE_REQUEST
+5501,"good afternoon, can you explain how to rename a project? please respond soon.",HOW_TO_SUPPORT
+883,"Greetings, I need to talk to someone but I do not know what to select.",OTHER
+6225,"Hello, I changed my phone number and now I cannot get the login code. Let me know what to do.",ACCOUNT_ACCESS
+3325,"Hey, It would be helpful if the profile page supported a search bar. Regards.",FEATURE_REQUEST
+4687,"Hi there, I represent a media outlet and want to reach out to the perss team.",OTHER
+4721,An option for auto save would make the product much better. Please advise.,FEATURE_REQUEST
+8735,"Hi team, Would you consider adding a Outlook connection to your product? Thanks in advance.",FEATURE_REQUEST
+2269,"Hi team, My invitation link to join the team does not let me sign in. Any help would be appreciated.",ACCOUNT_ACCESS
+156,Please add dark mode to the analytics page.,FEATURE_REQUEST
+4965,Is your service available in the United Kingdom? Please help.,OTHER
+7885,The page shows an unexpected timeout error when I save my profile.,TECHNICAL_ISSUE
+1209,"Hi, Do you offer any events or webinars?",OTHER
+4904,"Hey, Are you currently hiring? Please respond soon.",OTHER
+4941,I wish the settings page had a search bar.,FEATURE_REQUEST
+4401,"Account recovery is not working, the login code is not being sent. Regards.",ACCOUNT_ACCESS
+4931,Images are not displaying correctly on the billing page in Safari. Thanks in advance.,TECHNICAL_ISSUE
+9426,"Account recovery is not working, the confirmation email is not being sent.",ACCOUNT_ACCESS
+7323,"Hello team, The upload button does nothing on the mobile app. Thanks a lot.",TECHNICAL_ISSUE
+2680,"Hi there, Could you add offline mode to the search page?",FEATURE_REQUEST
+680,"Hey, The receipt email for my payment never arrived.",BILLING_PAYMENT
+4475,The coupon code did not apply at cehckout and I was charged the full price.,BILLING_PAYMENT
+7661,"Hi, I got a new phone and my auhtenticator app no longer works, so I cannot log in.",ACCOUNT_ACCESS
+9207,"Hello, Please get back to me when you can, I have a few questions",OTHER
+7740,I have a question about your service. Please respond soon.,OTHER
+4199,Can someone contact me about an issue? Thanks a lot.,OTHER
+8345,"Hey, The two-factor code is rejected every time I try to sign in. Let me know what to do.",ACCOUNT_ACCESS
+8598,"Hi there, Do you have a partnership program? Thanks a lot.",OTHER
+3373,"Greetings, I would like instructions on how to transfer ownership of a workspace.",HOW_TO_SUPPORT
+2683,"Please add a Slack integration, our whole team uses it.",FEATURE_REQUEST
+2534,It would be helpful if the settings page supported dark mode. Thanks in advance.,FEATURE_REQUEST
+8944,Do you have a tutorial on how to turn on email alerts? Let me know what to do.,HOW_TO_SUPPORT
+9269,data i entered yesterday disappeared from the settings page. thank you.,TECHNICAL_ISSUE
+7210,"Good morning, I cannot log in after turning on two-factor authentication.",ACCOUNT_ACCESS
+2042,I am unbale to sign in to my account since the latest update.,ACCOUNT_ACCESS
+5665,Data I entered yesterday disappeared from the calendar. Please respond soon.,TECHNICAL_ISSUE
+5231,"hello support, i cannot log in since the latest update.",ACCOUNT_ACCESS
+8843,I want a refund because I was billed after cancelling. Regards.,BILLING_PAYMENT
+918,Please add auto save to the team page.,FEATURE_REQUEST
+7357,I would like instructions on how to turn on email alerts.,HOW_TO_SUPPORT
+4804,Please show me how to pin a dashboard as my home page. Any help would be appreciated,HOW_TO_SUPPORT
+7958,"The website does not work properly in Chrome, but it is fine in anotehr browser. Any help would be appreciated.",TECHNICAL_ISSUE
+5075,"Hello, The mobile app closes immediately after opening on my tablet. Thanks.",TECHNICAL_ISSUE
+9662,my bank shows a pending charge of $9.99 that i do not recognize.,BILLING_PAYMENT
+4461,How do I use the profile page to import contacts from a CSV file?,HOW_TO_SUPPORT
+2411,"Greetings, I need help but I am not sure which option applies",OTHER
+7023,"Good morning, The website does not work properly in Opera, but it is fine in another browser.",TECHNICAL_ISSUE
+6113,Please send an invoice for my latest Premium subscription payment. Thank you.,BILLING_PAYMENT
+5318,"Hello, Any documentation on how to share a dashboard with a client?",HOW_TO_SUPPORT
+7794,"Good morning, Please add passkey support for account security. Thanks.",FEATURE_REQUEST
+2998,"Just started using the product, need to know how to pin a dashboard as my home page.",HOW_TO_SUPPORT
+6081,I get a blank white screen when I try to refresh on the task list,TECHNICAL_ISSUE
+9397,Please consider adding a way to assign tasks to multiple people.,FEATURE_REQUEST
+2782,"I cannot log into my account, it says the email address is not registeerd but I have used it before.",ACCOUNT_ACCESS
+4056,Uploading a Excel file gets stuck at 100 percent and never finishes.,TECHNICAL_ISSUE
+819,"Greetings, How do I invite a member to my workspace? Thanks in advance.",HOW_TO_SUPPORT
+8818,"Dear support team, I would like to get in touch with the careers team. Please respond soon.",OTHER
+1921,The dashboard numbers are wrong and do not match the raw data. Thanks.,TECHNICAL_ISSUE
+9100,i lost my phone and cannot receive the verification code to sign in. any help would be appreciated.,ACCOUNT_ACCESS
+5316,"Good afternoon, My team would love to have templates. Is it on the roadmap?",FEATURE_REQUEST
+5772,Can you walk me through how to find my activity history? Thanks a lot.,HOW_TO_SUPPORT
+6514,Do you have a tutorial on how to set my working hours?,HOW_TO_SUPPORT
+9366,Where can I find the time zone settings?,HOW_TO_SUPPORT
+7810,"Hello, An option for offline mode would make the product much better.",FEATURE_REQUEST
+985,Could someone give me an overview of what your company does? Thanks in advance.,OTHER
+6821,"Dear support team, Do you support customers based in Sri Lanka",OTHER
+7160,Do you support customers based in Brazil?,OTHER
+7926,Please let us export invoices to CSV.,FEATURE_REQUEST
+1637,My payment keeps failing at checkout even though my card is valid.,BILLING_PAYMENT
+1358,My bank shows a penidng charge of $149 that I do not recognize.,BILLING_PAYMENT
+2595,I saw your ad and want to leran more.,OTHER
+6644,"Hello team, I am not able to log in from my work computer but it works on my computer.",ACCOUNT_ACCESS
+9201,My team would love to have a caelndar view. Is it on the roadmap?,FEATURE_REQUEST
+7841,"Hello team, Do you have a tutorial on how to transfer ownership of a workspace?",HOW_TO_SUPPORT
+3787,"Hi team, Could you add dark mode to the analytics page?",FEATURE_REQUEST
+9082,Could someone give me an overview of what your comapny does? Thank you.,OTHER
+2785,My team would love to have a calendar view. Is it on the roadmap? Thank you.,FEATURE_REQUEST
+7234,Product idea: let us mark items as favorites.,FEATURE_REQUEST
+2526,Could you add an option to export reports as Excel? Thanks a lot.,FEATURE_REQUEST
+2484,"Greetings, I was billed $59.99 twice for the same subscription.",BILLING_PAYMENT
+6890,Please let us export tables to CSV.,FEATURE_REQUEST
+5827,The mobile app closes immediately after opening on my iPhone. Please help.,TECHNICAL_ISSUE
+2377,Where can I find the notification settings?,HOW_TO_SUPPORT
+2713,I would like to speak with a sales repersentative about enterprise options.,OTHER
+6327,"Hi there, Thanks for the great support last week!",OTHER
+2267,The project board becomes blank when I upload a CSV file.,TECHNICAL_ISSUE
+7331,"Good afternoon, Could you add an opiton to export tables as XML?",FEATURE_REQUEST
+8070,"the verification step keeps faliing when i try to sign in, an hour ago. please respond soon.",ACCOUNT_ACCESS
+7064,I represent a media outlet and want to recah out to the press team,OTHER
+9944,"Good morning, Is there someone I can meet in person to talk about your product?",OTHER
+5962,product idea: let us see who viewed a shared report.,FEATURE_REQUEST
+3228,"Hey, Everything works on my computer but the profile page crashes on my work computer.",TECHNICAL_ISSUE
+4318,"Hi, Thank you for your help, everything is fine now.",OTHER
+5209,"Hi there, I would like instructions on how to change my time zone.",HOW_TO_SUPPORT
+141,Can you send me an invoice for the GBP 45 payment?,BILLING_PAYMENT
+5344,"The invoice shows the wrong company name, please correct it. Please help.",BILLING_PAYMENT
+5740,A pop up with a error 500 appears every time I try to submit.,TECHNICAL_ISSUE
+7513,I would like to get in touch with custoemr success,OTHER
+661,"Hey, My card was charged twice for my annual plan. Any help would be appreciated.",BILLING_PAYMENT
+9264,I would like to get in touch with the legal department,OTHER
+7512,"Hi there, I would like to know who I should contact rgearding a collaboration.",OTHER
+8700,"I have been overcharged this quarter, please look into my billing. Please help.",BILLING_PAYMENT
+5950,It would improve my workflow if I could tag items with labels.,FEATURE_REQUEST
+172,"Hello, Which page lets me manage my default dashboard? Thanks.",HOW_TO_SUPPORT
+2303,What are the steps to change the date format? Please advise,HOW_TO_SUPPORT
+1330,"Hello support, Can you tell me more about your privacy policy?",OTHER
+4243,My account is disabled and I have a deadline today.,ACCOUNT_ACCESS
+8906,Why is my account deactivated? I cannot reach my data.,ACCOUNT_ACCESS
+710,I would like a refund for the $149 cahrge for March.,BILLING_PAYMENT
+5742,"Hey, Please show me how to connect my calendar.",HOW_TO_SUPPORT
+6246,"I want to switch to annual billing to get the discount, how is the payment handled? Thanks a lot.",BILLING_PAYMENT
+3218,"Hi team, Thanks for the great support last week! Please respond soon",OTHER
+1797,My card was charged twice for my annual plan.,BILLING_PAYMENT
+3698,Video previews will not play in the reports page. Let me know what to do.,TECHNICAL_ISSUE
+6768,I was billed $9.99 twice for the same subscription.,BILLING_PAYMENT
+2850,"Hey, Everything on the mobile app is loading extremely slowly since the latest update.",TECHNICAL_ISSUE
+3543,"Hi team, I downgraded to the monthly plan but I was still billed the higher price.",BILLING_PAYMENT
+561,"Good afternoon, I am stuck in a loop where the site asks me to verfiy my email again and again.",ACCOUNT_ACCESS
+2290,I cannot log in after turning on two-factor authentication.,ACCOUNT_ACCESS
+9285,"Hi team, Please send an invoice for my latest Business subscription payment",BILLING_PAYMENT
+3815,I would like to get in touch with the right department.,OTHER
+2248,"Good morning, What are the steps to change the date format?",HOW_TO_SUPPORT
+7984,The page keeps refreshing by itslef and I lose what I typed.,TECHNICAL_ISSUE
+7315,"Hi there, Could you add an option to export activity logs as CSV?",FEATURE_REQUEST
+9474,"hello support, the password reset email never arrives in my inbox. thanks in advance.",ACCOUNT_ACCESS
+593,The team page does not display anything after the latest update.,TECHNICAL_ISSUE
+7147,"Hi there, Charts on the task list do not load.",TECHNICAL_ISSUE
+8594,"Hey, I was billed $99 twice for the same subscription.",BILLING_PAYMENT
+7956,"Hi, Could you please implement authenticator app support in a coming update? Let me know what to do.",FEATURE_REQUEST
+5140,I would like to get in touch with a manager. Any help would be appreciated.,OTHER
+4342,"Hello, Can I know more about your service before deciding? Let me know what to do.",OTHER
+7200,I cannot access my profile page because it says I do not have permission.,ACCOUNT_ACCESS
+5609,"Hello team, I have been overcharged this week, please look into my billing",BILLING_PAYMENT
+800,"Hello, What are your business hours? Thanks.",OTHER
+3873,"Greetings, Can you explain how to invite a member to my workspace?",HOW_TO_SUPPORT
+4132,Uploading a ZIP file gets stuck at 100 percent and never finishes.,TECHNICAL_ISSUE
+2039,"Please refund my last payment, I did not use the service at all. Thanks.",BILLING_PAYMENT
+4864,The page sohws an unexpected error code 403 when I save my profile. Please advise.,TECHNICAL_ISSUE
+4384,"Hello support, I was charged for extra seats that I did not add. Any help would be appreciated.",BILLING_PAYMENT
+2993,The coupon code did not apply at checkout and I was cahrged the full price. Please help.,BILLING_PAYMENT
+6195,The app freezes when I try to refresh a large video file.,TECHNICAL_ISSUE
+2747,I cannot log in on my iPhone. Thanks a lot.,ACCOUNT_ACCESS
+4832,I cancelled my subscription wekes ago and you still took money from my account.,BILLING_PAYMENT
+5265,The security code never arrives in my inbox. Thank you.,ACCOUNT_ACCESS
+1415,Feature request: the ability to schedule reports in advance.,FEATURE_REQUEST
+5666,I was charged after my free trial edned without any reminder.,BILLING_PAYMENT
+891,"Hi there, I represent a media outlet and want to reach out to the press team.",OTHER
+4329,Is there someone I can meet in person to talk about your product? Please respond soon.,OTHER
+2627,"Hey, Thank you for your help, everything is fine now. Let me know what to do.",OTHER
+9148,"Hello, The website does not work properly in Brave, but it is fine in another browser. Regards.",TECHNICAL_ISSUE
+4439,"Hi, Suggestion: allow users to assign tasks to multiple people. Please respond soon",FEATURE_REQUEST
+3150,"Good afternoon, I would like a refund for the $59.99 charge on the first of the month.",BILLING_PAYMENT
+533,Please send an invoice for my latest Starter subscription payment. Please respond soon.,BILLING_PAYMENT
+764,Can I get a call back from smoeone on your team? Please advise,OTHER
+1150,My account is suspended and I cannot reach my data.,ACCOUNT_ACCESS
+2826,"Hello team, I got charged in the wrong currency for my Starter plan.",BILLING_PAYMENT
+8201,"Good afternoon, I would like the option to pin important items to the top in a future release.",FEATURE_REQUEST
+5226,"Hello, Is your service available in Germany?",OTHER
+9738,My account is blocked and I cannot do my work.,ACCOUNT_ACCESS
+1662,"hi there, it would be helpful if the settings page supported bulk actions.",FEATURE_REQUEST
+8199,"Hi team, I cannot log into my account, it says the email address is not registered but I have used it before.",ACCOUNT_ACCESS
+925,"Hi, I would like the option to mark items as favorites in a future release. Any help would be appreciated",FEATURE_REQUEST
+5927,"Hey, Can you send me an invoice for the EUR 15 payment?",BILLING_PAYMENT
+2513,Can you walk me through how to connect my calendar?,HOW_TO_SUPPORT
+6894,"Hi there, I wish the inbox had a mobile widget. Thanks in advance.",FEATURE_REQUEST
+8175,An option for dark mode would make the product much better. Please help.,FEATURE_REQUEST
+3401,I was charged for extra seats that I did not add. Thanks in advance,BILLING_PAYMENT
+7576,"Good afternoon, I would like to get in touch with the right department.",OTHER
+2432,Would it be possible to assign tasks to multiple people? That would save us a lot of time. Please advise.,FEATURE_REQUEST
+8606,"Hi team, I do not have access to my old email address and need to recover my account.",ACCOUNT_ACCESS
+1504,A pop up with a something went wrong message appears every time I try to export.,TECHNICAL_ISSUE
+1202,"Hi team, Search returns no results even for items that I know exist. Thanks in advance.",TECHNICAL_ISSUE
+4998,"The site is down for me, I only see a generic error message.",TECHNICAL_ISSUE
+698,"Hey, I was billed $19 twice for the same subscription.",BILLING_PAYMENT
+3716,why is my account disabled? i need to get in right now. please respond soon.,ACCOUNT_ACCESS
+6855,"Hi team, The workspace does not display anything after the latest update.",TECHNICAL_ISSUE
+3278,"Greetings, Can I know more about your service before deciding?",OTHER
+2604,Can I get a call back from someone on your team? Thanks.,OTHER
+775,"Hey, Pelase add bulk actions to the project board.",FEATURE_REQUEST
+102,Everything works on my computer but the task list crashes on my iPad.,TECHNICAL_ISSUE
+5159,I am getting a blank white screen whenever I open the calendar.,TECHNICAL_ISSUE
+2805,"Good morning, Please add support for exporting to Google Sheets and also a search bar.",FEATURE_REQUEST
+8845,Which page lets me manage my default dashboard? Thanks.,HOW_TO_SUPPORT
+2423,"Hello support, What is the easiest way to connect my calendar? Please respond soon.",HOW_TO_SUPPORT
+4513,Do you have any securtiy certifications?,OTHER
+1882,I was billed $249 twice for the same subscription. Thanks.,BILLING_PAYMENT
+694,It would be helpful if the team page supported keyboard shortcuts.,FEATURE_REQUEST
+4672,The settings page shows a something went wrong message since yesterday. Please help.,TECHNICAL_ISSUE
+1280,"Hello, I would like to get in touch with a product specialist.",OTHER
+1549,"Hello, The exported spreadsheet is corrupted and cannot be opened. Thanks a lot.",TECHNICAL_ISSUE
+9823,The page shows an unexpected error 500 when I save my profile.,TECHNICAL_ISSUE
+6572,File uploads stay stuck at zero percent. Let me know what to do,TECHNICAL_ISSUE
+8155,The SMS code never arrives in my inbox. Please respond soon.,ACCOUNT_ACCESS
+9926,My bank shows a pending charge of GBP 12 that I do not recognize. Please advise.,BILLING_PAYMENT
+1756,"Hi, The system says the video file format is not supported even though it is valid.",TECHNICAL_ISSUE
+8659,I changed my email adderss and now I cannot access my account.,ACCOUNT_ACCESS
+5571,Video previews will not play in the task list.,TECHNICAL_ISSUE
+3939,do you have a tutorial on how to use filters on the dashboard?,HOW_TO_SUPPORT
+6238,Please forward this message to the partnerships team.,OTHER
+5584,What are your business hours? Thanks in advance.,OTHER
+9086,Are you currently hiring? Thanks in advance.,OTHER
+1389,"Hello support, Could you add an option to export invoices as Excel",FEATURE_REQUEST
+5223,"Hi, My PayPal payment failed but the money left my account.",BILLING_PAYMENT
+9157,Do you offer any events or webinars? Thanks in advance.,OTHER
+6096,The confirmation email takes forever to arrive and then it has expired. Thanks in advance.,ACCOUNT_ACCESS
+8013,"Greetings, Could you add an option to export activity logs as PowerPoint",FEATURE_REQUEST
+9931,"Hi, I downgraded to the Business plan but I was still billed the higher price.",BILLING_PAYMENT
+5518,"Dear support team, Could you tell me how to add a new team member?",HOW_TO_SUPPORT
+2296,My session logs me out immediately after I sign in. Thank you.,ACCOUNT_ACCESS
+5598,Buttons on the settings page do not respond when I click them.,TECHNICAL_ISSUE
+7306,An option for custom themes would make the product much better.,FEATURE_REQUEST
+4153,"Hello, Charts on the mobile app do not load.",TECHNICAL_ISSUE
+4886,Could you tell me how to delete a workspace,HOW_TO_SUPPORT
+2126,"Good afternoon, It would be helpful if the reports page supported auto save.",FEATURE_REQUEST
+1821,"Hi team, Can I pay by bank transfer instead of card? My card keeps getting declined",BILLING_PAYMENT
+9772,"Hi, I was billed $9.99 twice for the same subscription. Please help.",BILLING_PAYMENT
+2092,"Good afternoon, Search returns no results even for items that I know exist.",TECHNICAL_ISSUE
+5981,"good morning, i need a receipt for my payment on the first of the month for tax purposes.",BILLING_PAYMENT
+5644,It would be great if we could assign tasks to multiple people. Thanks a lot.,FEATURE_REQUEST
+5953,I was charged $249 for my annual plan but I expected a different amount.,BILLING_PAYMENT
+6136,I paid for the monthly plan but my account still shows the free tier.,BILLING_PAYMENT
+5169,"The verification step keeps failing when I try to sign in, since yesterday. Any help would be appreciated.",ACCOUNT_ACCESS
+5683,My credit card was declined but my bank says there is no problem. Thanks a lot.,BILLING_PAYMENT
+5410,Do you offer any events or webinars? Thank you.,OTHER
+5940,"Hello team, Is there someone I can meet in person to talk about your product? Let me know what to do.",OTHER
+3977,"Good afternoon, I cannot access my settings page because it says I do not have permission.",ACCOUNT_ACCESS
+8390,"good afternoon, the reset link does nothing when i click it. thank you.",ACCOUNT_ACCESS
+7990,How can I print a report? Thanks in advance.,HOW_TO_SUPPORT
+4098,"Dear support team, Thanks for the great support last week!",OTHER
+4001,"Hello team, The workspace does not display anything after the latest update.",TECHNICAL_ISSUE
+9557,I got charged in the wrong currency for my Pro plan. Thank you.,BILLING_PAYMENT
+9936,"Please refund my last payment, I did not use the service at all. Any help would be appreciated.",BILLING_PAYMENT
+4878,My account has been blocked and I do not know why.,ACCOUNT_ACCESS
+828,I was charged for extra seats that I did not add. Thanks.,BILLING_PAYMENT
+9725,"Greetings, My bank shows a pending charge of $149 that I do not recognize.",BILLING_PAYMENT
+9895,My account is deactivated and I cannot do my work,ACCOUNT_ACCESS
+7508,Could you tell me how to change the language of the interface?,HOW_TO_SUPPORT
+7445,Any plans to support Arabic in the interface? Thanks a lot.,FEATURE_REQUEST
+5133,"Hello support, It would be helpful if the settings page supported templates. Any help would be appreciated.",FEATURE_REQUEST
+6187,"Dear support team, My payment was successful but my subscription is still inactive.",BILLING_PAYMENT
+8411,"Add custom filters please, it is missing from the billing page.",FEATURE_REQUEST
+7607,The password reset email never arrives in my inbox. Thanks.,ACCOUNT_ACCESS
+646,"Hi there, Test message, please ignore. Please respond soon.",OTHER
+8335,After I reset my password the new one is not accepted. Thanks,ACCOUNT_ACCESS
+4871,Thanks for the great support last week! Please respond soon,OTHER
+5662,Is your service available in Germany? Thanks in advance.,OTHER
+860,"Account recovery is not working, the verification email is not being sent.",ACCOUNT_ACCESS
+4908,"The invoice shows the worng company name, please correct it.",BILLING_PAYMENT
+7208,"Greetings, Thank you for your help, everything is fine now.",OTHER
+7088,"Hey, Images are not displaying correctly on the billing page in Edge.",TECHNICAL_ISSUE
+5792,The page never finishes loading and only shows a error 500. Please help,TECHNICAL_ISSUE
+7070,It would improve my workflow if I could add custom fields to every project. Any help would be appreciated.,FEATURE_REQUEST
+1432,I was charged GBP 12 for my annual plan but I expected a different amount.,BILLING_PAYMENT
+9323,The download link gives a 502 bad gateway instead of the file. Please respond soon.,TECHNICAL_ISSUE
+7572,The settings page becomes blank when I upload a JPEG photo.,TECHNICAL_ISSUE
+2653,Which page lets me manage my profile information? Thanks.,HOW_TO_SUPPORT
+7237,How do I use the billing page to upload a company logo?,HOW_TO_SUPPORT
+707,Buttons on the inbox do not respond when I clcik them. Thanks.,TECHNICAL_ISSUE
+6654,The print button does nothing on the inbox.,TECHNICAL_ISSUE
+1010,Uploading a video file gets stuck at 1 percent and never finishes.,TECHNICAL_ISSUE
+1733,The API returns a server error when I call the endpoint. Let me know what to do.,TECHNICAL_ISSUE
+708,Would it be possible to use the product without an internet connection? That would save us a lot of time.,FEATURE_REQUEST
+7291,Please add authenticator app support for account security.,FEATURE_REQUEST
+7680,Any documentation on how to archive old projects?,HOW_TO_SUPPORT
+1517,The exported spreadsheet is corrupted and cannot be opened. Regards.,TECHNICAL_ISSUE
+1493,"Hey, Why is my account suspended? I cannot reach my data. Please help.",ACCOUNT_ACCESS
+6209,"Hello team, Can I get a call back from someone on your team? Regards.",OTHER
+124,I was charged $29 for a plan I never upgraded to.,BILLING_PAYMENT
+7399,Is it possible to assign a task to a colleague? I cannot find where. Any help would be appreciated.,HOW_TO_SUPPORT
+5210,Can you send me an invoice for the $59.99 payment? Regards.,BILLING_PAYMENT
+3227,My account is deactivated and I need to get in right now.,ACCOUNT_ACCESS
+5272,I lost my phone and cannot receive the verification code to sign in. Thanks.,ACCOUNT_ACCESS
+8653,images are not displaying correctly on the mobile app in brave.,TECHNICAL_ISSUE
+3720,Feature request: dark mode.,FEATURE_REQUEST
+4593,"Hey, Any documentation on how to pin a dashboard as my home page?",HOW_TO_SUPPORT
+71,Can you walk me through how to find my activity history?,HOW_TO_SUPPORT
+4570,"Hi team, The application crashes when I click share. Thank you.",TECHNICAL_ISSUE
+5913,It would be great to have bulk actions in the analytics page.,FEATURE_REQUEST
+4020,Is there a guide that shows how to change the language of the interface?,HOW_TO_SUPPORT
+1076,Why is my account suspended? I need access urgently.,ACCOUNT_ACCESS
+196,"Good afternoon, Is your service available in South Africa?",OTHER
+7839,The admin console becomes blank when I upload a video file. Please respond soon.,TECHNICAL_ISSUE
+888,There is an unknown charge of GBP 12 from your company on my bank statement.,BILLING_PAYMENT
+3386,"Hi, Is your service available in the UAE?",OTHER
+8672,"Hello, I would like to get in touch with your security team. Thanks a lot.",OTHER
+7453,"Hi there, I changed my phone number and now I cannot get the login code.",ACCOUNT_ACCESS
+5074,"Good morning, Where is your company located?",OTHER
+4409,I would like to speak with a sales representative about etnerprise options.,OTHER
+7605,My card was charged three times this quarter. Thank you.,BILLING_PAYMENT
+9813,The receipt eamil for my payment never arrived,BILLING_PAYMENT
+6566,I wish the project board had drag and drop.,FEATURE_REQUEST
+6979,The refresh button does nothing on the calendar.,TECHNICAL_ISSUE
+7001,"Hi, I need a crorected invoice with our new company address. Regards.",BILLING_PAYMENT
+9590,"Good morning, Feature request: the ability to add comments to reports.",FEATURE_REQUEST
+6539,"Hello, is anyone there? Please respond soon.",OTHER
+7789,"Hey, Everything on the team page is loading extremely slowly since this morning.",TECHNICAL_ISSUE
+9710,Vdieo previews will not play in the task list.,TECHNICAL_ISSUE
+3178,"Hey, I would like to get in touch with the right department.",OTHER
+2447,The coupon code did not apply at checkout and I was charged the full price. Any help would be appreciated.,BILLING_PAYMENT
+1649,Are you planning to release dark mode in the future? Regards.,FEATURE_REQUEST
+6192,Do you support customers based in Australia? Regards.,OTHER
+5123,"Hi, Unable to sign in on Firefox, it just keeps reloading the login page.",ACCOUNT_ACCESS
+7964,How do I change my password from the settings page,HOW_TO_SUPPORT
+9574,"Just started using the product, need to know how to find my activity history.",HOW_TO_SUPPORT
+8937,I am getting a error 404 whenever I open the team page.,TECHNICAL_ISSUE
+6479,Do you offer any eevnts or webinars?,OTHER
+627,"hey, do you have a tutorial on how to rename a project? please respond soon.",HOW_TO_SUPPORT
+2802,"Greetings, I am writing to ask about internship opportunities.",OTHER
+3258,"Good afternoon, I am stuck in a loop where the site asks me to verify my email again and again.",ACCOUNT_ACCESS
+4991,"Dear support team, Which menu do I use to transfer ownership of a workspace?",HOW_TO_SUPPORT
+3953,I was billed $24.99 twice for the same subscription. Thank you.,BILLING_PAYMENT
+3905,Can you tell me more about your privacy policy? Thanks a lot.,OTHER
+6645,"Hi, Please reset my account access, I cannot get past the login screen. Please advise.",ACCOUNT_ACCESS
+6799,i need to change the credit card used for my subscription payments. thanks.,BILLING_PAYMENT
+2055,"Greetings, Could you tell me how to invite a member to my workspace?",HOW_TO_SUPPORT
+3775,I was charged EUR 15 for a plan I never uprgaded to.,BILLING_PAYMENT
+3537,Can you build auto save into the search page? Many users would benefit. Any help would be appreciated.,FEATURE_REQUEST
+2140,Is your service available in Singapore? Let me know what to do.,OTHER
+2997,I would like more infomration before I create an account.,OTHER
+3015,"Hello, My bank shows a pending charge of EUR 15 that I do not recognize. Thanks.",BILLING_PAYMENT
+7535,I cannot access my search page because it says I do not have permission. Regards.,ACCOUNT_ACCESS
+3929,"Dear support team, I cannot log in on my Linux machine. Regards.",ACCOUNT_ACCESS
+7442,"Hello team, Do you have a tutorial on how to duplicate a project?",HOW_TO_SUPPORT
+8589,"Hey, Could you add templates to the inbox? Thank you.",FEATURE_REQUEST
+8613,How can I pin a dsahboard as my home page?,HOW_TO_SUPPORT
+8372,"Not sure how to update my profile picture, can you point me to the right help article",HOW_TO_SUPPORT
+3892,How can I update my profile picture? Please respond soon.,HOW_TO_SUPPORT
+7379,"Hi there, I do not have access to my old email address and need to recover my account.",ACCOUNT_ACCESS
+9547,"i am new here, how do i merge duplicate entries?",HOW_TO_SUPPORT
+9112,Someone changed my password and I no longer have access to my account. Thanks.,ACCOUNT_ACCESS
+4907,"Dear support team, The download link gives a 502 bad gateway instead of the file.",TECHNICAL_ISSUE
+2517,The mobile app is very slow and keeps freezing on my Windows laptop.,TECHNICAL_ISSUE
+3988,"Hi team, Could someone give me an overview of what your company does? Please help.",OTHER
+4492,I would like a refund for the $49 charge for my annual plan.,BILLING_PAYMENT
+1029,"Good morning, Are you planning to release offline mode in the future?",FEATURE_REQUEST
+1032,"Hi, The notifications panel shows a generic error message since Monday.",TECHNICAL_ISSUE
+1674,Which page lets me manage my display name?,HOW_TO_SUPPORT
+1553,Any documentation on how to change my display name?,HOW_TO_SUPPORT
+5561,"hello team, i cancelled my subscription weeks ago and you still took money from my account.",BILLING_PAYMENT
+7398,Can I pay by bank trnasfer instead of card? My card keeps getting declined. Please help.,BILLING_PAYMENT
+5899,I am not able to log in from my Linux machine but it works on my computer. Regards.,ACCOUNT_ACCESS
+8819,Charts on the team page do not load.,TECHNICAL_ISSUE
+6961,"hello team, i keep getting an invalid password message even though i am typing it correctly.",ACCOUNT_ACCESS
+9762,"Hello, Please forward this message to your security team. Please help.",OTHER
+8185,"Hi there, I cannot access my project board because it says I do not have permission",ACCOUNT_ACCESS
+3505,"Dear support team, I am not sure who to ask about this. Thank you.",OTHER
+5984,There is a bug where the billing page shows duplicate entires after I delete.,TECHNICAL_ISSUE
+8544,"Hello support, I am not sure who to ask about this.",OTHER
+6631,"Unable to sign in on Opera, it just keeps reloading the login page. Regards.",ACCOUNT_ACCESS
+8042,"Dear support team, I was charged for extra seats that I did not add. Regards",BILLING_PAYMENT
+6075,I see a spinning loader that never finishes on the billing page.,TECHNICAL_ISSUE
+9213,I saw your ad and want to learn more. Let me know what to do.,OTHER
+7474,Please credit my account for the payment error this week. Let me know what to do.,BILLING_PAYMENT
+1567,"Hello, My account has been blocked and I do not know why.",ACCOUNT_ACCESS
+9859,please show me how to change my display name.,HOW_TO_SUPPORT
+430,"Hi team, I need to talk to someone but I do not know what to select.",OTHER
+2144,"Good afternoon, My credit card was declined but my bank says there is no problem. Regards.",BILLING_PAYMENT
+2293,Please send an invoice for my latest Premium subscription payment.,BILLING_PAYMENT
+7821,I want to leave genreal feedback about my experience. Please help.,OTHER
+9607,"Hey, Please forward this message to a manager.",OTHER
+8404,"Hi, I need a receipt for my payment last month for tax purposes.",BILLING_PAYMENT
+5476,"Hi there, Do you offer any events or webinars? Thanks in advance",OTHER
+1573,The mobile app closes immediately atfer opening on my work computer.,TECHNICAL_ISSUE
+8709,Can someone explian how to use the task list?,HOW_TO_SUPPORT
+6524,I need help but I am not sure which option applies. Thanks in advance.,OTHER
+1026,"Good morning, Please forward this message to your security team.",OTHER
+4714,"Unable to sign in on Chrome, it just keeps reloading the login page. Regards",ACCOUNT_ACCESS
+6748,"Dear support team, Do you have a partnership program?",OTHER
+5659,My invitation link to join the team does not let me sign in. Regards.,ACCOUNT_ACCESS
+2102,"Good morning, My PayPal payment failed but the money left my account.",BILLING_PAYMENT
+7505,could you please implement login alerts by email in a coming update? thanks in advance.,FEATURE_REQUEST
+4426,"I am new here, how do I print a report",HOW_TO_SUPPORT
+7083,"Greetings, What are your business hours?",OTHER
+4506,"Greetings, Feature request: saved views.",FEATURE_REQUEST
+6041,i do not have access to my old email address and need to recover my account. regards.,ACCOUNT_ACCESS
+7842,"Dear support team, I am stuck in a loop where the site asks me to verify my email again and again. Thanks.",ACCOUNT_ACCESS
+8655,"Hello team, The API returns a 502 bad gateway when I call the endpoint.",TECHNICAL_ISSUE
+4937,I get a something went wrong message when I try to save on the task list.,TECHNICAL_ISSUE
+7916,please show me how to remove a user from my team. please respond soon.,HOW_TO_SUPPORT
+5955,"Hello team, Account recovery is not working, the magic link is not being sent.",ACCOUNT_ACCESS
+6481,"Hi there, The sync between my devices has stopped working",TECHNICAL_ISSUE
+234,I got charged in the wrong currency for my Pro plan. Let me know what to do.,BILLING_PAYMENT
+7912,"Good afternoon, Just strated using the product, need to know how to create a new project",HOW_TO_SUPPORT
+1582,"Good afternoon, Please add support for exporting to JSON and also a kanban view.",FEATURE_REQUEST
+626,please add an option to log out all devices for account security. thanks.,FEATURE_REQUEST
+2137,"Hey, Notifications are not being delivreed to my phone.",TECHNICAL_ISSUE
+5021,the app freezes when i try to publish a large zip file.,TECHNICAL_ISSUE
+4658,"Good morning, Product idea: let us customize the dashboard layout",FEATURE_REQUEST
+4809,I would like to get in touch with your security team. Thank you,OTHER
+8324,Please add support for exporting to CSV and also a compact layout.,FEATURE_REQUEST
+8880,Data I entered yesterday disappeared from the analytics page. Please help.,TECHNICAL_ISSUE
+5109,It would imporve my workflow if I could filter by date range.,FEATURE_REQUEST
+9442,There is an unknown charge of $120 from your company on my bank statement. Regards.,BILLING_PAYMENT
+9147,I need help but I am not sure which opiton applies.,OTHER
+3515,Scheduled rpeorts are not running at the set time. Thanks.,TECHNICAL_ISSUE
+7876,The application crashes when I click delete.,TECHNICAL_ISSUE
+6741,"Good morning, Account recovery is not working, the login code is not being sent.",ACCOUNT_ACCESS
+3344,"Good morning, I keep getting an invalid password message even though I am typing it correctly. Thank you.",ACCOUNT_ACCESS
+8424,"Dear support team, I am new here, how do I link my account to Slack?",HOW_TO_SUPPORT
+7819,Someone changed my password and I no longer have access to my account. Regards.,ACCOUNT_ACCESS
+1312,After I reset my password the new one is not accepted.,ACCOUNT_ACCESS
+4645,The app freezes when I try to save a large ZIP file.,TECHNICAL_ISSUE
+9759,I have some questions about your company before I proceed. Any help would be appreciated,OTHER
+2980,"Hello support, I need a receipt for my payment on the first of the month for tax purposes. Please respond soon.",BILLING_PAYMENT
+9567,The dashboard is very slow and keeps freezing on my tablet.,TECHNICAL_ISSUE
+4485,Can you explain how to improt contacts from a CSV file?,HOW_TO_SUPPORT
+750,"Good morning, The receipt email for my payment never arrived.",BILLING_PAYMENT
+9797,"Hi, Where can I find the default dashboard",HOW_TO_SUPPORT
+8665,"Hi, Please add offline mode to the search page.",FEATURE_REQUEST
+5720,"Hello, It would be nice to have biometric login.",FEATURE_REQUEST
+8620,I downgraded to the Business plan but I was still billed the higher price. Thanks in advance.,BILLING_PAYMENT
+4925,"Good morning, Do you support customers based in Kenya",OTHER
+4124,Please show me how to duplicate a project.,HOW_TO_SUPPORT
+6687,The download link gives a serevr error instead of the file.,TECHNICAL_ISSUE
+263,Are you planning to release a calendar view in the future?,FEATURE_REQUEST
+5309,What is the easiest way to restore a deleted file?,HOW_TO_SUPPORT
+4051,File uploads stay stuck at zero percent. Please respond soon.,TECHNICAL_ISSUE
+8745,"Greetings, I want to leave general feedback aobut my experience.",OTHER
+8890,Images are not displaying correctly on the search page in Opera.,TECHNICAL_ISSUE
+2811,"Hey, Not sure how to change my password from the settings page, can you point me to the right help article?",HOW_TO_SUPPORT
+3522,I would like a refund for the $149 charge for March.,BILLING_PAYMENT
+1901,I would like a refund for the $14 charge for my annual plan.,BILLING_PAYMENT
+7615,"Hi, Could you add an option to export contact lists as PDF?",FEATURE_REQUEST
+7400,"hello support, i am unable to sign in to my account since this morning. thanks in advance.",ACCOUNT_ACCESS
+1481,"Hi team, My account is blocked and I need to get in right now. Please help.",ACCOUNT_ACCESS
+9745,How do I use the profile page to change the date format?,HOW_TO_SUPPORT
+5905,Everything works on my computer but the workspace crashes on my iPhone. Let me know what to do.,TECHNICAL_ISSUE
+2992,"Hi team, There is a bug where the dashboard shows duplicate entries after I download.",TECHNICAL_ISSUE
+569,"Hello support, Could someone give me an overview of what your company does? Please advise.",OTHER
+7945,Product idea: let us schedule reports in advance.,FEATURE_REQUEST
+2308,"Hello, Can you help me regain access to my account? I have a deadline today.",ACCOUNT_ACCESS
+3881,"Please send quarterly performance summaries to my inbox automatically, it would help a lot.",FEATURE_REQUEST
+7583,"Good afternoon, My subscription renewed automatically and I did not want that, please refund me.",BILLING_PAYMENT
+6759,"Hello, is anyone there? Thank you.",OTHER
+5024,An option for templates would make the product much better.,FEATURE_REQUEST
+5384,"Good afternoon, My PayPal payment failed but the money left my account.",BILLING_PAYMENT
+6562,Do you have a tutorial on how to pin a dashboard as my home page?,HOW_TO_SUPPORT
+3752,Can I know more about your service before deciding? Please respond soon.,OTHER
+3105,Can you walk me through how to change the date format?,HOW_TO_SUPPORT
+7586,"Dear support team, Do you support customers based in Japan?",OTHER
+8618,"Hi there, I cannot log in on my iPhone.",ACCOUNT_ACCESS
+3285,"Good morning, Please add a Notion integration, our whole team uses it.",FEATURE_REQUEST
+9134,"Hi, Where can I change my notification settings?",HOW_TO_SUPPORT
+178,"Hello, Is your service available in Nigeria? Thanks a lot.",OTHER
+6967,"good morning, i would like to get in touch with the right department.",OTHER
+4990,"Hi team, I do not have access to my old email address and need to recover my account. Please help.",ACCOUNT_ACCESS
+2197,"Hello team, It would be great to have saved views in the admin console. Thanks a lot.",FEATURE_REQUEST
+6428,I am trying to import contacts from a CSV file but I cannot find the option. Where is it?,HOW_TO_SUPPORT
+9036,"Greetings, An option for an undo button would make the product much better.",FEATURE_REQUEST
+5804,Can you explain how to transfer ownership of a workspace?,HOW_TO_SUPPORT
+6344,The mobile app shows a 502 bad gateway since Monday.,TECHNICAL_ISSUE
+8198,"Hi team, The two-factor code is rejected every time I try to sign in.",ACCOUNT_ACCESS
+6265,A pop up with a something went wrong message appears every time I try to refresh,TECHNICAL_ISSUE
+4012,"Hi team, I upgraded my plan but the charge shows the wrong amount.",BILLING_PAYMENT
+5320,Could you tell me how to duplicate a project?,HOW_TO_SUPPORT
+9349,I am stuck in a loop where the site asks me to verify my email again and again.,ACCOUNT_ACCESS
+2688,Please add dark mode to the search page.,FEATURE_REQUEST
+5527,"Hi there, The login page keeps redirecting me back to the sign in screen.",ACCOUNT_ACCESS
+8959,The reports page is very slow and keeps freezing on my MacBook.,TECHNICAL_ISSUE
+8439,"Good afternoon, The payment page rejects my card and I cannot renew my Enterprise plan.",BILLING_PAYMENT
+1719,"Hello, I would like instructions on how to update my profile picture.",HOW_TO_SUPPORT
+401,"Hi there, How did your company start? I am curious. Please help.",OTHER
+3561,"Good morning, I need a corrected invoice with our new company address.",BILLING_PAYMENT
+7575,What are the steps to duplicate a project?,HOW_TO_SUPPORT
+5515,Please stop future charges to my card and cancel my subscription. Please help.,BILLING_PAYMENT
+6994,I was charged $59.99 for a plan I never upgraded to. Let me know what to do.,BILLING_PAYMENT
+5558,"Good afternoon, I have a general inquiry that does not fit any of the topics.",OTHER
+6521,Can you send me an invoice for the EUR 39 payment? Please help.,BILLING_PAYMENT
+6999,I am trying to pin a dashboard as my home page but I cannot find the option. Where is it,HOW_TO_SUPPORT
+521,Please stop future charges to my card and cancel my subscription. Thanks in advance.,BILLING_PAYMENT
+8166,I would love to see an intergation with Trello.,FEATURE_REQUEST
+2079,I wish the search page had version history.,FEATURE_REQUEST
+8473,Feature request: auto save.,FEATURE_REQUEST
+9160,"Hey, Sign in with single sign-on fails and shows an unauthorized message. Regards.",ACCOUNT_ACCESS
+3261,Can you help me regain access to my account? I cannot reach my data. Please advise.,ACCOUNT_ACCESS
+4720,"Hey, I have been overcharged for my annual plan, please look into my billing.",BILLING_PAYMENT
+1935,I lost my phone and cannot reecive the verification code to sign in.,ACCOUNT_ACCESS
+8027,I wuold like to get in touch with a manager.,OTHER
+1508,I see a spinning loader that never finishes on the dashboard.,TECHNICAL_ISSUE
+9089,"Just started using the product, need to know how to create a new project.",HOW_TO_SUPPORT
+939,How can I set my working hours? Thanks in advance.,HOW_TO_SUPPORT
+9778,Can someone explain how to use the settings page? Thanks in advance.,HOW_TO_SUPPORT
+9855,Do you support customers based in the UAE?,OTHER
+2796,I would like more information bfeore I create an account.,OTHER
+6903,I keep getting an invalid password message even though I am typing it correctly. Please advise.,ACCOUNT_ACCESS
+6267,it would be nice to have single sign-on. thanks.,FEATURE_REQUEST
+9878,Where can I find the workspace name? Please respond soon.,HOW_TO_SUPPORT
+3572,It would be helpful if the profile page supported auto save.,FEATURE_REQUEST
+1356,Please add support for exporting to Excel and also auto save.,FEATURE_REQUEST
+2776,"I am new here, how do I find my activity history?",HOW_TO_SUPPORT
+8128,"Hey, Any documentation on how to print a report?",HOW_TO_SUPPORT
+4958,I cannot log in on my work computer. Any help would be appreciated.,ACCOUNT_ACCESS
+1295,I would like a refund for the $59.99 charge last month. Please advise.,BILLING_PAYMENT
+3625,"I never received the one-time passcode, I already checked my spam folder",ACCOUNT_ACCESS
+6162,"Hi there, My subscription renewed automatically and I did not want that, please refund me.",BILLING_PAYMENT
+7074,The payment page rejects my card and I cannot renew my Pro plan. Please help.,BILLING_PAYMENT
+2439,The page never finishes loading and only shows a server error. Thanks a lot.,TECHNICAL_ISSUE
+959,"Good afternoon, I am not able to log in from my work computer but it works on my computer.",ACCOUNT_ACCESS
+8991,I cannot log in since the latest update. Thanks a lot,ACCOUNT_ACCESS
+7556,"Hi team, Can you send me some information about what you offer?",OTHER
+3259,Can you help me regain access to my account? I need it restored as soon as possible. Thanks in advance.,ACCOUNT_ACCESS
+5920,Can I get a call back from soemone on your team?,OTHER
+4082,There is an unknown charge of EUR 15 from your company on my bank statement.,BILLING_PAYMENT
+1869,"Hi team, I cannot log in after turning on two-factor authentication.",ACCOUNT_ACCESS
+5725,"Hi there, The integration keeps disconnecting and shows an error each time.",TECHNICAL_ISSUE
+6882,Suggestion: allow users to use the product without an internet connection.,FEATURE_REQUEST
+8842,Video previews will not play in the analytics page.,TECHNICAL_ISSUE
+8338,It would be nice to have an option to log out all devices.,FEATURE_REQUEST
+6055,I am getting a generic error message whenever I open the workspace.,TECHNICAL_ISSUE
+527,Please forward this message to your security team. Any help would be appreciated.,OTHER
+4811,It would be great to have drag and drop in the profile page. Please advise.,FEATURE_REQUEST
+3021,"Hello support, I represent a media outlet and want to reach out to the press team.",OTHER
+2003,What are your business hours? Thank you.,OTHER
+8401,Can you walk me through how to make a teammate an admin? Please help.,HOW_TO_SUPPORT
+3326,"Hello support, Is your service available in Kenya? Please respond soon.",OTHER
+4805,"Dear support team, Please send weekly performance summaries to my inbox automatically, it would help a lot. Thanks.",FEATURE_REQUEST
+615,"Hi there, I have a question aobut your service.",OTHER
+4288,"good afternoon, please show me how to set up a recurring report.",HOW_TO_SUPPORT
+4344,"Hello, The refresh button does nothing on the admin console. Please respond soon.",TECHNICAL_ISSUE
+6317,"Dear support team, I paid for the Premium plan but my account still shows the free tier.",BILLING_PAYMENT
+8882,"Hi there, I was charged $249 for a plan I never upgraded to.",BILLING_PAYMENT
+7622,"Good morning, I want to reprot something that does not fit any category. Thanks a lot.",OTHER
+183,"Greetings, I paid for the annual plan but my account still shows the free tier.",BILLING_PAYMENT
+3516,I downgraded to the Enterprise plan but I was still billed the higher price. Any help would be appreciated.,BILLING_PAYMENT
+4440,"Hi team, I am getting a error code 403 whenever I open the project board.",TECHNICAL_ISSUE
+6766,it would be great to have saved views in the project board.,FEATURE_REQUEST
+9850,"Hi there, Acocunt recovery is not working, the verification email is not being sent.",ACCOUNT_ACCESS
+9998,Can you build keyboard shortcuts into the settings page? Many users would benefit.,FEATURE_REQUEST
+8962,Could you please implement IP allow listing in a coming update? Let me know what to do.,FEATURE_REQUEST
+7737,My credit card was declined but my bank says there is no problem. Please help.,BILLING_PAYMENT
+8716,"Hi, I got charged in the wrong currency for my annual plan.",BILLING_PAYMENT
+821,"Hi there, The confirmation email never arrives in my inbox.",ACCOUNT_ACCESS
+7180,"Hi, I am locked out after too many failed login attempts",ACCOUNT_ACCESS
+2480,Do you have any security certifications? Thank you.,OTHER
+9244,"Good morning, I wish the settings page had version history.",FEATURE_REQUEST
+874,Which page lets me manage my export options? Regards.,HOW_TO_SUPPORT
+4665,The two-factor code is rejetced every time I try to sign in. Thanks in advance.,ACCOUNT_ACCESS
+4822,"Greetings, Why is my account blocked? I cannot do my work.",ACCOUNT_ACCESS
+6535,I have some questions aobut your company before I proceed.,OTHER
+9711,"Hi there, Do you support customers based in Kenya",OTHER
+2597,Which menu do I use to change my notification settings?,HOW_TO_SUPPORT
+3214,"Hi there, The invoice shows the wrong company name, please correct it. Thanks.",BILLING_PAYMENT
+1633,"My changes are not saved, the analytics page reverts to the old values.",TECHNICAL_ISSUE
+7790,Any plans to support French in the interface? Please advise.,FEATURE_REQUEST
+5758,"Hey, I am a student working on a school project about your product, who can I talk to?",OTHER
+8790,Where is your company located? Let me know what to do.,OTHER
+9047,The SMS code takes forever to arrive and then it has expired,ACCOUNT_ACCESS
+8061,"hi, the system says the jpeg photo format is not supported even though it is valid.",TECHNICAL_ISSUE
+3910,Product idea: let us attach several files at once. Please help.,FEATURE_REQUEST
+2179,I am not able to log in from my MacBook but it works on my computer.,ACCOUNT_ACCESS
+5412,Could you tell me how to update my profile picture?,HOW_TO_SUPPORT
+8350,Please credit my account for the payment error on the first of the month. Please advise.,BILLING_PAYMENT
+2198,"Good afternoon, I cannot access my search page because it says I do not have permission. Thanks.",ACCOUNT_ACCESS
+8121,It would improve my workflow if I could attach several files at once. Please respond soon.,FEATURE_REQUEST
+6248,"Account recovery is not working, the activation email is not being sent. Please help.",ACCOUNT_ACCESS
+4663,"Greetings, Can you send me some information about what you offer? Thanks in advance.",OTHER
+459,The share button does nothing on the task list.,TECHNICAL_ISSUE
+3376,"Hey, Where do I go in the admin console to change my notification settings?",HOW_TO_SUPPORT
+5292,Can you walk me through how to set my working hours?,HOW_TO_SUPPORT
+4808,"Hi there, Search returns no results even for items that I know exist. Please help.",TECHNICAL_ISSUE
+3914,I have some questions about your company before I proceed.,OTHER
+9144,"Hi, I am unbale to sign in to my account for two days.",ACCOUNT_ACCESS
+4566,The download link gives a error code 403 instead of the file.,TECHNICAL_ISSUE
+1520,"My changes are not saved, the calendar reevrts to the old values. Please help",TECHNICAL_ISSUE
+7071,"Hey, Login fails on Opera with an authentication failed message.",ACCOUNT_ACCESS
+5012,I am writing to ask about internship opportunities.,OTHER
+8375,"Hi, Uploading a Excel file gets stuck at 99 percent and never finishes. Regards.",TECHNICAL_ISSUE
+7694,Text is cut off and overlapping on the analytics page on my Windows laptop.,TECHNICAL_ISSUE
+9326,"Hi team, I cannot log in after changing my email address. Please help.",ACCOUNT_ACCESS
+5407,"Hi, Any documentation on how to export my data?",HOW_TO_SUPPORT
+2396,"Good morning, I am writing to ask about internship opportunities.",OTHER
+2969,"Hey, I would like to get in touch with your press team.",OTHER
+7907,My card was charged three times for my annual plan. Please respond soon.,BILLING_PAYMENT
+5513,"We really need keyboard shortcuts on the search page, please consider it.",FEATURE_REQUEST
+6558,"Hi, I was charged for extra seats that I did not add.",BILLING_PAYMENT
+4482,"Hello, I am new here, how do I add a new team member? Please help.",HOW_TO_SUPPORT
+592,Can I get a call back from someone on your team? Thank you.,OTHER
+1778,"Hello support, Why was I billed $29 when my plan should be cheaper?",BILLING_PAYMENT
+5015,Please credit my account for the payment error yesterday.,BILLING_PAYMENT
+6801,The analytics page becomes blank when I upload a video file. Please advise.,TECHNICAL_ISSUE
+9248,"Hey, Any documentation on how to remove a user from my team?",HOW_TO_SUPPORT
+1257,"Please add a Salesofrce integration, our whole team uses it.",FEATURE_REQUEST
+4294,The calendar is very slow and keeps freezing on my iPad.,TECHNICAL_ISSUE
+5072,"Hi team, How do I use the billing page to upload a company logo? Thank you.",HOW_TO_SUPPORT
+9338,"I am new here, how do I pin a dashboard as my home page?",HOW_TO_SUPPORT
+1114,"Hello, Can someone contact me about an issue?",OTHER
+2173,It would be great if we could set custom roles for team members.,FEATURE_REQUEST
+3233,Uploading a Excel file gets stuck at 99 percent and never finishes.,TECHNICAL_ISSUE
+5317,"Hello, I represent a media outlet and want to reach out to the press team.",OTHER
+6381,"Hello team, I am locked out after too many failed login attempts",ACCOUNT_ACCESS
+4424,"Good morning, Sign in with single sign-on fails and shows an unauthorized message.",ACCOUNT_ACCESS
+6021,"Hello team, I cannot access my search page because it says I do not have permission. Please help.",ACCOUNT_ACCESS
+464,I need to upadte the billing address on my invoice. Thanks.,BILLING_PAYMENT
+6390,"Hi, The VAT number is missing from my invoice.",BILLING_PAYMENT
+2612,"Hello, My username is not recognized on the login page. Please respond soon.",ACCOUNT_ACCESS
+2564,"Please add a Notion integration, our whole team uses it.",FEATURE_REQUEST
+1555,The API returns a error 404 when I call the endpoint.,TECHNICAL_ISSUE
+6139,"Good afternoon, I am new here, how do I connect my calendar?",HOW_TO_SUPPORT
+5632,"Hello support, I would like instructions on how to turn on email alerts.",HOW_TO_SUPPORT
+8412,I keep getting an invalid password message even though I am typing it correctly. Please help,ACCOUNT_ACCESS
+9107,"hi there, please forward this message to the legal department.",OTHER
+4404,"Just started using the product, need to know how to link my account to Slack.",HOW_TO_SUPPORT
+9154,Can you send me an invoice for the $59.99 payment? Thanks in advance.,BILLING_PAYMENT
+727,How do I use the notifications panel to find my activity history?,HOW_TO_SUPPORT
+6985,"Please unlock my account, I entered the wrong password several times. Let me know what to do.",ACCOUNT_ACCESS
+1421,"Hi team, There is a bug where the profile page shows duplicate entries after I submit.",TECHNICAL_ISSUE
+9049,Feature request: a search bar. Please respond soon.,FEATURE_REQUEST
+4331,uploading a jpeg photo gets stuck at zero percent and never finishes.,TECHNICAL_ISSUE
+8314,Why is my account suspended? I cannot do my work.,ACCOUNT_ACCESS
+9832,"Hello, The payment page rejects my card and I cannot renew my Pro plan.",BILLING_PAYMENT
+3339,"Good afternoon, Could someone give me an overview of what your company does?",OTHER
+1473,"Add dark mode please, it is missing from the calendar. Please respond soon.",FEATURE_REQUEST
+4358,"Hi there, Can someone contact me abuot an issue?",OTHER
+5903,"Hi, I want to leave general feedback about my experience.",OTHER
+6815,I was charged GBP 12 for a plan I never upgraded to. Thanks.,BILLING_PAYMENT
+4204,Please let us export charts to PowerPoint. Thanks a lot.,FEATURE_REQUEST
+7187,"Hello, The app crashes every time I try to import.",TECHNICAL_ISSUE
+7121,"Good morning, I would like more information before I create an account.",OTHER
+2549,"We really need templates on the admin console, please consider it",FEATURE_REQUEST
+1874,"Good morning, I was charged after my free trial ended without any reminder.",BILLING_PAYMENT
+2261,"i think i sent this to the wrong place, who is the right contact? any help would be appreciated.",OTHER
+7526,"Hey, Would it be possible to add comments to reports? That would save us a lot of time.",FEATURE_REQUEST
+9044,"Hello, The verification step keeps failing when I try to sign in, since the latest update.",ACCOUNT_ACCESS
+22,Can someone contact me about an issue?,OTHER
+1170,"Hello team, I am unable to sign in to my account since Monday.",ACCOUNT_ACCESS
+2563,Do you have a partnership program? Regards.,OTHER
+9577,"Hi, There is a mistake in my latest invoice, the total does not match the plan price. Please respond soon.",BILLING_PAYMENT
+336,How do I download a report?,HOW_TO_SUPPORT
+1587,I see a spinning loader that never finishes on the calendar. Thanks in advance,TECHNICAL_ISSUE
+9932,"Hi team, Would it be possible to assign tasks to multiple people? That would save us a lot of time.",FEATURE_REQUEST
+3290,Can you build a calendar view into the calendar? Many users would benefit,FEATURE_REQUEST
+5721,My team would love to have a calendar view. Is it on the roadmap? Let me know what to do.,FEATURE_REQUEST
+606,I see a spinning loader that never finishes on the notifications panel. Regards.,TECHNICAL_ISSUE
+3699,I have a general inquiry that does not fit any of the topics.,OTHER
+9802,I paid for the Premium plan but my account still shows the free tier. Please help.,BILLING_PAYMENT
+89,I am locked out after too many failed login attempts. Any help would be appreciated.,ACCOUNT_ACCESS
+801,"Hi, Can I know more about your service before deciding?",OTHER
+3636,Please add support for exporting to CSV and also an undo button.,FEATURE_REQUEST
+6651,"Hello support, My payment keeps failing at checkout even though my card is valid.",BILLING_PAYMENT
+3061,I would like instructions on how to assign a task to a colleague. Thanks a lot.,HOW_TO_SUPPORT
+8538,"Hello team, Can someone contact me about an issue? Please respond soon",OTHER
+8517,I would like instructions on how to invite a member to my workspace.,HOW_TO_SUPPORT
+4456,I got charged in the wrong currency for my annual plan.,BILLING_PAYMENT
+8777,"Greetings, Can you build templates into the settings page? Many users would benefit.",FEATURE_REQUEST
+1842,Product idea: let us add custom fields to every project.,FEATURE_REQUEST
+9540,Is it possible to connect my calendar? I cannot find where.,HOW_TO_SUPPORT
+8936,I cannot access my calendar because it says I do not have permission.,ACCOUNT_ACCESS
+3026,"Hey, Hello, is anyone there?",OTHER
+8854,"Hey, My subscription renewed automatically and I did not want that, please refund me.",BILLING_PAYMENT
+9791,Could you add offlnie mode to the task list?,FEATURE_REQUEST
+4613,"Good afternoon, I was billed $9.99 twice for the same subscription.",BILLING_PAYMENT
+2208,I would like to know who I should contact regarding a collaboration. Please advise.,OTHER
+9128,My card was charged three times last month.,BILLING_PAYMENT
+9233,"Hey, Could you tell me how to create a template? Please respond soon",HOW_TO_SUPPORT
+4922,Everything works on my computer but the analytics page crashes on my MacBook.,TECHNICAL_ISSUE
+548,I would like to know who I should contcat regarding a collaboration.,OTHER
+375,Can you help me regain access to my account? I need access urgently,ACCOUNT_ACCESS
+3648,I would like a refund for the GBP 45 charge yesterday.,BILLING_PAYMENT
+6410,I got chagred in the wrong currency for my Enterprise plan.,BILLING_PAYMENT
+2400,What are the steps to change my display name? Please help.,HOW_TO_SUPPORT
+4806,Do you offer any events or webinars? Any help would be appreciated.,OTHER
+4144,Please let us export charts to CSV.,FEATURE_REQUEST
+4106,"Good morning, Please refund my last payment, I did not use the servcie at all.",BILLING_PAYMENT
+3765,A pop up with a blank white screen appears every time I try to upload. Any help would be appreciated.,TECHNICAL_ISSUE
+6503,"Hi there, Please let us export contact lists to Word. Please respond soon.",FEATURE_REQUEST
+9548,"Hello, Why did the price of my Starter plan go up? Any help would be appreciated.",BILLING_PAYMENT
+1285,"Hi team, My session logs me out immediately after I sign in.",ACCOUNT_ACCESS
+9847,"Payment status says pending for days, and my subscription is still not active. Thank you.",BILLING_PAYMENT
+6185,Which menu do I use to change my time zone? Please advise.,HOW_TO_SUPPORT
+8983,"Hi, Is there a guide that shows how to connect my calendar?",HOW_TO_SUPPORT
+3992,My card was charged three times for June. Please help.,BILLING_PAYMENT
+926,Can I pay by bank transfer instead of card? My card keeps getting declined. Please help.,BILLING_PAYMENT
+6137,"Hello, Please add a GiHtub integration, our whole team uses it.",FEATURE_REQUEST
+7847,"Hi, I got charged in the wrong currency for my Team plan. Please advise.",BILLING_PAYMENT
+3640,"Hi there, I would like to know who I should contact regarding a collaboration",OTHER
+2012,I wish the team page had offline mode. Let me know what to do.,FEATURE_REQUEST
+9818,"Good afternoon, Are you planning to release templates in the future?",FEATURE_REQUEST
+8044,The print button does nothing on the profile page. Any help would be appreciated.,TECHNICAL_ISSUE
+5027,"Hey, I wish the mobile app had bulk actions.",FEATURE_REQUEST
+8152,Thanks for the great support last week! Let me know what to do.,OTHER
+9635,"Hello, I am trying to assign a task to a colleague but I cannot find the option. Where is it?",HOW_TO_SUPPORT
+1981,I have a question about your service. Thanks in advance.,OTHER
+4450,"Hello support, I need to update the billing address on my invoice.",BILLING_PAYMENT
+662,It would be useful to receive daily usage summaries by email.,FEATURE_REQUEST
+7367,"Just started using the product, need to know how to assign a task to a colleague.",HOW_TO_SUPPORT
+1606,"Add a compact laoyut please, it is missing from the settings page.",FEATURE_REQUEST
+5134,"Hello team, Do you have a tutorial on how to link my account to Slack?",HOW_TO_SUPPORT
+7471,"Hi, Please credit my account for the payment error last month.",BILLING_PAYMENT
+1602,I would like instructions on how to change my password from the settings page.,HOW_TO_SUPPORT
+9510,Why is my account deactivated? I need to get in right now. Let me know what to do.,ACCOUNT_ACCESS
+3051,"Hello, I would like to know who I should contact regarding a collaboration. Please help.",OTHER
+8875,"hello team, my payment keeps failing at checkout even though my card is valid. regards.",BILLING_PAYMENT
+2441,It would be great if we could tag items with labels. Please help.,FEATURE_REQUEST
+5516,"Just started using the product, need to know how to set my working hours.",HOW_TO_SUPPORT
+5718,I would like a refund for the EUR 15 charge this quarter. Please help.,BILLING_PAYMENT
+7140,"Hi team, The discount promised to me is not reflected on my bill. Please help.",BILLING_PAYMENT
+2096,Can you tell me more about your privacy policy? Please help.,OTHER
+4416,"Greetings, I would like instructions on how to change the language of the interface.",HOW_TO_SUPPORT
+8894,I cannot log in after turning on two-factor authentication. Let me know what to do.,ACCOUNT_ACCESS
+9187,"Good morning, The exported spreadsheet is corrupted and cannot be opened.",TECHNICAL_ISSUE
+125,Feature request: custom themes.,FEATURE_REQUEST
+1585,"Dear support team, How do I create a template?",HOW_TO_SUPPORT
+9746,"Dear support team, My card was charged three times for June",BILLING_PAYMENT
+8407,"Good afternoon, I would like to speak with a sales representative about enterprise options",OTHER
+836,Feature request: the ability to restore deleted items from a trash folder.,FEATURE_REQUEST
+2265,The sync button does nothing on the billing page.,TECHNICAL_ISSUE
+1475,The team page shows a error 500 for a week.,TECHNICAL_ISSUE
+4765,"Dear support team, Account recovery is not working, the login code is not being sent.",ACCOUNT_ACCESS
+3416,The task list shows a 502 bad gateway for the past few days.,TECHNICAL_ISSUE
+9903,The page never finishes loading and only shows a blank white screen. Thanks.,TECHNICAL_ISSUE
+5091,I have some questions about your company before I proceed. Thanks a lot.,OTHER
+4971,The inbox does not display anything after the latest update.,TECHNICAL_ISSUE
+1824,Please add dark mode to the dashboard. Please respond soon.,FEATURE_REQUEST
+3321,"Dear support team, I am trying to upload a company logo but I cannot find the option. Where is it?",HOW_TO_SUPPORT
+4385,I would like to speak with a sales representative about enterprise options. Thanks in advance.,OTHER
+5251,"Dear support team, Do you support customers based in Singapore?",OTHER
+3682,I have some questions about your company before I proceed. Thank you.,OTHER
+4868,It would be useful to receive daily progress reports by email.,FEATURE_REQUEST
+2279,"Hi there, The dashboard numbers are wrong and do not mtach the raw data.",TECHNICAL_ISSUE
+6310,"Account recovery is not working, the activation eamil is not being sent.",ACCOUNT_ACCESS
+7705,"Hello team, Do you have any security certifications? Thanks in advance.",OTHER
+3981,"Hello support, A pop up with a generic error message appears every time I try to submit.",TECHNICAL_ISSUE
+6298,"I have been overcharegd last month, please look into my billing.",BILLING_PAYMENT
+9256,Images are not displaying correctly on the admin console in Edge.,TECHNICAL_ISSUE
+6083,"Hi, My account has been disabled and I do not know why.",ACCOUNT_ACCESS
+5887,"Dear support team, Notifications are not being delivered to my phone. Let me know what to do.",TECHNICAL_ISSUE
+9588,"Account recovery is not working, the confirmation email is not being sent. Regards.",ACCOUNT_ACCESS
+7319,"Greetings, Payment status says pending for days, and my subscription is still not active.",BILLING_PAYMENT
+597,my account is deactivated and i have a deadline today.,ACCOUNT_ACCESS
+2570,"Hey, Can you recommend which team I should contact for my request? Regards",OTHER
+2692,Can you rceommend which team I should contact for my request?,OTHER
+4336,Charts on the mobile app do not load.,TECHNICAL_ISSUE
+7786,What are your business hours? Please help.,OTHER
+7631,"Hello, I am new here, how do I change my password from the settings page? Thanks a lot.",HOW_TO_SUPPORT
+7905,"Dear support team, Someone changed my password and I no longer have access to my account.",ACCOUNT_ACCESS
+1951,"Hello support, Please add bulk actions to the billing page.",FEATURE_REQUEST
+4479,The reset link does nothing when I click it.,ACCOUNT_ACCESS
+629,I was billed GBP 45 twice for the same subscription. Please advise.,BILLING_PAYMENT
+7182,Can I get a call back from someone on your team? Please help.,OTHER
+2986,Please send an inovice for my latest Premium subscription payment.,BILLING_PAYMENT
+9398,The sync button does nothing on the dashboard.,TECHNICAL_ISSUE
+6422,"Hello, I cannot log in on my work computer.",ACCOUNT_ACCESS
+7972,It would be useful to receive daily team updates by email.,FEATURE_REQUEST
+4541,Is there a guide that shows how to set up a recurring report?,HOW_TO_SUPPORT
+8515,"Good morning, The coupon code did not apply at checkout and I was charged the full price. Any help would be appreciated.",BILLING_PAYMENT
+9612,I cannot log in after resettnig my password,ACCOUNT_ACCESS
+8134,"Greetings, Hello, is anyone there?",OTHER
+4779,"Dear support team, Where can I find the saved filters?",HOW_TO_SUPPORT
+2282,I am trying to duplicate a project but I cannot find the option. Where is it? Thanks a lot.,HOW_TO_SUPPORT
+2037,I paid for the Business plan but my account still shows the free tier.,BILLING_PAYMENT
+5357,Can you recommend which team I should contact for my request? Thanks in advance.,OTHER
+2413,I forgot the email I used to register and cannot get into my account. Please advise.,ACCOUNT_ACCESS
+6150,Why did the price of my monthly plan go up? Please respond soon.,BILLING_PAYMENT
+3120,"Hi, Sign in with single sign-on fails and shows an unauthorized message.",ACCOUNT_ACCESS
+8164,"Hi there, Can you build custom themes into the analytics page? Many users would benefit.",FEATURE_REQUEST
+2964,The mobile app closes immediately after opening on my Windwos laptop.,TECHNICAL_ISSUE
+8825,"Good morning, I need help but I am not sure which option applies. Let me know what to do.",OTHER
+5489,How do I use the team page to link my account to Slack?,HOW_TO_SUPPORT
+5157,"Good afternoon, I cannot log in on my iPhone. Thanks in advance.",ACCOUNT_ACCESS
+9459,"Good afternoon, My username is not recognized on the login page. Let me know what to do",ACCOUNT_ACCESS
+2323,"Good morning, I am locked out after too many failed login attempts. Regards.",ACCOUNT_ACCESS
+1361,"Hello team, Can you walk me through how to link my account to Slack?",HOW_TO_SUPPORT
+324,"Good afternoon, The receipt email for my payment never arrived.",BILLING_PAYMENT
+7875,I was charged $149 for a plan I never upgraded to.,BILLING_PAYMENT
+2375,"Hello, Do you support customers based in Sri Lanka? Let me know what to do.",OTHER
+786,"Hi, I forgot my password and the reset link says it has expired.",ACCOUNT_ACCESS
+9867,I was charged $149 this quarter but I expected a different amount.,BILLING_PAYMENT
+2519,"Good morning, The application crashes when I click save. Thanks in advance.",TECHNICAL_ISSUE
+9754,My renewal payment failed and now my subscription shows as past due. Thanks,BILLING_PAYMENT
+7983,I cannot access my search page because it says I do not have permission. Please help.,ACCOUNT_ACCESS
+7326,"Hello team, Can you build auto save into the dashboard? Many users would benefit. Please help.",FEATURE_REQUEST
+6164,Could you tell me how to turn on email alerts?,HOW_TO_SUPPORT
+3317,"Dear support team, The page never finishes loading and only shows a generic error message.",TECHNICAL_ISSUE
+9941,"Hello team, I am trying to change the date format but I cannot find the option. Where is it?",HOW_TO_SUPPORT
+4101,The API returns a something went wrong mesasge when I call the endpoint. Please help.,TECHNICAL_ISSUE
+9287,"Hi there, The app freezes when I try to upload a large Excel file.",TECHNICAL_ISSUE
+4184,I need a corrected invocie with our new company address.,BILLING_PAYMENT
+7971,"Hello, Any documentation on how to create a new project?",HOW_TO_SUPPORT
+3133,please let us epxort reports to csv.,FEATURE_REQUEST
+9336,What is the easiest way to change my display name?,HOW_TO_SUPPORT
+8644,the delete button does nothing on the dashboard.,TECHNICAL_ISSUE
+2558,Is it possible to upload a company logo? I cannot find where.,HOW_TO_SUPPORT
+4984,Please show me how to download a report. Regards.,HOW_TO_SUPPORT
+1442,Could you add an option to export analytics data as JSON?,FEATURE_REQUEST
+8167,"Hi there, I am a student working on a school project about your product, who can I talk to?",OTHER
+9572,"Good afternoon, Thanks for the great support last week!",OTHER
+2974,Can you exlpain how to remove a user from my team?,HOW_TO_SUPPORT
+2297,"I never received the security code, I already checked my spam folder.",ACCOUNT_ACCESS
+79,I am unable to sign in to my account since Monday.,ACCOUNT_ACCESS
+5922,"Greetings, After I reset my password the new one is not accepted. Please advise",ACCOUNT_ACCESS
+8817,"Hi team, I cannot log in after the latest update.",ACCOUNT_ACCESS
+1686,"Hey, I repersent a media outlet and want to reach out to the press team.",OTHER
+9820,"Good afternoon, The task list is very slow and keeps freezing on my Windows laptop",TECHNICAL_ISSUE
+6673,"hi there, it would be nice to have login alerts by email.",FEATURE_REQUEST
+1388,"Hey, I cannot log in on my Windows laptop.",ACCOUNT_ACCESS
+5774,I need a receipt for my payment yesterday for tax purposes. Thanks.,BILLING_PAYMENT
+8071,"Good morning, I have a general inquiry that does not fit any of the topics.",OTHER
+4954,"Hello team, The coupon code did not apply at checkout and I was charged the full price.",BILLING_PAYMENT
+6140,The mobile app closes immediately after opening on my work computer.,TECHNICAL_ISSUE
+6285,"Good morning, I keep getting an invalid password message even though I am typing it correctly. Please respond soon.",ACCOUNT_ACCESS
+223,I cannot access my workspace because it says I do not have permission.,ACCOUNT_ACCESS
+4754,"I am new here, how do I pin a dashboard as my home page? Please respond soon.",HOW_TO_SUPPORT
+7094,"Greetings, Thnak you for your help, everything is fine now",OTHER
+9102,I see a spinning loader that never finishes on the mobile app. Let me know what to do.,TECHNICAL_ISSUE
+5816,"Hi there, Someone changed my password and I no longer have access to my account. Thanks a lot.",ACCOUNT_ACCESS
+9476,"Greetings, I neevr received the login code, I already checked my spam folder. Thanks a lot.",ACCOUNT_ACCESS
+3458,"Good morning, Is your service available in Germany",OTHER
+3121,Are you planning to release a favorites list in the future?,FEATURE_REQUEST
+6787,I forgot my password and the reset link says it has expired. Thank you.,ACCOUNT_ACCESS
+5677,the submit button does nothing on the task list.,TECHNICAL_ISSUE
+6835,"Hello team, Can you build custom filters into the analytics page? Many users would benefit",FEATURE_REQUEST
+7350,Where do I go in the inbox to change my email preferences?,HOW_TO_SUPPORT
+113,please show me how to set up my workspace for the first time.,HOW_TO_SUPPORT
+4113,"Greetings, I am not able to log in from my MacBook but it works on my computer",ACCOUNT_ACCESS
+8442,"Hello support, The reset link does nothing when I click it",ACCOUNT_ACCESS
+8292,Why was I billed $19 when my plan should be cheaper?,BILLING_PAYMENT
+5106,the task list does not display anything after the latest update. please advise.,TECHNICAL_ISSUE
+2893,I do not have access to my old email address and need to recover my account. Please advise.,ACCOUNT_ACCESS
+4088,I would like the option to assign tasks to multiple people in a future release. Please advise,FEATURE_REQUEST
+4536,The autosave is broken and my work was lost for a week,TECHNICAL_ISSUE
+7913,Can you explain how to export my data?,HOW_TO_SUPPORT
+9461,I would love to see an integration with Salesforce.,FEATURE_REQUEST
+7178,"Hi there, Just started using the product, need to know how to export my data",HOW_TO_SUPPORT
+7290,"Hello, Which menu do I use to add a new team member?",HOW_TO_SUPPORT
+8397,Suggestion: allow users to set reminders on tasks.,FEATURE_REQUEST
+3023,"Dear support team, I am unable to sign in to my account an hour ago.",ACCOUNT_ACCESS
+8737,"Greetings, I want to report something that does not fit any category. Please respond soon.",OTHER
+6167,"Hey, Which page lets me manage my lanugage settings?",HOW_TO_SUPPORT
+2700,"Hello team, Are you planning to release a kanban view in the future?",FEATURE_REQUEST
+2087,The coupon code did not apply at checkout and I was charged the full price. Thanks.,BILLING_PAYMENT
+3573,My card was charged three tmies last month. Thank you.,BILLING_PAYMENT
+100,There is a bug where the profile page shows duplicate entries after I print.,TECHNICAL_ISSUE
+3036,How do I use the dashboard to find my activity history?,HOW_TO_SUPPORT
+3581,"Hi, Is your service available in Kenya?",OTHER
+811,"Dear support team, I need to update the billing adderss on my invoice.",BILLING_PAYMENT
+202,I was charged GBP 45 for a plan I never upgraded to.,BILLING_PAYMENT
+8133,"Greetings, I am writing to ask about inetrnship opportunities.",OTHER
+144,Can you explain how to duplicate a project? Please respond soon.,HOW_TO_SUPPORT
+8269,"Add offline mode please, it is missing from the admin console. Thanks a lot.",FEATURE_REQUEST
+6836,"greetings, the page never finishes loading and only shows a something went wrong message.",TECHNICAL_ISSUE
+9046,It would improve my workflow if I could attach several files at once.,FEATURE_REQUEST
+7363,"Hey, The dashboard numbers are wrong and do not match the raw data",TECHNICAL_ISSUE
+4667,"Greetings, I am not able to log in from my Linux machine but it works on my computer. Thanks.",ACCOUNT_ACCESS
+1726,"Greetings, My account was hacked and I cannot log in anymore.",ACCOUNT_ACCESS
+979,What is the easiest way to change the date format? Please help.,HOW_TO_SUPPORT
+9021,Everything works on my computer but the billing page crashes on my Android phone. Thanks.,TECHNICAL_ISSUE
+7749,The one-time passcode takes forever to arrive and then it has expired. Thanks.,ACCOUNT_ACCESS
+914,My account is disabled and I need access urgently,ACCOUNT_ACCESS
+9301,Can you walk me through how to turn on email alerts?,HOW_TO_SUPPORT
+3805,"hello support, can someone explain how to use the profile page? regards.",HOW_TO_SUPPORT
+9034,The autosave is broken and my work was lost since this morning. Please help.,TECHNICAL_ISSUE
+8193,"Good morning, Notifications are not being delivered to my phone.",TECHNICAL_ISSUE
+3359,is there a guide that shows how to duplicate a project?,HOW_TO_SUPPORT
+1748,An option for a kanban view would make the product much better.,FEATURE_REQUEST
+6073,"Hi there, Where do I go in the admin console to change my profile information? Thanks in advance.",HOW_TO_SUPPORT
+515,"dear support team, the application crashes when i click save.",TECHNICAL_ISSUE
+8965,"Hey, Please credit my account for the payment error for June. Please help.",BILLING_PAYMENT
+3696,"Hi, Please let us export charts to PDF.",FEATURE_REQUEST
+7040,"Hello team, Do you have any security certifications?",OTHER
+6526,File uploads stay stuck at zero percent. Any help would be appreciated.,TECHNICAL_ISSUE
+5983,"Hi there, How do I pin a dashboard as my home page?",HOW_TO_SUPPORT
+3762,What are the steps to download a report,HOW_TO_SUPPORT
+2402,"good morning, please stop future charges to my card and cancel my subscription.",BILLING_PAYMENT
+1069,"Hi team, Can you recommend which team I should contact for my request?",OTHER
+6240,"Hi, I need help but I am not sure which optoin applies. Any help would be appreciated.",OTHER
+8437,"Dear support team, Suggestion: allow users to see who viewed a shared report.",FEATURE_REQUEST
+1737,Where do I go in the project board to change my time zone settings?,HOW_TO_SUPPORT
+5726,"Good afternoon, Feature request: the ability to duplicate an entire project.",FEATURE_REQUEST
+605,How do I upload a company logo? Thanks in advance.,HOW_TO_SUPPORT
+4719,Which menu do I use to export my data?,HOW_TO_SUPPORT
+5825,"I am new here, how do I download a report?",HOW_TO_SUPPORT
+5782,"Hi there, I cannot log in after resetting my password.",ACCOUNT_ACCESS
+3415,I want to report something that does not fit any category. Thanks a lot.,OTHER
+8728,"Account recovery is not working, the login code is not benig sent.",ACCOUNT_ACCESS
+9677,"Hi, My team would love to have an undo button. Is it on the roadmap?",FEATURE_REQUEST
+5646,"Greetings, Where is your company located?",OTHER
+2025,Search returns no results even for itmes that I know exist. Please advise.,TECHNICAL_ISSUE
+9804,"greetings, could someone give me an overview of what your company does?",OTHER
+2856,"Hey, Can you recommend wihch team I should contact for my request",OTHER
+1773,I would like more information before I create an account. Thanks in advance.,OTHER
+134,"Hello, I am getting a server error whenever I open the admin console.",TECHNICAL_ISSUE
+8416,The coupon code did not apply at checkout and I was charged the full price. Thank you,BILLING_PAYMENT
+3853,I cancelled my subscription weeks ago and you still took money from my account. Please advise.,BILLING_PAYMENT
+5645,"Hello support, Could you please implement passkey support in a coming update?",FEATURE_REQUEST
+5685,"Good afternoon, My card was charged three times for June",BILLING_PAYMENT
+692,The download link gives a error 500 instead of the file. Regards.,TECHNICAL_ISSUE
+6145,Video previews will not play in the calendar. Please help.,TECHNICAL_ISSUE
+3903,"Hello support, Can you explain how to pin a dashboard as my home page? Please help.",HOW_TO_SUPPORT
+8165,Please send an invoice for my latest annual subscription payment.,BILLING_PAYMENT
+4651,"Hi, The mobile app closes immediately after opening on my Android phone. Let me know what to do.",TECHNICAL_ISSUE
+7844,The dashboard is very slow and keeps freezing on my Android phone. Please respond soon.,TECHNICAL_ISSUE
+1119,Is there a guide that shows how to create a custom report?,HOW_TO_SUPPORT
+5397,Could someone give me an overview of what your company does? Let me know what to do.,OTHER
+1232,"Hello team, Can you explain how to create a template? Please respond soon.",HOW_TO_SUPPORT
+4738,"Good morning, Just started using the product, need to know how to set up my workspace for the first time. Thank you.",HOW_TO_SUPPORT
+3980,can i know more about your service before deciding? regards.,OTHER
+4833,"Hey, I would like to speak with a sales representative about enterprise options.",OTHER
+5845,"I am new here, how do I import contacts from a CSV file?",HOW_TO_SUPPORT
+7520,Buttons on the workspace do not respond when I click them. Please help.,TECHNICAL_ISSUE
+9860,"Dear support team, I am trying to restore a deleted file but I cannot find the option. Where is it?",HOW_TO_SUPPORT
+2952,"Hello team, The invoice shows the wrong company name, please correct it.",BILLING_PAYMENT
+4713,"Hi there, I would like to get in touch with your security team.",OTHER
+176,a pop up with a error 404 appears every time i try to save.,TECHNICAL_ISSUE
+9206,Which menu do I use to transfer ownership of a workspace?,HOW_TO_SUPPORT
+915,Please add an undo button to the team page. Please respond soon.,FEATURE_REQUEST
+322,"hey, could you tell me how to print a report?",HOW_TO_SUPPORT
+243,My username is not recognized on the login page. Let me know what to do.,ACCOUNT_ACCESS
+3380,Please stop ftuure charges to my card and cancel my subscription.,BILLING_PAYMENT
+2679,"Hello support, Where is your company located",OTHER
+9640,"Hi there, My username is not recognized on the login page.",ACCOUNT_ACCESS
+8997,"Hello support, I need to talk to someone but I do not know what to select.",OTHER
+2195,"Not sure how to change my password from the settings page, can you point me to the right help article? Any help would be appreciated.",HOW_TO_SUPPORT
+7825,do you have a tutorial on how to turn on email alerts?,HOW_TO_SUPPORT
+106,I would love to see an integration with Asana. Please advise.,FEATURE_REQUEST
+8636,Suggestion: allow users to attach several files at once. Thank you.,FEATURE_REQUEST
+1831,"Hi there, How do I transfer ownership of a workspace?",HOW_TO_SUPPORT
+415,"add a kanban view please, it is missing from the task list.",FEATURE_REQUEST
+303,What is the easiest way to change my time zone? Thanks a lot.,HOW_TO_SUPPORT
+4694,"Account recovery is not working, the activation email is not being sent.",ACCOUNT_ACCESS
+6918,I see a spinning loader that never finishes on the search page.,TECHNICAL_ISSUE
+7250,"hi, can you explain how to turn on email alerts?",HOW_TO_SUPPORT
+3230,Is your service available in Singapore? Any help would be appreciated.,OTHER
+9723,"Hi there, I cannot log in on my Linux machine.",ACCOUNT_ACCESS
+5933,"Please send monthly email digests to my inbox automatically, it would help a lot.",FEATURE_REQUEST
+1139,Images are not displaying correctly on the calendar in Edge.,TECHNICAL_ISSUE
+9377,I would like a refund for the GBP 45 charge on the first of the month.,BILLING_PAYMENT
+6449,can you help me regain access to my account? i need access urgently. please advise.,ACCOUNT_ACCESS
+5538,"Hello, Could you add an option to export charts as PowerPoint?",FEATURE_REQUEST
+9703,"My changes are not saved, the dashboard reverts to the old values.",TECHNICAL_ISSUE
+9955,"i am getting a message that my account is temporarily locked, please help me get in.",ACCOUNT_ACCESS
+161,"Dear support team, I have a general inquiry that does not fit any of the topics.",OTHER
+1744,"Hello team, Product idea: let us add custom fields to every project.",FEATURE_REQUEST
+5534,Any plans to support French in the interface?,FEATURE_REQUEST
+6556,I cannot log in after turning on two-factor authentication. Regards.,ACCOUNT_ACCESS
+6444,"Hello team, How do I set up a recurring report? Thanks.",HOW_TO_SUPPORT
+4997,The password reset email never arrives in my inbox. Thanks a lot.,ACCOUNT_ACCESS
+9917,"Hello team, Which page lets me manage my report templates?",HOW_TO_SUPPORT
+5907,"Greetings, I was charged for extra seats that I did not add.",BILLING_PAYMENT
+8641,"Hello, The verification step keeps failing when I try to sign in, since the latest update. Regards.",ACCOUNT_ACCESS
+8506,I would love to see an integration with Notion. Thanks in advance,FEATURE_REQUEST
+5974,How did your compnay start? I am curious.,OTHER
+3674,Could you add a compact layout to the profile page?,FEATURE_REQUEST
+6600,Please add Korean language support. Please advise,FEATURE_REQUEST
+7587,How do I set my working hours?,HOW_TO_SUPPORT
+823,There is a bug where the task list shows duplicate entries after I refresh.,TECHNICAL_ISSUE
+5352,"Dear support team, How do I use the reports page to link my account to Slack?",HOW_TO_SUPPORT
+1199,"Hi there, The payment page rejects my card and I cannot rneew my Starter plan",BILLING_PAYMENT
+1788,"Dear support team, Test message, please ignore.",OTHER
+9038,"Not sure how to restore a deleted file, can you point me to the right help article? Please respond soon.",HOW_TO_SUPPORT
+3257,Is it possible to import contacts from a CSV file? I cannot find where.,HOW_TO_SUPPORT
+3733,Why was I billed GBP 12 when my plan should be cheaper? Thank you.,BILLING_PAYMENT
+7441,"There is a mistake in my latest invoice, the total does not match the plan price. Thanks in advance.",BILLING_PAYMENT
+9698,"Hi team, Any documentation on how to change my display name",HOW_TO_SUPPORT
+5801,I need to update the billing address on my invoice. Thank you.,BILLING_PAYMENT
+5194,I downgraded to the Enterprise plan but I was still billed the higher price.,BILLING_PAYMENT
+583,It would be great if we could attach several files at once.,FEATURE_REQUEST
+491,The payment page rejects my card and I cannot renew my Team plan. Let me know what to do.,BILLING_PAYMENT
+5535,"Dear support team, I want to report something that does not fit any category.",OTHER
+4680,What is the easiest way to change the date format? Please respond soon.,HOW_TO_SUPPORT
+6662,Can you explain how to upload a company logo?,HOW_TO_SUPPORT
+7042,"Hello, I was billed EUR 39 twice for the same subscription.",BILLING_PAYMENT
+4551,"Good morning, Please unlock my account, I entered the wrong password several times. Thanks in advance.",ACCOUNT_ACCESS
+7004,"Good morning, My team would love to have dark mode. Is it on the roadmap?",FEATURE_REQUEST
+5479,"Greetings, I have some questions about your company before I proceed. Please advise.",OTHER
+8317,i have a general inquiry that does not fit any of the topics. please respond soon.,OTHER
+9538,Plesae credit my account for the payment error for March.,BILLING_PAYMENT
+4134,I forgot my password and the reset link says it has expired.,ACCOUNT_ACCESS
+8569,The confirmation email never arrives in my inbox. Thanks a lot.,ACCOUNT_ACCESS
+3038,"Hello, I changed my phone number and now I cannot get the login code.",ACCOUNT_ACCESS
+9583,I downgraded to the Business plan but I was still billed the higher price. Thanks.,BILLING_PAYMENT
+6590,"Dear support team, There is a mistake in my latest invoice, the total does not match the plan price.",BILLING_PAYMENT
+4269,"Hi there, Account recovery is not working, the activation email is not being sent.",ACCOUNT_ACCESS
+2295,How can I make a teammate an admin? Please advise.,HOW_TO_SUPPORT
+1080,Feature request: the ability to tag items with labels,FEATURE_REQUEST
+3713,Are you currently hiring? Thanks.,OTHER
+6888,Do you have a tutorial on how to update my profile picture?,HOW_TO_SUPPORT
+8840,"Please add a Google Calendar integration, our whole team uses it.",FEATURE_REQUEST
+5761,The VAT numebr is missing from my invoice.,BILLING_PAYMENT
+5036,"Greetings, How can I use filters on the dashboard",HOW_TO_SUPPORT
+2001,I would like to speak with a sales representative about enterprise options. Thanks a lot.,OTHER
+7504,A pop up with a something went wrong message appears every time I try to import.,TECHNICAL_ISSUE
+6421,"Hi there, Plaese add dark mode to the dashboard.",FEATURE_REQUEST
+6963,How do I create a template? Regards.,HOW_TO_SUPPORT
+9657,"Hey, The coupon code did not apply at checkout and I was charged the full price.",BILLING_PAYMENT
+7540,"Good afternoon, I am locked out after too many failed login attempts.",ACCOUNT_ACCESS
+2819,"Hi team, The confirmation email takes forever to arrive and then it has expired. Thanks a lot",ACCOUNT_ACCESS
+8295,"Hi, I cancelled my subscription weeks ago and you still took money from my account.",BILLING_PAYMENT
+6596,"Greetings, What is the easiest way to change my notification settings?",HOW_TO_SUPPORT
+6397,"Hi team, Where can I change my team permissions?",HOW_TO_SUPPORT
+5824,"Hi there, I would like a refund for the $99 charge for March. Thanks a lot.",BILLING_PAYMENT
+8550,"Good afternoon, The site is down for me, I only see a blank white screen.",TECHNICAL_ISSUE
+5458,"Greetings, Which page lets me manage my workspace name?",HOW_TO_SUPPORT
+7404,"Hi there, Can you explain how to find my activity history?",HOW_TO_SUPPORT
+2979,"Good afternoon, I am trying to change my notification settings but I cannot find the option. Where is it?",HOW_TO_SUPPORT
+7826,where can i change my integration settings?,HOW_TO_SUPPORT
+7219,What is the easiest way to link my account to Slack? Please help.,HOW_TO_SUPPORT
+8301,"Hi team, I keep getting an invalid password message even though I am typing it correctly",ACCOUNT_ACCESS
+4411,A pop up with a something went wrong message appears every time I try to upload.,TECHNICAL_ISSUE
+5859,What is the easiest way to download a report? Thanks in advance.,HOW_TO_SUPPORT
+2456,"Good morning, Test message, please ignore.",OTHER
+721,I changed my phone number and now I cannot get the login code. Please advise.,ACCOUNT_ACCESS
+5022,"Hello support, I need to talk to someone but I do not know what to select. Please advise.",OTHER
+5285,"Hi there, It would improve my workflow if I could assign tasks to multiple people. Please help.",FEATURE_REQUEST
+2789,Everything on the team page is loading extremely slowly since last night.,TECHNICAL_ISSUE
+3256,The project board becomes blank when I upload a PDF,TECHNICAL_ISSUE
+7699,A pop up with a error 500 appears every time I try to refresh.,TECHNICAL_ISSUE
+8806,The magic link never arrives in my inbox.,ACCOUNT_ACCESS
+4235,"Hello team, Video previews will not play in the search page.",TECHNICAL_ISSUE
+8820,Would it be possible to attach several files at once? That would save us a lot of time.,FEATURE_REQUEST
+2479,Buttons on the project board do not respond when I click them.,TECHNICAL_ISSUE
+288,"I am new here, how do I change the lnaguage of the interface?",HOW_TO_SUPPORT
+3678,The exported Word document is corrupted and cannot be opened. Thanks.,TECHNICAL_ISSUE
+732,"Hi team, The receipt email for my payment never arrived.",BILLING_PAYMENT
+1142,"Hi, Please send an invoice for my latest Basic subscription payment.",BILLING_PAYMENT
+8365,"Hello team, Can you recommend which team I should contact for my request?",OTHER
+9470,"Please add a Google Calendar integration, our whole team uses it. Thanks.",FEATURE_REQUEST
+4280,"Dear support team, Could you please implement login alerts by email in a coming update?",FEATURE_REQUEST
+3340,There is a bug where the billing page shows duplicate entries after I import,TECHNICAL_ISSUE
+8065,I was billed EUR 39 twice for the same subscription.,BILLING_PAYMENT
+486,"Greetings, I paid for the Basic plan but my account still shows the free tier. Let me know what to do.",BILLING_PAYMENT
+8483,Please add templates to the notifications panel.,FEATURE_REQUEST
+1736,I am getting a server error whenever I open the search page.,TECHNICAL_ISSUE
+995,Could you add version history to the admin console?,FEATURE_REQUEST
+650,"Hi, I need to change the credit card used for my subscription payments",BILLING_PAYMENT
+6323,Please show me how to delete a workspace.,HOW_TO_SUPPORT
+4960,Everything on the mobile app is loading extremely slowly since this morning.,TECHNICAL_ISSUE
+6221,"Dear support team, Could someone give me an overview of what your company does?",OTHER
+4852,"Hello, is anyone there? Any help would be appreciated.",OTHER
+2020,Can you build custom themes into the team page? Many users would benefit. Regards.,FEATURE_REQUEST
+4711,"Greetings, Would you consider adding a Google Calendar connection to your product?",FEATURE_REQUEST
+3951,"Dear support team, The reset link does nothing when I click it. Thank you",ACCOUNT_ACCESS
+3187,"Dear support team, Please credit my account for the payment error this week. Thanks in advance.",BILLING_PAYMENT
+343,Where do I go in the project board to change my email preferences? Thanks in advance,HOW_TO_SUPPORT
+6965,The task list becomes blank when I upload a JPEG photo.,TECHNICAL_ISSUE
+9358,I want a refund because I was billed after cancelling. Please help.,BILLING_PAYMENT
+107,"Hello support, Can you walk me thruogh how to archive old projects?",HOW_TO_SUPPORT
+3852,Where do I go in the team page to change my notification settings?,HOW_TO_SUPPORT
+3659,"Good afternoon, I am getting a error 500 whenever I open the task list.",TECHNICAL_ISSUE
+2912,What is the easiest way to change the date format?,HOW_TO_SUPPORT
+9905,"Hello team, Can you build a search bar into the profile page? Many users would benefit.",FEATURE_REQUEST
+3825,"Dear support team, I need to change the credit card used for my subscription payments.",BILLING_PAYMENT
+2116,"Good afternoon, My changes are not saved, the billing page reverts to the old values.",TECHNICAL_ISSUE
+4138,"Good morning, I cannot log in on my MacBook.",ACCOUNT_ACCESS
+792,Data I entered yesterday disappeared from the task list.,TECHNICAL_ISSUE
+211,The calendar becomes blank when I upload a CSV file.,TECHNICAL_ISSUE
+3518,"Hi there, Is your service available in Singapore?",OTHER
+7288,"Good morning, Please consider adding a way to see who viewed a shared report. Thanks a lot",FEATURE_REQUEST
+7090,I would love to see an integration with Google Calendar. Thanks.,FEATURE_REQUEST
+5681,"Hey, I cannot log in after resetting my password. Thanks.",ACCOUNT_ACCESS
+7931,i have a general inquiry that does not fit any of the topics. thanks in advance.,OTHER
+7395,The app crashes every time I try to upload.,TECHNICAL_ISSUE
+6760,"hello team, there is a bug where the billing page shows duplicate entries after i delete. please respond soon.",TECHNICAL_ISSUE
+3248,The download link gives a server error instead of the file. Please advise.,TECHNICAL_ISSUE
+1253,Lgoin fails on Opera with an authentication failed message.,ACCOUNT_ACCESS
+8510,"Hi team, I would like to get in touch with your security team.",OTHER
+4081,"Hello support, I have some questions about your company before I proceed. Thanks in advance.",OTHER
+98,"Hello, I represent a media outlet and want to reach out to the press team. Please respond soon.",OTHER
+84,"Please add a Zapier integration, our whloe team uses it. Thanks.",FEATURE_REQUEST
+8771,I was charged $19 for March but I expected a different amount.,BILLING_PAYMENT
+7197,I have some questions about your company before I proceed. Please help.,OTHER
+7338,"Hello support, Product idea: let us customize the dashboard layout.",FEATURE_REQUEST
+9898,The payment page rejects my card and I cannot renew my Starter plan.,BILLING_PAYMENT
+3001,Where do I go in the task list to change my profile information?,HOW_TO_SUPPORT
+5564,"We really need a calendar view on the project board, please consider it.",FEATURE_REQUEST
+4870,The page never finishes loading and only shows a 502 bad gateway. Please help,TECHNICAL_ISSUE
+2061,I want to leave general feedback about my experience. Let me know what to do.,OTHER
+5894,"Hello, Which menu do I use to add a new team member? Thanks a lot.",HOW_TO_SUPPORT
+1544,Everything on the workspace is loading extremely slowly for a week.,TECHNICAL_ISSUE
+3544,I am not able to log in from my Android phone but it works on my computer. Any help would be appreciated.,ACCOUNT_ACCESS
+8749,could you add an option to export analytics data as xml?,FEATURE_REQUEST
+2841,"Dear support team, I think I sent this to the wrong place, who is the right contact?",OTHER
+518,Please show me how to make a teammate an admin. Thank you.,HOW_TO_SUPPORT
+9531,It would improve my workflow if I could add comments to reports.,FEATURE_REQUEST
+6950,"Hello team, Any plans to support French in the interface?",FEATURE_REQUEST
+8897,"not sure how to import contacts from a csv file, can you point me to the right help article? any help would be appreciated.",HOW_TO_SUPPORT
+4115,I lost my phone and cannot receive the verification code to sign in. Thank you,ACCOUNT_ACCESS
+8452,"Greetings, The two-factor code is rejected every time I try to sign in.",ACCOUNT_ACCESS
+2158,A pop up with a blank white screen appears every time I try to export. Let me know what to do.,TECHNICAL_ISSUE
+104,"Greetings, Please reset my account access, I cannot get past the login screen.",ACCOUNT_ACCESS
+1239,My credit card was declined but my bank says there is no problem. Regards.,BILLING_PAYMENT
+8617,"Hi there, Suggestion: allow users to restore deleted items from a trash folder.",FEATURE_REQUEST
+5145,"Hello, Login fails on Brave with an authentication failed message.",ACCOUNT_ACCESS
+2427,"Hi team, Are you planning to release a search bar in the future? Thanks.",FEATURE_REQUEST
+5890,I downgraded to the Team plan but I was still billed the higher price.,BILLING_PAYMENT
+4364,"Hello team, Could you add auto save to the settings page? Please respond soon.",FEATURE_REQUEST
+173,"hi, there is a mistake in my latest invoice, the total does not match the plan price. thank you.",BILLING_PAYMENT
+5868,How can I make a teammate an admin?,HOW_TO_SUPPORT
+7436,"Good afternoon, I changed my phone number and now I cannot get the login code.",ACCOUNT_ACCESS
+1469,please let us export tbales to csv.,FEATURE_REQUEST
+3554,"hello support, i would like to know who i should contact regarding a collaboration.",OTHER
+8872,The application crashes when I click save.,TECHNICAL_ISSUE
+9321,I am locked out after too many failed login attempts. Thank you.,ACCOUNT_ACCESS
+6132,An option for cutsom themes would make the product much better. Let me know what to do.,FEATURE_REQUEST
+8829,"Hi team, Please stop future charges to my card and cancel my subscription.",BILLING_PAYMENT
+6630,"I cannot log into my account, it says the email address is not registered but I have used it before. Regards.",ACCOUNT_ACCESS
+2609,Any documentation on how to assign a task to a colleague?,HOW_TO_SUPPORT
+7285,Feautre request: an undo button. Thanks.,FEATURE_REQUEST
+443,Would it be possible to duplicate an entire project? That would save us a lot of time. Thanks a lot.,FEATURE_REQUEST
+2943,Feature request: a kanban view.,FEATURE_REQUEST
+9352,"Hey, The activation email never arrives in my inbox. Please advise.",ACCOUNT_ACCESS
+5654,Everything works on my computer but the inbox crashes on my Windows laptop. Thanks.,TECHNICAL_ISSUE
+9304,"Greetings, Why did the price of my Starter plan go up?",BILLING_PAYMENT
+9219,"Greetings, Can I pay by bank transfer instead of card? My card keeps getting declined.",BILLING_PAYMENT
+1470,it would be helpful if the reports page supported a kanban view. regards.,FEATURE_REQUEST
+5073,Scheduled reports are not running at the set time. Let me know what to do.,TECHNICAL_ISSUE
+2172,my username is not recognized on the login page. please respond soon.,ACCOUNT_ACCESS
+8177,Could you add a mobile widget to the calendar? Any help would be appreciated.,FEATURE_REQUEST
+2338,"Good morning, Is it possible to add a comment to a task? I cannot find where.",HOW_TO_SUPPORT
+2230,"Dear support team, My invitation link to join the team does not let me sign in. Thanks a lot.",ACCOUNT_ACCESS
+632,"Hi, I am trying to add a comment to a task but I cannot find the option. Where is it? Thanks in advance.",HOW_TO_SUPPORT
+6,Please send an invoice for my latest subscription payment.,BILLING_PAYMENT
+5040,Where do I go in the mobile app to change my workspace name?,HOW_TO_SUPPORT
+2278,"Greetings, It would be helpful if the team page supported a mobile widget.",FEATURE_REQUEST
+7957,"Hello, My credit card was declined but my bank says there is no problem.",BILLING_PAYMENT
+3744,I wish the team page had offline mode.,FEATURE_REQUEST
+383,Do you support customers based in Mexico,OTHER
+5611,"My changes are not saved, the project board reverts to the old values.",TECHNICAL_ISSUE
+3651,"Good morning, Where can I change my saved filters?",HOW_TO_SUPPORT
+3877,There is a bug where the reports page shows duplicate entries after I print.,TECHNICAL_ISSUE
+5001,"Hi, The page shows an unexpected timeout error when I save my profile.",TECHNICAL_ISSUE
+5337,"Hello, I was billed $9.99 twice for the same subscription. Thanks a lot.",BILLING_PAYMENT
+6464,"Hello support, Are you planning to release a kanban view in the future?",FEATURE_REQUEST
+6193,i would like to sepak with a sales representative about enterprise options. please help.,OTHER
+9266,Are you planning to release drag and drop in the future,FEATURE_REQUEST
+8454,"Hi team, How did your company start? I am curious.",OTHER
+1538,An option for an undo button would make the product much better.,FEATURE_REQUEST
+6501,I cannot log in after resetting my password. Thank you.,ACCOUNT_ACCESS
+910,"Hey, I want to leave general feedback about my experience. Let me know what to do.",OTHER
+8245,Do you have a tutorial on how to merge duplicate entries?,HOW_TO_SUPPORT
+7472,"Dear support team, The dashboard numbers are wrong and do not match the raw data.",TECHNICAL_ISSUE
+9088,Can you build saved views into the mobile app? Many users would benefit.,FEATURE_REQUEST
+512,"Hello, Can I get a call back from someone on your team? Thank you.",OTHER
+9281,"Good morning, There is an unknown charge of EUR 15 from your company on my bank statement.",BILLING_PAYMENT
+1134,"Greetings, My invitation link to join the team does not let me sign in.",ACCOUNT_ACCESS
+302,I would love to see an integration with Dropbox.,FEATURE_REQUEST
+9721,I cannot access my settings page because it says I do not have permission.,ACCOUNT_ACCESS
+9683,"good morning, is there a guide that shows how to set up a recurring report?",HOW_TO_SUPPORT
+4021,How did your company start? I am curious. Thanks.,OTHER
+3634,"Hi there, Not sure how to invite a member to my workspace, can you point me to the right help article?",HOW_TO_SUPPORT
+5637,Uploading a PDF gets stuck at zero percent and never finishes.,TECHNICAL_ISSUE
+8624,"Hi, Can you recommend which team I should contact for my request?",OTHER
+6663,I need a corrected invoice with our new company address. Thanks a lot,BILLING_PAYMENT
+6048,The mobile app closes immediately after opening on my MacBook,TECHNICAL_ISSUE
+4194,There is a bug where the mobile app shows duplicate entries after I save.,TECHNICAL_ISSUE
+9680,"Hi, The reset link does nothing when I click it.",ACCOUNT_ACCESS
+5216,The activation email takes forever to arrive and then it has expired. Thanks.,ACCOUNT_ACCESS
+4233,"Good afternoon, The exported video file is corrupted and cannot be opened.",TECHNICAL_ISSUE
+3972,"Hi, What is the easiest way to share a dashboard with a client?",HOW_TO_SUPPORT
+6466,"Greetings, It would be great if we could attach several files at once.",FEATURE_REQUEST
+2310,"greetings, i have been overcharged for march, please look into my billing.",BILLING_PAYMENT
+3667,"Hi team, Can you explain how to download a report?",HOW_TO_SUPPORT
+1514,"Hey, The API returns a timeout error when I call the endpoint.",TECHNICAL_ISSUE
+4741,which page lets me manage my integration settings? please advise.,HOW_TO_SUPPORT
+2121,"Hi there, I am not able to log in from my Windows laptop but it works on my computer.",ACCOUNT_ACCESS
+284,Please add a compact layout to the inbox.,FEATURE_REQUEST
+4624,My inivtation link to join the team does not let me sign in. Let me know what to do.,ACCOUNT_ACCESS
+8599,Can you help me regain access to my account? I need access urgently. Please help.,ACCOUNT_ACCESS
+81,"Dear support team, Login fails on Opera with an authentication failed message. Thanks a lot.",ACCOUNT_ACCESS
+3286,Any documentation on how to set up a recurring report?,HOW_TO_SUPPORT
+4523,Text is cut off and overlapping on the inbox on my Windows laptop.,TECHNICAL_ISSUE
+1310,I cannot access my project baord because it says I do not have permission.,ACCOUNT_ACCESS
+6120,"Dear support team, I see a spinning loader that nveer finishes on the billing page.",TECHNICAL_ISSUE
+9445,How do I archive old projects? Let me know what to do.,HOW_TO_SUPPORT
+7808,"Hello team, My renewal payment failed and now my subscription shows as past due.",BILLING_PAYMENT
+9658,"Hi, I am writing to ask about internship opportunities",OTHER
+2932,"Hi, My account has been suspended and I do not know why.",ACCOUNT_ACCESS
+4444,"Hello team, I was charged after my free trial ended without any reminder. Let me know what to do",BILLING_PAYMENT
+5119,My invitation link to join the team does not let me sign in.,ACCOUNT_ACCESS
+9682,"Please unlock my account, I entered the wrong password several times. Please help.",ACCOUNT_ACCESS
+892,Is there a guide that shows how to export my data?,HOW_TO_SUPPORT
+1562,The team page is very slow and keeps freezing on my iPad.,TECHNICAL_ISSUE
+768,I would like to know who I should contact regarding a collaboration.,OTHER
+9675,"Hello, Text is cut off and overlapping on the calendar on my tablet.",TECHNICAL_ISSUE
+5798,I was charged EUR 15 this month but I expected a different amount. Any help would be appreciated.,BILLING_PAYMENT
+5203,"I have been overcharged this month, please look into my billing. Thank you.",BILLING_PAYMENT
+8019,"Good morning, The autosave is broken and my work was lost an hour ago.",TECHNICAL_ISSUE
+4530,Sign in with single sign-on fails and shows an unauthorized message. Thanks in advance.,ACCOUNT_ACCESS
+2625,I am stuck in a loop where the site asks me to verify my email again and again. Please help.,ACCOUNT_ACCESS
+3226,Is your service available in Japan? Thanks,OTHER
+8939,Uploaidng a ZIP file gets stuck at 50 percent and never finishes.,TECHNICAL_ISSUE
+4820,"Hey, The two-factor code is rejected every time I try to sign in.",ACCOUNT_ACCESS
+4160,I cannot log in since last night. Let me know what to do.,ACCOUNT_ACCESS
+8871,i would like to get in touch with the partnerships team. regards.,OTHER
+2074,"Hi team, The autosave is broken and my work was lost an hour ago.",TECHNICAL_ISSUE
+6427,Can you build bulk actions into the profile page? Many users would benefit.,FEATURE_REQUEST
+1655,Please show me how to create a cutsom report.,HOW_TO_SUPPORT
+6053,"Hi, My account has been blocked and I do not know why.",ACCOUNT_ACCESS
+3830,"Hello support, I have a question about your service.",OTHER
+7600,Please consider adding a way to add comments to reports.,FEATURE_REQUEST
+6069,Please show me how to connect my calendar.,HOW_TO_SUPPORT
+9133,"Greetings, My credit card was declined but my bank says there is no problem.",BILLING_PAYMENT
+5986,"Hi, Is it possible to import contacts from a CSV file? I cannot find where.",HOW_TO_SUPPORT
+1961,"Hi, Please send an invoice for my latest Enterprise subscription payment.",BILLING_PAYMENT
+9526,"Hello, Someone changed my password and I no longer have access to my account.",ACCOUNT_ACCESS
+3875,Please let us export contact lists to Google Sheets. Regards.,FEATURE_REQUEST
+6909,Please consider adding a way to customize the dashboard layout.,FEATURE_REQUEST
+9354,"Good morning, Video previews will not play in the admin console.",TECHNICAL_ISSUE
+6018,"Hello team, My PayPal payment failed but the money left my account.",BILLING_PAYMENT
+3643,"Greetings, Just started using the product, need to know how to duplicate a project.",HOW_TO_SUPPORT
+5993,"Hello support, The application crashes when I click submit.",TECHNICAL_ISSUE
+3858,"Hello support, I have a general inquiry that does not fit any of the topics.",OTHER
+6713,"Hey, It would improve my workflow if I could pin important items to the top. Thanks a lot.",FEATURE_REQUEST
+4891,Could you please implement an option to log out all devices in a coming update?,FEATURE_REQUEST
+9937,The VAT number is missing from my invoice.,BILLING_PAYMENT
+2319,"Please reufnd my last payment, I did not use the service at all.",BILLING_PAYMENT
+2301,"good afternoon, would you consider adding a outlook connection to your product?",FEATURE_REQUEST
+1436,The sync between my devices has stopped working. Thanks a lot.,TECHNICAL_ISSUE
+5354,the task list does not display anything after the latest update.,TECHNICAL_ISSUE
+5083,"I am a student working on a school project about your product, who can I talk to? Regards.",OTHER
+6228,I need a recepit for my payment for June for tax purposes.,BILLING_PAYMENT
+3327,Everything on the workspace is loading extremely slowly an hour ago.,TECHNICAL_ISSUE
+7045,"Greetings, Please add authenticator app support for account security.",FEATURE_REQUEST
+2341,It would be great to have an undo button in the notifications panel. Thanks.,FEATURE_REQUEST
+8346,Search returns no results even for itmes that I know exist.,TECHNICAL_ISSUE
+1665,"Hi there, Uploadnig a CSV file gets stuck at 50 percent and never finishes.",TECHNICAL_ISSUE
+205,"Good morning, I want a refund because I was billed after cancelling.",BILLING_PAYMENT
+7501,It would be great to have version history in the search page.,FEATURE_REQUEST
+1531,Is it possible to change my password from the settings page? I cannot find where. Please advise.,HOW_TO_SUPPORT
+4799,"Good afternoon, What is the easiest way to change my notification settings?",HOW_TO_SUPPORT
+1927,Why was I billed $24.99 when my plan should be cheaper?,BILLING_PAYMENT
+4817,I was charged $9.99 for a plan I never upgraded to. Let me know what to do.,BILLING_PAYMENT
+5436,"Greetings, Can you help me regain access to my account? I need access urgently.",ACCOUNT_ACCESS
+9393,The payment page rejects my card and I cannot renew my Enterprise plan.,BILLING_PAYMENT
+865,The reset link does nothing when I click it. Please advise.,ACCOUNT_ACCESS
+5238,There is a bug where the team page shows duplicate entries after I print.,TECHNICAL_ISSUE
+4671,There is an unknown charge of EUR 39 from your company on my bank statement.,BILLING_PAYMENT
+7137,"Hi, Please let us export contact lists to JSON.",FEATURE_REQUEST
+3937,The payment page rejects my card and I cannot renew my monthly plan. Thanks a lot.,BILLING_PAYMENT
+7973,"Hello support, It would be great to have dark mode in the project board.",FEATURE_REQUEST
+4726,I have a questoin about your service. Thanks in advance.,OTHER
+6949,"Hi, Please add support for exporting to Google Sheets and also bulk actions.",FEATURE_REQUEST
+3025,"Hi team, I cannot log into my account, it says the email address is not registered but I have used it before. Let me know what to do.",ACCOUNT_ACCESS
+895,"Hello support, Please forward this message to the right department.",OTHER
+238,I want to report sometihng that does not fit any category.,OTHER
+8138,"Hey, I cannot sign in with my Google account anymore. Thanks.",ACCOUNT_ACCESS
+2287,"Good afternoon, Just started using the product, need to know how to change the date format.",HOW_TO_SUPPORT
+3884,"Hey, Are you currently hiring?",OTHER
+998,How do I use the profile page to change my time zone? Any help would be appreciated.,HOW_TO_SUPPORT
+8554,"Hello support, I cannot log into my account, it says the email address is not registered but I have used it before.",ACCOUNT_ACCESS
+5078,"Good morning, What is the easiest way to update my profile picture? Any help would be appreciated.",HOW_TO_SUPPORT
+9536,"Hello support, Where do I go in the workspace to change my time zone settings?",HOW_TO_SUPPORT
+5081,"Good afternoon, There is an unknown charge of $24.99 from your company on my bank statement.",BILLING_PAYMENT
+5085,charts on the settings page do not load.,TECHNICAL_ISSUE
+4706,"hello support, i want to leave genreal feedback about my experience.",OTHER
+790,Could you add an option to export tables as CSV?,FEATURE_REQUEST
+8388,The app freezes when I try to publish a large video file.,TECHNICAL_ISSUE
+1953,"Hello, Feature request: the ability to duplicate an entire project.",FEATURE_REQUEST
+2187,Please add auto save to the project board. Thank you.,FEATURE_REQUEST
+9569,"Hello, Everythnig on the reports page is loading extremely slowly for a week.",TECHNICAL_ISSUE

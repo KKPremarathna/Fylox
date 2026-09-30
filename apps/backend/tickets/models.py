@@ -1,10 +1,11 @@
 from datetime import datetime, timezone
 from typing import TYPE_CHECKING, Optional
 
-from sqlalchemy import DateTime, ForeignKey, Integer, String, Text, func
+from sqlalchemy import Boolean, DateTime, Float, ForeignKey, Integer, String, Text, func
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from backend.database import Base
+
 
 if TYPE_CHECKING:
     from backend.users.models import User
@@ -45,6 +46,27 @@ class Ticket(Base):
         String(30),
         nullable=False,
         default="OPEN",
+    )
+
+    ai_suggested_category: Mapped[Optional[str]] = mapped_column(
+        String(50),
+        nullable=True,
+    )
+
+    ai_category_confidence: Mapped[Optional[float]] = mapped_column(
+        Float,
+        nullable=True,
+    )
+
+    final_category: Mapped[Optional[str]] = mapped_column(
+        String(50),
+        nullable=True,
+        index=True,
+    )
+
+    ai_category_approved: Mapped[Optional[bool]] = mapped_column(
+        Boolean,
+        nullable=True,
     )
 
     created_at: Mapped[datetime] = mapped_column(

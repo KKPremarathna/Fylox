@@ -1,0 +1,25 @@
+ticket_id,text,category
+1,"I cannot log in after resetting my password.",ACCOUNT_ACCESS
+2,"My account is locked and I need access urgently.",ACCOUNT_ACCESS
+3,"The password reset email never arrives in my inbox.",ACCOUNT_ACCESS
+4,"I changed my email address and now I cannot access my account.",ACCOUNT_ACCESS
+5,"My card was charged twice for this month.",BILLING_PAYMENT
+6,"Please send an invoice for my latest subscription payment.",BILLING_PAYMENT
+7,"My payment was successful but my subscription is still inactive.",BILLING_PAYMENT
+8,"I want a refund because I was billed after cancelling.",BILLING_PAYMENT
+9,"The dashboard becomes blank when I upload a PDF.",TECHNICAL_ISSUE
+10,"The application crashes when I click export.",TECHNICAL_ISSUE
+11,"File uploads stay stuck at zero percent.",TECHNICAL_ISSUE
+12,"The page shows an unexpected server error when I save my profile.",TECHNICAL_ISSUE
+13,"Please add dark mode to the dashboard.",FEATURE_REQUEST
+14,"Could you add an option to export reports as Excel?",FEATURE_REQUEST
+15,"It would be useful to receive weekly activity reports by email.",FEATURE_REQUEST
+16,"Please add two-factor authentication for account security.",FEATURE_REQUEST
+17,"How do I invite another member to my workspace?",HOW_TO_SUPPORT
+18,"Where can I change my notification settings?",HOW_TO_SUPPORT
+19,"How can I update the profile picture for my account?",HOW_TO_SUPPORT
+20,"Can you explain how to download a report?",HOW_TO_SUPPORT
+21,"I have a question about your service.",OTHER
+22,"Can someone contact me about an issue?",OTHER
+23,"I would like more information before I create an account.",OTHER
+24,"I need help but I am not sure which option applies.",OTHER
