@@ -11,8 +11,10 @@ from backend.tickets.rate_limit import reset_rate_limiter
 
 # Import every model so all table definitions are registered in Base.metadata.
 from backend.activity.models import TicketActivity
+from backend.activity.models import TicketActivity
 from backend.messages.models import TicketMessage
 from backend.orders.models import Order
+from backend.payments.models import Payment
 from backend.tickets.models import Ticket
 from backend.users.models import User
 
@@ -173,3 +175,39 @@ def second_customer_order(db_session, second_customer_user):
     db_session.commit()
     db_session.refresh(order)
     return order
+
+
+@pytest.fixture(scope="function")
+def customer_payment(db_session, customer_order):
+    from decimal import Decimal
+    from backend.payments.models import Payment
+    payment = Payment(
+        order_id=customer_order.id,
+        provider_reference="ch_cust_123",
+        amount=Decimal("149.99"),
+        currency="USD",
+        status="SUCCEEDED",
+        payment_method="CARD",
+    )
+    db_session.add(payment)
+    db_session.commit()
+    db_session.refresh(payment)
+    return payment
+
+
+@pytest.fixture(scope="function")
+def second_customer_payment(db_session, second_customer_order):
+    from decimal import Decimal
+    from backend.payments.models import Payment
+    payment = Payment(
+        order_id=second_customer_order.id,
+        provider_reference="ch_second_456",
+        amount=Decimal("250.00"),
+        currency="USD",
+        status="SUCCEEDED",
+        payment_method="CARD",
+    )
+    db_session.add(payment)
+    db_session.commit()
+    db_session.refresh(payment)
+    return payment
