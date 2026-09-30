@@ -7,6 +7,8 @@ from backend.orders.routes import router as orders_router
 from backend.payments.routes import router as payments_router
 from backend.users.routes import router as users_router
 from backend.messages.routes import router as messages_router
+from backend.approvals.routes import customer_router as approvals_customer_router
+from backend.approvals.routes import admin_router as approvals_admin_router
 from backend.admin.routes import router as admin_router
 from backend.activity.routes import admin_router as activity_admin_router
 from backend.activity.routes import router as activity_router
@@ -34,6 +36,8 @@ app.include_router(users_router)
 app.include_router(auth_router)
 app.include_router(orders_router)
 app.include_router(payments_router)
+app.include_router(approvals_customer_router)
+app.include_router(approvals_admin_router)
 app.include_router(tickets_router)
 app.include_router(messages_router)
 app.include_router(admin_router)

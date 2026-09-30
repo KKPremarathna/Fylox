@@ -12,6 +12,7 @@ from backend.tickets.rate_limit import reset_rate_limiter
 # Import every model so all table definitions are registered in Base.metadata.
 from backend.activity.models import TicketActivity
 from backend.activity.models import TicketActivity
+from backend.approvals.models import ApprovalRequest
 from backend.messages.models import TicketMessage
 from backend.orders.models import Order
 from backend.payments.models import Payment
