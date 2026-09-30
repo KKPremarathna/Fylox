@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import type { Ticket } from "../types/api";
 
 type AdminTicketQueueProps = {
   tickets: Ticket[];
+  currentAdminId: number | undefined;
+  onClaimTicket: (ticketId: number) => Promise<void>;
   onUpdateStatus: (
     ticketId: number,
     status: Ticket["status"],
@@ -23,8 +26,52 @@ function statusLabel(status: Ticket["status"]) {
 
 export function AdminTicketQueue({
   tickets,
+  currentAdminId,
+  onClaimTicket,
   onUpdateStatus,
 }: AdminTicketQueueProps) {
+  const [updatingTicketId, setUpdatingTicketId] = useState<number | null>(
+    null,
+  );
+  const [error, setError] = useState<string | null>(null);
+
+  async function handleClaimTicket(ticketId: number) {
+    setError(null);
+    setUpdatingTicketId(ticketId);
+
+    try {
+      await onClaimTicket(ticketId);
+    } catch (caughtError) {
+      setError(
+        caughtError instanceof Error
+          ? caughtError.message
+          : "Unable to claim this ticket.",
+      );
+    } finally {
+      setUpdatingTicketId(null);
+    }
+  }
+
+  async function handleStatusChange(
+    ticketId: number,
+    status: Ticket["status"],
+  ) {
+    setError(null);
+    setUpdatingTicketId(ticketId);
+
+    try {
+      await onUpdateStatus(ticketId, status);
+    } catch (caughtError) {
+      setError(
+        caughtError instanceof Error
+          ? caughtError.message
+          : "Unable to update ticket status.",
+      );
+    } finally {
+      setUpdatingTicketId(null);
+    }
+  }
+
   if (tickets.length === 0) {
     return (
       <section className="empty-state">
@@ -45,69 +92,93 @@ export function AdminTicketQueue({
         <span className="count-badge">{tickets.length}</span>
       </div>
 
+      {error ? (
+        <p className="form-error" role="alert">
+          {error}
+        </p>
+      ) : null}
+
       <div className="admin-ticket-list">
-        {tickets.map((ticket) => (
-          <article className="admin-ticket-card" key={ticket.id}>
-            <div className="admin-ticket-content">
-              <div className="ticket-card-title">
-                <span className="ticket-id">#{ticket.id}</span>
-                <h3>{ticket.subject}</h3>
+        {tickets.map((ticket) => {
+          const isUpdating = updatingTicketId === ticket.id;
+          const isClaimedByCurrentAdmin =
+            ticket.assigned_admin_id === currentAdminId;
+
+          return (
+            <article className="admin-ticket-card" key={ticket.id}>
+              <div className="admin-ticket-content">
+                <div className="ticket-card-title">
+                  <span className="ticket-id">#{ticket.id}</span>
+                  <h3>{ticket.subject}</h3>
+                </div>
+
+                <p className="ticket-description">
+                  {ticket.description}
+                </p>
+
+                <div className="admin-ticket-details">
+                  <span>
+                    Customer ID: {ticket.customer_id}
+                  </span>
+                  <span>
+                    Assigned admin:{" "}
+                    {ticket.assigned_admin_id ?? "Unassigned"}
+                  </span>
+                  <span>
+                    Created {formatDate(ticket.created_at)}
+                  </span>
+                </div>
               </div>
 
-              <p className="ticket-description">
-                {ticket.description}
-              </p>
-
-              <div className="admin-ticket-details">
-                <span>
-                  Customer ID: {ticket.customer_id}
-                </span>
-                <span>
-                  Assigned admin:{" "}
-                  {ticket.assigned_admin_id ?? "Unassigned"}
-                </span>
-                <span>
-                  Created {formatDate(ticket.created_at)}
-                </span>
-              </div>
-            </div>
-
-            <div className="admin-ticket-actions">
-              <span
-                className={`status status-${ticket.status.toLowerCase()}`}
-              >
-                {statusLabel(ticket.status)}
-              </span>
-
-              <label className="status-select-label">
-                Update status
-                <select
-                  value={ticket.status}
-                  onChange={(event) => {
-                    void onUpdateStatus(
-                      ticket.id,
-                      event.target.value as Ticket["status"],
-                    );
-                  }}
+              <div className="admin-ticket-actions">
+                <span
+                  className={`status status-${ticket.status.toLowerCase()}`}
                 >
-                  <option value="OPEN">Open</option>
-                  <option value="IN_PROGRESS">
-                    In progress
-                  </option>
-                  <option value="RESOLVED">Resolved</option>
-                  <option value="CLOSED">Closed</option>
-                </select>
-              </label>
+                  {statusLabel(ticket.status)}
+                </span>
 
-              <Link
-                className="view-ticket-link"
-                to={`/tickets/${ticket.id}`}
-              >
-                Open ticket →
-              </Link>
-            </div>
-          </article>
-        ))}
+                <button
+                  className="secondary-button"
+                  type="button"
+                  disabled={isUpdating || isClaimedByCurrentAdmin}
+                  onClick={() => void handleClaimTicket(ticket.id)}
+                >
+                  {isClaimedByCurrentAdmin
+                    ? "Claimed by you"
+                    : "Claim ticket"}
+                </button>
+
+                <label className="status-select-label">
+                  Update status
+                  <select
+                    disabled={isUpdating}
+                    value={ticket.status}
+                    onChange={(event) => {
+                      void handleStatusChange(
+                        ticket.id,
+                        event.target.value as Ticket["status"],
+                      );
+                    }}
+                  >
+                    <option value="OPEN">Open</option>
+                    <option value="IN_PROGRESS">
+                      In progress
+                    </option>
+                    <option value="RESOLVED">Resolved</option>
+                    <option value="CLOSED">Closed</option>
+                  </select>
+                </label>
+
+                <Link
+                  className="view-ticket-link"
+                  to={`/tickets/${ticket.id}`}
+                >
+                  Open ticket →
+                </Link>
+              </div>
+            </article>
+          );
+        })}
       </div>
     </section>
   );

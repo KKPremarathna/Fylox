@@ -581,6 +581,20 @@ a:hover {
   font-size: 0.85rem;
 }
 
+.secondary-button {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  color: #2457d6;
+  background: #e7efff;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.secondary-button:hover:not(:disabled) {
+  background: #d6e5ff;
+}
+
+
 @media (max-width: 720px) {
   .admin-ticket-card {
     flex-direction: column;
@@ -590,6 +604,7 @@ a:hover {
     justify-items: start;
   }
 }
+
 
 @media (max-width: 640px) {
   .dashboard-header {

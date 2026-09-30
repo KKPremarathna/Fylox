@@ -41,9 +41,12 @@ export function AdminTicketsPage() {
     void loadTickets();
   }, [loadTickets]);
 
-  async function handleUpdateStatus(
+  async function applyTicketUpdate(
     ticketId: number,
-    status: Ticket["status"],
+    payload: {
+      assigned_admin_id?: number | null;
+      status?: Ticket["status"];
+    },
   ) {
     if (!token) {
       throw new Error("Your session has expired. Please sign in again.");
@@ -52,7 +55,7 @@ export function AdminTicketsPage() {
     const updatedTicket = await updateAdminTicket(
       token,
       ticketId,
-      { status },
+      payload,
     );
 
     setTickets((currentTickets) =>
@@ -64,6 +67,23 @@ export function AdminTicketsPage() {
     );
   }
 
+  async function handleClaimTicket(ticketId: number) {
+    if (!user) {
+      throw new Error("Your account details are unavailable.");
+    }
+
+    await applyTicketUpdate(ticketId, {
+      assigned_admin_id: user.user_id,
+    });
+  }
+
+  async function handleUpdateStatus(
+    ticketId: number,
+    status: Ticket["status"],
+  ) {
+    await applyTicketUpdate(ticketId, { status });
+  }
+
   return (
     <main className="dashboard-page">
       <header className="dashboard-header">
@@ -71,7 +91,7 @@ export function AdminTicketsPage() {
           <p className="eyebrow">FYLOX ADMIN</p>
           <h1>Ticket queue</h1>
           <p className="muted">
-            Signed in as {user?.username}. Review and resolve
+            Signed in as {user?.username}. Review, claim, and resolve
             customer support requests.
           </p>
         </div>
@@ -95,12 +115,14 @@ export function AdminTicketsPage() {
       ) : null}
 
       {isLoading ? (
-        <section className="empty-state">
+        <section className="empty-state" role="status">
           <p>Loading the ticket queue...</p>
         </section>
       ) : (
         <AdminTicketQueue
           tickets={tickets}
+          currentAdminId={user?.user_id}
+          onClaimTicket={handleClaimTicket}
           onUpdateStatus={handleUpdateStatus}
         />
       )}
