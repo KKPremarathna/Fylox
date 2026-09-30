@@ -298,90 +298,115 @@ export function TicketDetailPage() {
 
       {isAdmin ? (
         <section className="panel category-review-panel">
-          <div className="panel-heading">
-            <div>
+          {/* ── Panel header band ── */}
+          <div className="crp-header">
+            <div className="crp-header-text">
               <p className="eyebrow">AI-ASSISTED TRIAGE</p>
-              <h2>Category review</h2>
+              <h2 className="crp-title">Category Review</h2>
             </div>
+            <span className="crp-badge">
+              {ticket.ai_suggested_category ? "✦ Suggestion ready" : "Awaiting analysis"}
+            </span>
           </div>
 
+          {/* ── AI suggestion block ── */}
           {ticket.ai_suggested_category ? (
-            <div className="category-suggestion">
-              <p>
-                <strong>AI suggestion:</strong>{" "}
-                {categoryLabel(ticket.ai_suggested_category)}
-              </p>
-              <p className="muted">
-                Model score:{" "}
-                {formatConfidence(ticket.ai_category_confidence)}
-              </p>
+            <div className="crp-suggestion-block">
+              <div className="crp-suggestion-meta">
+                <div>
+                  <p className="crp-meta-label">AI Suggestion</p>
+                  <p className="crp-category-value">
+                    {categoryLabel(ticket.ai_suggested_category)}
+                  </p>
+                </div>
+                <div className="crp-confidence">
+                  <p className="crp-meta-label">Model confidence</p>
+                  <div className="crp-confidence-row">
+                    <div className="crp-confidence-bar-track">
+                      <div
+                        className="crp-confidence-bar-fill"
+                        style={{
+                          width: ticket.ai_category_confidence != null
+                            ? `${(ticket.ai_category_confidence * 100).toFixed(1)}%`
+                            : "0%",
+                        }}
+                      />
+                    </div>
+                    <span className="crp-confidence-pct">
+                      {formatConfidence(ticket.ai_category_confidence)}
+                    </span>
+                  </div>
+                </div>
+              </div>
 
               <button
-                className="secondary-button"
+                className="crp-accept-btn"
                 type="button"
                 disabled={isCategoryActionLoading}
                 onClick={() => void handleAcceptAiSuggestion()}
               >
-                {isCategoryActionLoading
-                  ? "Saving..."
-                  : "Accept AI suggestion"}
+                {isCategoryActionLoading ? "Saving…" : "✔ Accept AI suggestion"}
               </button>
             </div>
           ) : (
-            <div className="category-suggestion">
-              <p className="muted">
-                No AI category suggestion has been requested yet.
+            <div className="crp-empty-block">
+              <div className="crp-empty-icon">🤖</div>
+              <p className="crp-empty-text">
+                No AI suggestion has been requested yet for this ticket.
               </p>
-
               <button
-                className="secondary-button"
+                className="crp-ai-btn"
                 type="button"
                 disabled={isCategoryActionLoading}
                 onClick={() => void handleGetAiSuggestion()}
               >
-                {isCategoryActionLoading
-                  ? "Getting suggestion..."
-                  : "Get AI suggestion"}
+                {isCategoryActionLoading ? "Analysing…" : "✦ Get AI suggestion"}
               </button>
             </div>
           )}
 
-          <label className="form-field" htmlFor="final-category">
-            <span>Final category</span>
-            <select
-              id="final-category"
-              value={selectedCategory}
-              disabled={isCategoryActionLoading}
-              onChange={(event) =>
-                setSelectedCategory(
-                  event.target.value as TicketCategory,
-                )
-              }
-            >
-              {ticketCategories.map((category) => (
-                <option key={category} value={category}>
-                  {categoryLabel(category)}
-                </option>
-              ))}
-            </select>
-          </label>
+          {/* ── Manual override ── */}
+          <div className="crp-manual-row">
+            <label className="crp-manual-label" htmlFor="final-category">
+              Final category
+            </label>
+            <div className="crp-manual-controls">
+              <select
+                id="final-category"
+                className="crp-select"
+                value={selectedCategory}
+                disabled={isCategoryActionLoading}
+                onChange={(event) =>
+                  setSelectedCategory(event.target.value as TicketCategory)
+                }
+              >
+                {ticketCategories.map((category) => (
+                  <option key={category} value={category}>
+                    {categoryLabel(category)}
+                  </option>
+                ))}
+              </select>
 
-          <button
-            className="primary-button"
-            type="button"
-            disabled={isCategoryActionLoading}
-            onClick={() => void handleSaveCategory()}
-          >
-            {isCategoryActionLoading
-              ? "Saving..."
-              : "Save category"}
-          </button>
+              <button
+                className="primary-button crp-save-btn"
+                type="button"
+                disabled={isCategoryActionLoading}
+                onClick={() => void handleSaveCategory()}
+              >
+                {isCategoryActionLoading ? "Saving…" : "Save category"}
+              </button>
+            </div>
+          </div>
 
+          {/* ── Saved state chip ── */}
           {ticket.final_category ? (
-            <p className="muted">
-              Current final category:{" "}
-              {categoryLabel(ticket.final_category)}
-            </p>
+            <div className="crp-saved-state">
+              <span className="crp-saved-chip">
+                ✔ Current: {categoryLabel(ticket.final_category)}
+                {ticket.ai_category_approved === true && " · AI-approved"}
+                {ticket.ai_category_approved === false && " · Manually overridden"}
+              </span>
+            </div>
           ) : null}
 
           {categoryError ? (
@@ -391,6 +416,7 @@ export function TicketDetailPage() {
           ) : null}
         </section>
       ) : null}
+
 
       <div className="ticket-detail-grid">
         <section className="panel">

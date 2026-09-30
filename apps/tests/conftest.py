@@ -7,6 +7,7 @@ from sqlalchemy.orm import sessionmaker
 from backend.database import Base, get_db
 from backend.main import app
 from backend.security import get_current_user
+from backend.tickets.rate_limit import reset_rate_limiter
 
 # Import every model so all table definitions are registered in Base.metadata.
 from backend.activity.models import TicketActivity
@@ -102,3 +103,15 @@ def customer_client(client, customer_user):
     app.dependency_overrides[get_current_user] = lambda: customer_user
     yield client
     app.dependency_overrides.clear()
+
+
+@pytest.fixture(autouse=True)
+def clear_rate_limiter():
+    """
+    Runs automatically around every test function.
+    Clears the in-memory sliding-window log before the test starts and again
+    after it finishes, so no quota state leaks between test functions.
+    """
+    reset_rate_limiter()
+    yield
+    reset_rate_limiter()

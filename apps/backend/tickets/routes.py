@@ -6,6 +6,7 @@ from backend.database import get_db
 from backend.security import get_current_user
 from backend.tickets.models import Ticket
 from backend.ml.service import suggest_ticket_category
+from backend.tickets.rate_limit import check_ai_suggestion_rate_limit, get_current_time
 from backend.tickets.schemas import (
     TicketCategoryReview,
     TicketCategorySuggestionResponse,
@@ -84,12 +85,15 @@ def create_category_suggestion(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
+    # 1. Authorization — customers must never reach the rate limiter.
     if current_user.role != "ADMIN":
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="Only admins can request AI category suggestions.",
         )
 
+    # 2. Ticket existence — a missing ticket must return 404 regardless of
+    #    quota state, so the lookup happens before rate-limit accounting.
     ticket = db.get(Ticket, ticket_id)
 
     if ticket is None:
@@ -97,6 +101,15 @@ def create_category_suggestion(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Ticket not found",
         )
+
+    # 3. Rate limiting — enforced only after the ticket is confirmed to exist
+    #    and immediately before the expensive ML call.
+    #    get_current_time is passed by reference so the name bound in this
+    #    module's namespace can be monkeypatched in tests.
+    check_ai_suggestion_rate_limit(
+        current_user.user_id,
+        now_fn=get_current_time,
+    )
 
     suggestion = suggest_ticket_category(
         subject=ticket.subject,
