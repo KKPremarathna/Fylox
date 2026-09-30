@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from backend.auth.routes import router as auth_router
 from backend.tickets.routes import router as tickets_router
+from backend.orders.routes import router as orders_router
 from backend.users.routes import router as users_router
 from backend.messages.routes import router as messages_router
 from backend.admin.routes import router as admin_router
@@ -30,6 +31,7 @@ app.add_middleware(
 
 app.include_router(users_router)
 app.include_router(auth_router)
+app.include_router(orders_router)
 app.include_router(tickets_router)
 app.include_router(messages_router)
 app.include_router(admin_router)

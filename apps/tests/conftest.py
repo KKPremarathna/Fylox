@@ -12,6 +12,7 @@ from backend.tickets.rate_limit import reset_rate_limiter
 # Import every model so all table definitions are registered in Base.metadata.
 from backend.activity.models import TicketActivity
 from backend.messages.models import TicketMessage
+from backend.orders.models import Order
 from backend.tickets.models import Ticket
 from backend.users.models import User
 
@@ -138,3 +139,37 @@ def clear_rate_limiter():
     reset_rate_limiter()
     yield
     reset_rate_limiter()
+
+
+@pytest.fixture(scope="function")
+def customer_order(db_session, customer_user):
+    from decimal import Decimal
+    from backend.orders.models import Order
+    order = Order(
+        order_number="ORD-1001",
+        customer_id=customer_user.user_id,
+        status="PENDING",
+        total_amount=Decimal("149.99"),
+        currency="USD",
+    )
+    db_session.add(order)
+    db_session.commit()
+    db_session.refresh(order)
+    return order
+
+
+@pytest.fixture(scope="function")
+def second_customer_order(db_session, second_customer_user):
+    from decimal import Decimal
+    from backend.orders.models import Order
+    order = Order(
+        order_number="ORD-1002",
+        customer_id=second_customer_user.user_id,
+        status="SHIPPED",
+        total_amount=Decimal("250.00"),
+        currency="USD",
+    )
+    db_session.add(order)
+    db_session.commit()
+    db_session.refresh(order)
+    return order
