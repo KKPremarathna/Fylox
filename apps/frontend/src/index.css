@@ -523,6 +523,74 @@ a:hover {
   }
 }
 
+.admin-ticket-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.admin-ticket-card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #e0e7f1;
+  border-radius: 0.75rem;
+  background: #fbfdff;
+}
+
+.admin-ticket-content {
+  min-width: 0;
+}
+
+.admin-ticket-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 1rem;
+  margin-top: 0.65rem;
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+.admin-ticket-actions {
+  display: grid;
+  justify-items: end;
+  gap: 0.7rem;
+  min-width: 10rem;
+}
+
+.status-select-label {
+  display: grid;
+  gap: 0.35rem;
+  color: #475569;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.status-select-label select {
+  min-width: 9rem;
+  padding: 0.5rem;
+  border: 1px solid #bbc8dc;
+  border-radius: 0.45rem;
+  color: #172033;
+  background: #ffffff;
+  font: inherit;
+}
+
+.view-ticket-link {
+  font-size: 0.85rem;
+}
+
+@media (max-width: 720px) {
+  .admin-ticket-card {
+    flex-direction: column;
+  }
+
+  .admin-ticket-actions {
+    justify-items: start;
+  }
+}
+
 @media (max-width: 640px) {
   .dashboard-header {
     align-items: flex-start;

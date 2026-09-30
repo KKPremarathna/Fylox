@@ -2,6 +2,7 @@ import type {
   Ticket,
   TicketActivity,
   TicketMessage,
+  TicketStatus,
 } from "../types/api";
 import { apiRequest } from "./client";
 
@@ -71,6 +72,34 @@ export function getTicketActivity(
     `/tickets/${ticketId}/activity`,
     {
       token,
+    },
+  );
+}
+
+export type AdminTicketUpdate = {
+  assigned_admin_id?: number | null;
+  status?: TicketStatus;
+};
+
+export function getAdminTickets(
+  token: string,
+): Promise<Ticket[]> {
+  return apiRequest<Ticket[]>("/admin/tickets", {
+    token,
+  });
+}
+
+export function updateAdminTicket(
+  token: string,
+  ticketId: number,
+  payload: AdminTicketUpdate,
+): Promise<Ticket> {
+  return apiRequest<Ticket>(
+    `/admin/tickets/${ticketId}`,
+    {
+      method: "PATCH",
+      token,
+      body: JSON.stringify(payload),
     },
   );
 }

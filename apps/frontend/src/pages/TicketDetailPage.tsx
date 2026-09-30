@@ -40,6 +40,16 @@ export function TicketDetailPage() {
 
   const numericTicketId = Number(ticketId);
 
+  const backPath =
+    user?.role === "ADMIN"
+      ? "/admin/tickets"
+      : "/tickets";
+
+  const backLabel =
+    user?.role === "ADMIN"
+      ? "← Back to admin queue"
+      : "← Back to tickets";
+
   const loadTicketData = useCallback(async () => {
     if (!token || !Number.isInteger(numericTicketId)) {
       setError("Invalid ticket ID.");
@@ -113,8 +123,8 @@ export function TicketDetailPage() {
   if (error || !ticket) {
     return (
       <main className="dashboard-page">
-        <Link className="back-link" to="/tickets">
-          ← Back to tickets
+        <Link className="back-link" to={backPath}>
+          {backLabel}
         </Link>
 
         <section className="form-error" role="alert">
@@ -126,8 +136,8 @@ export function TicketDetailPage() {
 
   return (
     <main className="dashboard-page">
-      <Link className="back-link" to="/tickets">
-        ← Back to tickets
+      <Link className="back-link" to={backPath}>
+        {backLabel}
       </Link>
 
       <header className="ticket-detail-header">
