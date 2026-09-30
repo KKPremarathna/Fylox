@@ -6,6 +6,9 @@ from backend.database import get_db
 from backend.orders.models import Order
 from backend.orders.schemas import OrderResponse
 from backend.orders.service import get_order_for_owner_or_admin
+from backend.payments.models import Payment
+from backend.payments.schemas import DuplicateChargeCheckResponse
+from backend.payments.service import check_duplicate_charges
 from backend.security import get_current_user
 from backend.users.models import User
 
@@ -45,3 +48,27 @@ def get_order(
         order_id=order_id,
         current_user=current_user,
     )
+
+
+@router.get(
+    "/{order_id}/duplicate-charge-check",
+    response_model=DuplicateChargeCheckResponse,
+)
+def get_duplicate_charge_check(
+    order_id: int,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    # 1. Reuse centralized order authorization
+    authorized_order = get_order_for_owner_or_admin(
+        db=db,
+        order_id=order_id,
+        current_user=current_user,
+    )
+
+    # 2. Extract strictly relevant payments tied only to this order
+    statement = select(Payment).where(Payment.order_id == authorized_order.id)
+    payments = db.scalars(statement).all()
+
+    # 3. Supply isolated data block to pure service function
+    return check_duplicate_charges(order_id=authorized_order.id, payments=payments)

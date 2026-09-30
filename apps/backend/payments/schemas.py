@@ -38,3 +38,21 @@ class PaymentResponse(BaseModel):
     created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+
+class DuplicateGroup(BaseModel):
+    amount: StringDecimal
+    currency: str
+    payment_count: int
+
+    model_config = ConfigDict(from_attributes=True)
+
+
+class DuplicateChargeCheckResponse(BaseModel):
+    order_id: int
+    has_possible_duplicate: bool
+    successful_payment_count: int
+    duplicate_groups: list[DuplicateGroup]
+    message: str
+
+    model_config = ConfigDict(from_attributes=True)
