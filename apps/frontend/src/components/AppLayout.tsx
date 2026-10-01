@@ -1,9 +1,11 @@
 import { NavLink, Outlet } from "react-router-dom";
 
 import { useAuth } from "../context/AuthContext";
+import { useTheme } from "../context/ThemeContext";
 
 export function AppLayout() {
   const { user, logout } = useAuth();
+  const { theme, toggleTheme } = useTheme();
 
   const isAdmin = user?.role === "ADMIN";
 
@@ -66,6 +68,16 @@ export function AppLayout() {
               {isAdmin ? "Support admin" : "Customer"}
             </span>
           </div>
+
+          <button
+            className="theme-toggle-button"
+            type="button"
+            onClick={toggleTheme}
+            title={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+            aria-label="Toggle theme"
+          >
+            {theme === "light" ? "🌙" : "☀️"}
+          </button>
 
           <button
             className="sign-out-button"
