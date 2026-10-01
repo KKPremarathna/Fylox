@@ -1,12 +1,10 @@
 export type UserRole = "ADMIN" | "CUSTOMER";
 
-
 export type TicketStatus =
   | "OPEN"
   | "IN_PROGRESS"
   | "RESOLVED"
   | "CLOSED";
-
 
 export type TicketCategory =
   | "ACCOUNT_ACCESS"
@@ -16,7 +14,6 @@ export type TicketCategory =
   | "HOW_TO_SUPPORT"
   | "OTHER";
 
-
 export type User = {
   user_id: number;
   username: string;
@@ -25,12 +22,10 @@ export type User = {
   created_at: string;
 };
 
-
 export type LoginResponse = {
   access_token: string;
   token_type: "bearer";
 };
-
 
 export type Ticket = {
   id: number;
@@ -47,7 +42,6 @@ export type Ticket = {
   updated_at: string;
 };
 
-
 export type TicketMessage = {
   id: number;
   ticket_id: number;
@@ -57,7 +51,6 @@ export type TicketMessage = {
   created_at: string;
 };
 
-
 export type TicketActivity = {
   id: number;
   ticket_id: number;
@@ -65,4 +58,69 @@ export type TicketActivity = {
   event_type: string;
   message: string;
   created_at: string;
+};
+
+/* --- Orders & Payments --- */
+
+export type OrderStatus =
+  | "PENDING"
+  | "PROCESSING"
+  | "SHIPPED"
+  | "DELIVERED"
+  | "CANCELLED";
+
+export type Order = {
+  id: number;
+  order_number: string;
+  customer_id: number;
+  status: OrderStatus;
+  total_amount: string;
+  currency: string;
+  created_at: string;
+  updated_at: string;
+};
+
+export type DuplicateGroup = {
+  amount: string;
+  currency: string;
+  payment_count: number;
+};
+
+export type DuplicateChargeCheckResponse = {
+  order_id: number;
+  has_possible_duplicate: boolean;
+  successful_payment_count: number;
+  duplicate_groups: DuplicateGroup[];
+  message: string;
+};
+
+/* --- Approvals --- */
+
+export type ApprovalStatus = "PENDING" | "APPROVED" | "REJECTED" | "CANCELLED";
+
+export type SafeEvidenceJson = {
+  rule_engine?: string;
+  successful_payment_count?: number;
+  duplicate_groups?: DuplicateGroup[];
+};
+
+export type ApprovalRequest = {
+  id: number;
+  ticket_id: number;
+  order_id: number;
+  request_type: string;
+  status: ApprovalStatus;
+  reason: string;
+  evidence_json: SafeEvidenceJson;
+  reviewer_note: string | null;
+  created_at: string;
+  reviewed_at: string | null;
+  updated_at: string;
+};
+
+export type ApprovalPaginatedResponse = {
+  items: ApprovalRequest[];
+  total: number;
+  limit: number;
+  offset: number;
 };

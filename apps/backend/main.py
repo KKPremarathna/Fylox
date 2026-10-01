@@ -12,6 +12,7 @@ from backend.approvals.routes import admin_router as approvals_admin_router
 from backend.admin.routes import router as admin_router
 from backend.activity.routes import admin_router as activity_admin_router
 from backend.activity.routes import router as activity_router
+from backend.shipments.routes import router as shipments_router
 
 app = FastAPI(
     title="Fylox API",
@@ -43,6 +44,7 @@ app.include_router(messages_router)
 app.include_router(admin_router)
 app.include_router(activity_router)
 app.include_router(activity_admin_router)
+app.include_router(shipments_router)
 
 @app.get("/")
 def read_root():

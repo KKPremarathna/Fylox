@@ -25,15 +25,37 @@ export function AppLayout() {
             {isAdmin ? "Ticket queue" : "My tickets"}
           </NavLink>
 
-          {isAdmin && (
+          {!isAdmin && (
             <NavLink
               className={({ isActive }) =>
                 isActive ? "nav-link nav-link-active" : "nav-link"
               }
-              to="/admin/activity"
+              to="/orders"
             >
-              Activity history
+              My orders
             </NavLink>
+          )}
+
+          {isAdmin && (
+            <>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "nav-link nav-link-active" : "nav-link"
+                }
+                to="/admin/refund-queue"
+              >
+                Refund queue
+              </NavLink>
+
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "nav-link nav-link-active" : "nav-link"
+                }
+                to="/admin/activity"
+              >
+                Activity history
+              </NavLink>
+            </>
           )}
         </nav>
 

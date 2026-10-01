@@ -16,6 +16,7 @@ from backend.approvals.models import ApprovalRequest
 from backend.messages.models import TicketMessage
 from backend.orders.models import Order
 from backend.payments.models import Payment
+from backend.shipments.models import Shipment
 from backend.tickets.models import Ticket
 from backend.users.models import User
 
@@ -212,3 +213,33 @@ def second_customer_payment(db_session, second_customer_order):
     db_session.commit()
     db_session.refresh(payment)
     return payment
+
+
+@pytest.fixture(scope="function")
+def customer_shipment(db_session, customer_order):
+    from backend.shipments.models import Shipment
+    shipment = Shipment(
+        order_id=customer_order.id,
+        carrier="UPS",
+        tracking_number="1Z9999999999999999",
+        status="IN_TRANSIT"
+    )
+    db_session.add(shipment)
+    db_session.commit()
+    db_session.refresh(shipment)
+    return shipment
+
+
+@pytest.fixture(scope="function")
+def second_customer_shipment(db_session, second_customer_order):
+    from backend.shipments.models import Shipment
+    shipment = Shipment(
+        order_id=second_customer_order.id,
+        carrier="FEDEX",
+        tracking_number="770000000000",
+        status="DELIVERED"
+    )
+    db_session.add(shipment)
+    db_session.commit()
+    db_session.refresh(shipment)
+    return shipment

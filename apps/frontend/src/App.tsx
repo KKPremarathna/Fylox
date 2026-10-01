@@ -5,7 +5,10 @@ import { AppLayout } from "./components/AppLayout";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { AdminTicketsPage } from "./pages/AdminTicketsPage";
 import { AdminActivityHistoryPage } from "./pages/AdminActivityHistoryPage";
+import { AdminRefundQueuePage } from "./pages/AdminRefundQueuePage";
 import { CustomerTicketsPage } from "./pages/CustomerTicketsPage";
+import { CustomerOrdersPage } from "./pages/CustomerOrdersPage";
+import { CustomerOrderDetailPage } from "./pages/CustomerOrderDetailPage";
 import { LoginPage } from "./pages/LoginPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { RegisterPage } from "./pages/RegisterPage";
@@ -24,11 +27,20 @@ function App() {
             path="/tickets/:ticketId"
             element={<TicketDetailPage />}
           />
+          <Route path="/orders" element={<CustomerOrdersPage />} />
+          <Route
+            path="/orders/:orderId"
+            element={<CustomerOrderDetailPage />}
+          />
 
           <Route element={<AdminRoute />}>
             <Route
               path="/admin/tickets"
               element={<AdminTicketsPage />}
+            />
+            <Route
+              path="/admin/refund-queue"
+              element={<AdminRefundQueuePage />}
             />
             <Route
               path="/admin/activity"
