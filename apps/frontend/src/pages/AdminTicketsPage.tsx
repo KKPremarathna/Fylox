@@ -107,11 +107,6 @@ export function AdminTicketsPage() {
         </div>
       </header>
 
-      <TicketFilters
-        value={statusFilter}
-        onChange={setStatusFilter}
-      />
-
       {error ? (
         <section className="form-error" role="alert">
           {error}
@@ -134,6 +129,12 @@ export function AdminTicketsPage() {
         <AdminTicketQueue
           tickets={filteredTickets}
           currentAdminId={user?.user_id}
+          filterElement={
+            <TicketFilters
+              value={statusFilter}
+              onChange={setStatusFilter}
+            />
+          }
           onClaimTicket={handleClaimTicket}
           onUpdateStatus={handleUpdateStatus}
         />

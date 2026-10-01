@@ -4,6 +4,7 @@ import type { Ticket } from "../types/api";
 
 type TicketListProps = {
   tickets: Ticket[];
+  filterElement?: React.ReactNode;
 };
 
 function formatDate(value: string) {
@@ -19,30 +20,30 @@ function statusLabel(status: Ticket["status"]) {
 
 export function TicketList({
   tickets,
+  filterElement,
 }: TicketListProps) {
-  if (tickets.length === 0) {
-    return (
-      <section className="empty-state">
-        <h2>No tickets yet</h2>
-        <p>
-          Create your first support ticket using the form above.
-        </p>
-      </section>
-    );
-  }
-
   return (
     <section className="panel">
       <div className="panel-heading">
-        <div>
+        <div className="panel-heading-main">
           <p className="eyebrow">MY SUPPORT REQUESTS</p>
-          <h2>Tickets</h2>
+          <div className="panel-title-row">
+            <h2>Tickets</h2>
+            <span className="count-badge">{tickets.length}</span>
+          </div>
         </div>
 
-        <span className="count-badge">{tickets.length}</span>
+        {filterElement ? (
+          <div className="panel-heading-actions">{filterElement}</div>
+        ) : null}
       </div>
 
-      <div className="ticket-list">
+      {tickets.length === 0 ? (
+        <div className="empty-state-inner">
+          <p className="muted">No tickets found matching this criteria.</p>
+        </div>
+      ) : (
+        <div className="ticket-list">
         {tickets.map((ticket) => (
           <Link
             className="ticket-card ticket-card-link"
@@ -78,6 +79,7 @@ export function TicketList({
           </Link>
         ))}
       </div>
+      )}
     </section>
   );
 }

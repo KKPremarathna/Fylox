@@ -6,6 +6,7 @@ import type { Ticket } from "../types/api";
 type AdminTicketQueueProps = {
   tickets: Ticket[];
   currentAdminId: number | undefined;
+  filterElement?: React.ReactNode;
   onClaimTicket: (ticketId: number) => Promise<void>;
   onUpdateStatus: (
     ticketId: number,
@@ -27,6 +28,7 @@ function statusLabel(status: Ticket["status"]) {
 export function AdminTicketQueue({
   tickets,
   currentAdminId,
+  filterElement,
   onClaimTicket,
   onUpdateStatus,
 }: AdminTicketQueueProps) {
@@ -72,24 +74,20 @@ export function AdminTicketQueue({
     }
   }
 
-  if (tickets.length === 0) {
-    return (
-      <section className="empty-state">
-        <h2>No tickets in the queue</h2>
-        <p>New customer tickets will appear here.</p>
-      </section>
-    );
-  }
-
   return (
     <section className="panel">
       <div className="panel-heading">
-        <div>
+        <div className="panel-heading-main">
           <p className="eyebrow">SUPPORT QUEUE</p>
-          <h2>All tickets</h2>
+          <div className="panel-title-row">
+            <h2>All tickets</h2>
+            <span className="count-badge">{tickets.length}</span>
+          </div>
         </div>
 
-        <span className="count-badge">{tickets.length}</span>
+        {filterElement ? (
+          <div className="panel-heading-actions">{filterElement}</div>
+        ) : null}
       </div>
 
       {error ? (
@@ -98,7 +96,12 @@ export function AdminTicketQueue({
         </p>
       ) : null}
 
-      <div className="admin-ticket-list">
+      {tickets.length === 0 ? (
+        <div className="empty-state-inner">
+          <p className="muted">No tickets found in the queue.</p>
+        </div>
+      ) : (
+        <div className="admin-ticket-list">
         {tickets.map((ticket) => {
           const isUpdating = updatingTicketId === ticket.id;
           const isClaimedByCurrentAdmin =
@@ -180,6 +183,7 @@ export function AdminTicketQueue({
           );
         })}
       </div>
+      )}
     </section>
   );
 }

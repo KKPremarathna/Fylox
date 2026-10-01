@@ -85,11 +85,6 @@ export function CustomerTicketsPage() {
 
       <CreateTicketForm onSubmit={handleCreateTicket} />
 
-      <TicketFilters
-        value={statusFilter}
-        onChange={setStatusFilter}
-      />
-
       {error ? (
         <section className="form-error" role="alert">
           {error}
@@ -109,7 +104,15 @@ export function CustomerTicketsPage() {
           <p>Loading your tickets...</p>
         </section>
       ) : (
-        <TicketList tickets={filteredTickets} />
+        <TicketList
+          tickets={filteredTickets}
+          filterElement={
+            <TicketFilters
+              value={statusFilter}
+              onChange={setStatusFilter}
+            />
+          }
+        />
       )}
     </main>
   );
