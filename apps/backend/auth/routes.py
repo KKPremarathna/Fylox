@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
-from sqlalchemy import select
+from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from backend.auth.schemas import TokenResponse
@@ -24,12 +24,16 @@ def login(
     form_data: OAuth2PasswordRequestForm = Depends(),
     db: Session = Depends(get_db),
 ):
-    statement = select(User).where(User.username == form_data.username)
+    identifier = form_data.username.strip().lower()
+
+    statement = select(User).where(
+        (func.lower(User.email) == identifier) | (func.lower(User.username) == identifier)
+    )
     user = db.scalar(statement)
 
     invalid_credentials = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
-        detail="Incorrect username or password",
+        detail="Incorrect email, username, or password",
         headers={"WWW-Authenticate": "Bearer"},
     )
 

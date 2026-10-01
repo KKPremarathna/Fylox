@@ -48,11 +48,12 @@ export function LoginPage() {
         </p>
 
         <form onSubmit={handleSubmit}>
-          <label htmlFor="username">Username</label>
+          <label htmlFor="username">Email address or username</label>
           <input
             id="username"
             type="text"
             autoComplete="username"
+            placeholder="e.g. customer1@demo.com or customer1"
             value={username}
             onChange={(event) => setUsername(event.target.value)}
             required
