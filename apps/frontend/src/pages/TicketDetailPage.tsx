@@ -14,6 +14,7 @@ import { ActivityTimeline } from "../components/ActivityTimeline";
 import { Conversation } from "../components/Conversation";
 import { MessageForm } from "../components/MessageForm";
 import { useAuth } from "../context/AuthContext";
+import { generateTicketAiReply } from "../api/ai";
 import type {
   Ticket,
   TicketActivity,
@@ -172,6 +173,28 @@ export function TicketDetailPage() {
       numericTicketId,
     );
 
+    setActivity(updatedActivity);
+  }
+
+  async function handleAiMessage(content: string) {
+    if (!token || !Number.isInteger(numericTicketId)) {
+      throw new Error("Your session has expired. Please sign in again.");
+    }
+    
+    // Calls the AI layer
+    await generateTicketAiReply(
+      token,
+      numericTicketId,
+      content,
+    );
+
+    // Refresh everything directly after AI execution (safe messages are implicitly written)
+    const [updatedMessages, updatedActivity] = await Promise.all([
+      getTicketMessages(token, numericTicketId),
+      getTicketActivity(token, numericTicketId),
+    ]);
+
+    setMessages(updatedMessages);
     setActivity(updatedActivity);
   }
 
@@ -432,7 +455,7 @@ export function TicketDetailPage() {
             currentUserId={user?.user_id}
           />
 
-          <MessageForm onSubmit={handleSendMessage} />
+          <MessageForm onSubmit={handleSendMessage} onAiSubmit={handleAiMessage} />
         </section>
 
         <aside className="panel activity-panel">

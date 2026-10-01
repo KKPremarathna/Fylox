@@ -124,3 +124,27 @@ export type ApprovalPaginatedResponse = {
   limit: number;
   offset: number;
 };
+
+/* --- AI Router --- */
+
+export type RoutingCategory = 
+  | "ORDER_SUPPORT" 
+  | "BILLING_SUPPORT" 
+  | "POLICY_SUPPORT" 
+  | "GENERAL_SUPPORT" 
+  | "HUMAN_ESCALATION";
+
+export type ClassifierType = "DETERMINISTIC" | "LLM" | "FALLBACK" | "SAFETY_GUARDRAIL";
+
+export type RoutingDecision = {
+  category: RoutingCategory;
+  confidence: number;
+  classifier_type: ClassifierType;
+  escalation_reason?: string;
+};
+
+export type AIReplyResponse = {
+  message_content: string | null;
+  routing_decision: RoutingDecision;
+  action_taken: string;
+};

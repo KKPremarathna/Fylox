@@ -29,19 +29,22 @@ export function Conversation({
       {messages.map((message) => {
         const isCurrentUser = message.sender_id === currentUserId;
         const senderName =
-          message.sender_type === "ADMIN"
-            ? "Support team"
-            : isCurrentUser
-              ? "You"
-              : "Customer";
+          message.sender_type === "AI"
+            ? "AI Assistant"
+            : message.sender_type === "ADMIN"
+              ? "Support team"
+              : isCurrentUser
+                ? "You"
+                : "Customer";
 
         return (
           <article
             className={[
               "message-bubble",
-              isCurrentUser
+              isCurrentUser || message.sender_type === "AI"
                 ? "message-bubble-own"
                 : "message-bubble-other",
+              message.sender_type === "AI" ? "message-bubble-ai" : "",
             ].join(" ")}
             key={message.id}
           >
@@ -50,7 +53,7 @@ export function Conversation({
               <span>{formatDate(message.created_at)}</span>
             </div>
 
-            <p>{message.content}</p>
+            <p style={{ whiteSpace: "pre-wrap" }}>{message.content}</p>
           </article>
         );
       })}

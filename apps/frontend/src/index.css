@@ -413,6 +413,11 @@ a:hover {
   border-bottom-left-radius: 0.2rem;
 }
 
+.message-bubble-ai {
+  background-color: #f0f7ff;
+  border-left: 3px solid #3b82f6;
+}
+
 .message-bubble p {
   margin: 0.55rem 0 0;
   line-height: 1.55;
