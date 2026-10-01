@@ -16,6 +16,9 @@ from backend.shipments.routes import router as shipments_router
 from backend.policies.routes import router as policies_router
 from backend.policies.routes import admin_router as policies_admin_router
 from backend.policies.routes import search_router as policy_search_router
+from backend.ai.routes import router as ai_router
+from backend.policies.routes import admin_router as policies_admin_router
+from backend.policies.routes import search_router as policy_search_router
 
 app = FastAPI(
     title="Fylox API",
@@ -52,6 +55,7 @@ app.include_router(shipments_router)
 app.include_router(policies_router)
 app.include_router(policies_admin_router)
 app.include_router(policy_search_router)
+app.include_router(ai_router)
 
 @app.get("/")
 def read_root():
