@@ -1,4 +1,3 @@
-version: '3.8'
 
 services:
   db:
@@ -21,12 +20,14 @@ services:
     environment:
       - DATABASE_URL=postgresql+psycopg2://admin:password@db:5432/fylox
       - JWT_SECRET_KEY=super_secret_demo_key
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
     ports:
       - "8000:8000"
     depends_on:
       - db
     volumes:
       - ./apps:/app/apps
+      - ./scripts:/app/scripts
 
   frontend:
     build:

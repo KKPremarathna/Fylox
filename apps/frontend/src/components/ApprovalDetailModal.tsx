@@ -108,9 +108,9 @@ export function ApprovalDetailModal({
           </div>
         )}
 
-        <div className="modal-body" style={{ marginTop: "1rem" }}>
-          <div className="filter-row" style={{ marginBottom: "1rem" }}>
-            <div>
+        <div className="modal-body">
+          <div className="modal-info-grid">
+            <div className="modal-info-card">
               <span className="crp-meta-label">Status</span>
               <div>
                 <span className={`status ${requestStatusBadgeClass(request.status)}`}>
@@ -118,42 +118,36 @@ export function ApprovalDetailModal({
                 </span>
               </div>
             </div>
-            <div>
+            <div className="modal-info-card">
               <span className="crp-meta-label">Order ID</span>
               <p className="crp-category-value">#{request.order_id}</p>
             </div>
-            <div>
+            <div className="modal-info-card">
               <span className="crp-meta-label">Ticket ID</span>
               <p className="crp-category-value">#{request.ticket_id}</p>
             </div>
           </div>
 
-          <div style={{ marginBottom: "1rem" }}>
+          <div className="modal-section">
             <span className="crp-meta-label">Customer Reason</span>
-            <p style={{ margin: "0.25rem 0 0", color: "#334155" }}>{request.reason}</p>
+            <p className="modal-reason-text">{request.reason}</p>
           </div>
 
           {/* ── Mapped Safe Aggregate Evidence Only ── */}
-          <div
-            style={{
-              padding: "0.85rem",
-              borderRadius: "0.55rem",
-              background: "#f8fafc",
-              border: "1px solid #e2e8f0",
-              marginBottom: "1rem",
-            }}
-          >
-            <span className="crp-meta-label">Duplicate Payment Evidence</span>
+          <div className="modal-evidence-card">
+            <div className="evidence-header">
+              <span className="crp-meta-label">Duplicate Payment Evidence</span>
+            </div>
             {successfulCount !== undefined && (
-              <p style={{ margin: "0.25rem 0", fontSize: "0.9rem" }}>
+              <p className="evidence-stat">
                 Total Successful Payments: <strong>{successfulCount}</strong>
               </p>
             )}
 
             {dupGroups.length > 0 ? (
-              <div style={{ marginTop: "0.5rem" }}>
+              <div className="evidence-matches">
                 <span className="crp-meta-label">Matched Duplicate Amounts</span>
-                <ul style={{ margin: "0.25rem 0 0 1.25rem", fontSize: "0.85rem", color: "#475569" }}>
+                <ul className="evidence-list">
                   {dupGroups.map((g, i) => (
                     <li key={i}>
                       {g.payment_count} payments of <strong>{g.currency} {g.amount}</strong>
@@ -168,32 +162,30 @@ export function ApprovalDetailModal({
             )}
           </div>
 
-          <div style={{ marginBottom: "1rem" }}>
+          <div className="modal-section">
             <span className="crp-meta-label">Timeline</span>
-            <p style={{ margin: "0.25rem 0 0", fontSize: "0.85rem", color: "#64748b" }}>
+            <p className="modal-timeline-text">
               Requested: {formatDate(request.created_at)}
               {request.reviewed_at && ` • Reviewed: ${formatDate(request.reviewed_at)}`}
             </p>
           </div>
 
           {request.reviewer_note && (
-            <div style={{ marginBottom: "1rem" }}>
+            <div className="modal-section">
               <span className="crp-meta-label">Reviewer Note</span>
-              <p style={{ margin: "0.25rem 0 0", color: "#334155" }}>
-                {request.reviewer_note}
-              </p>
+              <p className="modal-reason-text">{request.reviewer_note}</p>
             </div>
           )}
 
           {/* ── Admin Decision Form ── */}
           {isPending && (
-            <div style={{ marginTop: "1.5rem", paddingTop: "1rem", borderTop: "1px solid #e2e8f0" }}>
+            <div className="modal-decision-form">
               <label htmlFor="admin-reviewer-note" className="filter-label">
-                Reviewer Note <span style={{ color: "#b42318" }}>* (required for rejection)</span>
+                Reviewer Note <span style={{ color: "#e11d48" }}>* (required for rejection)</span>
               </label>
               <textarea
                 id="admin-reviewer-note"
-                className="filter-input"
+                className="modal-textarea"
                 rows={3}
                 placeholder="Enter admin review note or explanation..."
                 value={reviewerNote}
@@ -201,9 +193,9 @@ export function ApprovalDetailModal({
                 disabled={isSubmitting}
               />
 
-              <div className="modal-actions" style={{ marginTop: "1rem" }}>
+              <div className="modal-actions">
                 <button
-                  className="btn btn-ghost"
+                  className="btn btn-secondary"
                   type="button"
                   onClick={onClose}
                   disabled={isSubmitting}
@@ -211,18 +203,16 @@ export function ApprovalDetailModal({
                   Cancel
                 </button>
                 <button
-                  className="btn btn-primary"
+                  className="btn btn-danger"
                   type="button"
-                  style={{ background: "#dc2626" }}
                   disabled={isRejectDisabled}
                   onClick={() => void handleDecision("REJECTED")}
                 >
                   {isSubmitting ? "Saving..." : "Reject"}
                 </button>
                 <button
-                  className="btn btn-primary"
+                  className="btn btn-success"
                   type="button"
-                  style={{ background: "#16a34a" }}
                   disabled={isSubmitting}
                   onClick={() => void handleDecision("APPROVED")}
                 >

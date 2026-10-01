@@ -24,6 +24,8 @@ export type TicketCategorySuggestion = {
   ticket_id: number;
   suggested_category: TicketCategory;
   confidence: number;
+  reason?: string;
+  source?: string;
 };
 
 

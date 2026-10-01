@@ -24,6 +24,7 @@ app = FastAPI(
     title="Fylox API",
     description="Backend API for an AI-assisted customer-support platform.",
     version="0.4.0",
+    root_path="/api",
 )
 
 origins = [

@@ -5,7 +5,7 @@ WORKDIR /app
 ENV PYTHONPATH=/app/apps
 ENV PYTHONUNBUFFERED=1
 
-COPY apps/requirements.txt ./
+COPY apps/backend/requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Explicitly ensure Postgres dependencies for production DB connections

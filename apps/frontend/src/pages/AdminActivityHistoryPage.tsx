@@ -232,11 +232,15 @@ export function AdminActivityHistoryPage() {
                   <tr key={item.id}>
                     <td className="cell-id">{item.id}</td>
                     <td>
-                      <span className="ticket-id-badge">#{item.ticket_id}</span>
-                      <span className="ticket-subject">{item.ticket_subject}</span>
+                      <div className="ticket-cell">
+                        <span className="ticket-id-badge">#{item.ticket_id}</span>
+                        <span className="ticket-subject">{item.ticket_subject}</span>
+                      </div>
                     </td>
                     <td>
-                      <span className="event-badge">{item.event_type.replace(/_/g, " ")}</span>
+                      <span className={`event-badge event-badge-${item.event_type.toLowerCase()}`}>
+                        {item.event_type.replace(/_/g, " ")}
+                      </span>
                     </td>
                     <td className="cell-actor">
                       {item.actor_username ?? (

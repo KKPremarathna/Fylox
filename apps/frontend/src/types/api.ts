@@ -7,11 +7,13 @@ export type TicketStatus =
   | "CLOSED";
 
 export type TicketCategory =
-  | "ACCOUNT_ACCESS"
+  | "ACCOUNT_SUPPORT"
   | "BILLING_PAYMENT"
+  | "ORDER_SUPPORT"
   | "TECHNICAL_ISSUE"
   | "FEATURE_REQUEST"
   | "HOW_TO_SUPPORT"
+  | "GENERAL_SUPPORT"
   | "OTHER";
 
 export type User = {

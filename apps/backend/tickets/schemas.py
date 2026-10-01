@@ -31,13 +31,17 @@ class TicketCategorySuggestionResponse(BaseModel):
     ticket_id: int
     suggested_category: str
     confidence: float
+    reason: Optional[str] = None
+    source: Optional[str] = None
     
 TicketCategory = Literal[
-    "ACCOUNT_ACCESS",
+    "ACCOUNT_SUPPORT",
     "BILLING_PAYMENT",
+    "ORDER_SUPPORT",
     "TECHNICAL_ISSUE",
     "FEATURE_REQUEST",
     "HOW_TO_SUPPORT",
+    "GENERAL_SUPPORT",
     "OTHER",
 ]
 

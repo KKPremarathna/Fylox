@@ -112,20 +112,39 @@ def create_category_suggestion(
         now_fn=get_current_time,
     )
 
-    suggestion = suggest_ticket_category(
-        subject=ticket.subject,
-        description=ticket.description,
-    )
+    try:
+        suggestion = suggest_ticket_category(
+            subject=ticket.subject,
+            description=ticket.description,
+        )
+    except ValueError as e:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=str(e),
+        )
+    except Exception as e:
+        # Log safely without exposing keys
+        print(f"Safe Log: AI suggestion provider failed internally: {e.__class__.__name__}")
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="AI category suggestion service is temporarily unavailable.",
+        )
 
     ticket.ai_suggested_category = suggestion["suggested_category"]
     ticket.ai_category_confidence = suggestion["confidence"]
+
+    activity_message = (
+        f"AI suggested {suggestion.get('suggested_category')} "
+        f"(source: {suggestion.get('source', 'unknown')}). "
+        f"Reason: {suggestion.get('reason', 'N/A')}"
+    )
 
     record_activity(
         db=db,
         ticket_id=ticket.id,
         actor_id=current_user.user_id,
         event_type="AI_CATEGORY_SUGGESTED",
-        message="AI suggested the stored category.",
+        message=activity_message,
     )
 
     db.commit()
@@ -135,6 +154,8 @@ def create_category_suggestion(
         "ticket_id": ticket.id,
         "suggested_category": ticket.ai_suggested_category,
         "confidence": ticket.ai_category_confidence,
+        "reason": suggestion.get("reason"),
+        "source": suggestion.get("source"),
     }
 
 @router.patch(

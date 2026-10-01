@@ -1,26 +1,43 @@
-# Secrets
+# Environment / secrets
 .env
-.env.test
+.env.*
+!.env.example
 
-# Python virtual environments
-myenv/
-
-# Python cache and test output
+# Python
 __pycache__/
 *.py[cod]
+*.pyo
+.venv/
+venv/
 .pytest_cache/
+
+# Node / frontend
+node_modules/
+dist/
+build/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
 
 # Local database files
 *.db
 *.sqlite
 *.sqlite3
 
-# Editor files
-.vscode/
-.idea/
-
-# frontend
+# Frontend env
 frontend/.env.local
+apps/frontend/.env.local
 
-# ML
+# ML artifacts
 backend/ml/models/*.joblib
+apps/backend/ml/models/*.joblib
+
+# Docker / local data
+postgres_data/
+data/

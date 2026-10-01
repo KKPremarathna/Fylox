@@ -24,11 +24,13 @@ import type {
 
 
 const ticketCategories: TicketCategory[] = [
-  "ACCOUNT_ACCESS",
+  "ACCOUNT_SUPPORT",
   "BILLING_PAYMENT",
+  "ORDER_SUPPORT",
   "TECHNICAL_ISSUE",
   "FEATURE_REQUEST",
   "HOW_TO_SUPPORT",
+  "GENERAL_SUPPORT",
   "OTHER",
 ];
 
@@ -77,6 +79,7 @@ export function TicketDetailPage() {
     useState(false);
   const [error, setError] = useState<string | null>(null);
   const [categoryError, setCategoryError] = useState<string | null>(null);
+  const [aiAnalysisDetails, setAiAnalysisDetails] = useState<{ reason?: string; source?: string } | null>(null);
 
   const numericTicketId = Number(ticketId);
 
@@ -207,7 +210,8 @@ export function TicketDetailPage() {
     setIsCategoryActionLoading(true);
 
     try {
-      await requestAiCategorySuggestion(token, numericTicketId);
+      const resp = await requestAiCategorySuggestion(token, numericTicketId);
+      setAiAnalysisDetails({ reason: resp.reason, source: resp.source });
       await refreshTicketAndActivity();
     } catch (caughtError) {
       setCategoryError(
@@ -361,6 +365,13 @@ export function TicketDetailPage() {
                   </div>
                 </div>
               </div>
+
+              {aiAnalysisDetails?.reason && (
+                <div className="crp-ai-details-box" style={{ marginTop: "1rem", fontSize: "0.9rem", color: "#666" }}>
+                  <p><strong>Reason:</strong> {aiAnalysisDetails.reason}</p>
+                  {aiAnalysisDetails.source && <p><strong>Source:</strong> {aiAnalysisDetails.source}</p>}
+                </div>
+              )}
 
               <button
                 className="crp-accept-btn"
