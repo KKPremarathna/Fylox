@@ -1,123 +1,56 @@
-# Fylox
+# Fylox: Next-Gen Agentic Ticket Management
 
-Fylox is an AI-assisted customer-support platform being built as a full-stack learning project.
+Fylox is a comprehensive customer support platform built for the Advanced Agentic Coding capstone. It fuses isolated microservice execution paths with deterministic hybrid AI routing boundaries to securely triage customer issues without exposing irreversible financial side-effects (e.g. refunds).
 
-## Current Progress
+## 🪐 Architecture Overview
+The application uses a 3-tier production alignment spanning **React (Vite/TypeScript)** on the frontend, **FastAPI (Python)** on the backend, and **PostgreSQL** for strict relational data modeling. It integrates deterministic AI routing directly into standard REST controllers.
 
-### Stage 1C — FastAPI and PostgreSQL Foundation
+See `docs/architecture.mermaid` for the full deployment topology mapping.
 
-- FastAPI backend initialized
-- PostgreSQL connected through SQLAlchemy
-- Ticket database model created
-- Ticket creation and retrieval endpoints implemented
-- Pydantic request/response validation added
-- Basic API tests created with pytest
-- Interactive API documentation available through FastAPI Swagger UI
+## ✨ Key Features
+- **AI Triage Router:** Dynamically routes natural language requests to internal agent domains (e.g., Shipping vs Billing). 
+- **BOLA Protection:** Strict separation of resources preventing Customer A from interacting with Customer B's financial logic.
+- **RAG Knowledge Base:** Deterministic chunked Markdown RAG returning highly contextual internal policy references securely.
+- **Human-in-the-Loop Handoffs:** Safely intercepts and pauses sensitive AI deductions representing monetary values (Approval workflows).
 
-## Current API Endpoints
+## 🚀 Quick Start (Production Demo)
 
-| Method | Endpoint | Description |
-|---|---|---|
-| GET | `/` | API information |
-| GET | `/health` | Health check |
-| POST | `/tickets` | Create a support ticket |
-| GET | `/tickets` | List support tickets |
-| GET | `/tickets/{ticket_id}` | Get one support ticket |
-
-## Tech Stack
-
-- Python
-- FastAPI
-- PostgreSQL
-- SQLAlchemy
-- Pydantic
-- Psycopg
-- Pytest
-
-## Local Setup
-
-### 1. Clone the repository
+Deploy the full stack rapidly utilizing Docker Compose:
 
 ```bash
-git clone [https://github.com/YOUR_GITHUB_USERNAME/fylox.git](https://github.com/YOUR_GITHUB_USERNAME/fylox.git)
-cd fylox
+# 1. Boot up the network
+docker compose up --build -d
+
+# 2. Seed the development environment
+docker compose exec backend python /app/scripts/seed_demo_data.py
 ```
 
-### 2. Create and activate a virtual environment
+Open a browser to `http://localhost`.
 
-Windows PowerShell:
+### Demo Accounts
+- **Admin**: `admin@fylox.com` / `password123`
+- **Customer 1**: `customer1@demo.com` / `password123`
+- **Customer 2**: `customer2@demo.com` / `password123`
 
-```powershell
+Check out `docs/demo-guide.md` for a complete 3-minute walkthrough script testing the exact security layers.
+
+## 🛠 Local Development Options
+
+If evaluating logic independently from Docker:
+
+**Backend:**
+```bash
 python -m venv myenv
-.\myenv\Scripts\Activate.ps1
+source myenv/Scripts/activate # Windows
+pip install -r apps/requirements.txt
+# Copy .env.example to .env
+# Run SQLite in-memory:
+PYTHONPATH=apps pytest -v apps/tests
 ```
 
-### 3. Install dependencies
-
-```powershell
-pip install -r apps/backend/requirements.txt
+**Frontend:**
+```bash
+cd apps/frontend
+npm ci
+npm run build
 ```
-
-### 4. Configure environment variables
-
-Copy the template:
-
-```powershell
-Copy-Item .env.example .env
-```
-
-Update `DATABASE_URL` in `.env` with your PostgreSQL username, password, host, port, and database name.
-
-### 5. Run the API
-
-```powershell
-cd apps
-uvicorn backend.main:app --reload
-```
-
-Open API documentation:
-
-```text
-http://127.0.0.1:8000/docs
-```
-
-### 6. Run tests
-
-From the `apps` directory:
-
-```powershell
-pytest -v
-```
-
-## Project Structure
-
-```text
-fylox/
-├── apps/
-│   ├── backend/
-│   │   ├── database.py
-│   │   ├── main.py
-│   │   ├── models.py
-│   │   └── schemas.py
-│   └── tests/
-│       └── test_main.py
-├── .env.example
-├── .gitignore
-└── README.md
-```
-
-## Roadmap
-
-- [x] Set up FastAPI project
-- [x] Connect PostgreSQL database
-- [x] Build basic ticket CRUD foundation
-- [x] Add endpoint tests
-- [ ] Add Alembic database migrations
-- [ ] Add authentication and role-based access control
-- [ ] Add customer/admin dashboards
-- [ ] Add ticket messages and ticket-status updates
-- [ ] Add order/payment mock data
-- [ ] Add RAG-powered knowledge base
-- [ ] Add AI ticket routing and specialist agents
-- [ ] Add human approval workflows
-- [ ] Deploy with Docker and CI/CD

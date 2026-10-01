@@ -1,0 +1,54 @@
+```mermaid
+graph TD
+    %% Base Network Topologies
+    Client(Customer / Admin Browser)
+    
+    subindex
+        NGINX[Nginx Reverse Proxy :80]
+        React[React / Vite SPA Assets]
+    end
+
+    subgraph Backend_Network[Python FastAPI Backend :8000]
+        API_Gateway(FastAPI Routes)
+        
+        %% Domains
+        Orders(Order Service)
+        Payments(Payment & Duplicate Engine)
+        Approvals(Refund Approval Auth)
+        Tickets(Ticketing & Activity Log)
+        Policies(RAG Ingestion Database)
+        
+        %% Agents
+        Router{AI Dispatch Triage}
+    end
+
+    subgraph DB_Layer
+        Postgres[(PostgreSQL Database)]
+    end
+
+    %% Network execution flow
+    Client -->|HTTP / API| NGINX
+    NGINX -.->|Static Fetch| React
+    NGINX -->|Proxy /api/*| API_Gateway
+
+    %% internal calls
+    API_Gateway --> Orders
+    API_Gateway --> Payments
+    API_Gateway --> Approvals
+    API_Gateway --> Tickets
+    API_Gateway --> Policies
+
+    API_Gateway -->|/ai/ticket...| Router
+
+    Router -->|If Order Intent| Orders
+    Router -->|If Billing Intent| Payments
+    Router -->|If Policy Intent| Policies
+    Router -->|Write Safe Log| Tickets
+
+    %% Storage bounds
+    Orders <--> Postgres
+    Payments <--> Postgres
+    Approvals <--> Postgres
+    Tickets <--> Postgres
+    Policies <--> Postgres
+```
