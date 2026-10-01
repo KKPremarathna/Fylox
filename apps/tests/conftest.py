@@ -16,6 +16,7 @@ from backend.approvals.models import ApprovalRequest
 from backend.messages.models import TicketMessage
 from backend.orders.models import Order
 from backend.payments.models import Payment
+from backend.policies.models import PolicyDocument, PolicyChunk
 from backend.shipments.models import Shipment
 from backend.tickets.models import Ticket
 from backend.users.models import User
@@ -243,3 +244,58 @@ def second_customer_shipment(db_session, second_customer_order):
     db_session.commit()
     db_session.refresh(shipment)
     return shipment
+
+
+@pytest.fixture(scope="function")
+def active_refund_policy(db_session):
+    from backend.policies.models import PolicyDocument, PolicyChunk
+    doc = PolicyDocument(
+        title="Refund Policy",
+        version="v1.0",
+        status="APPROVED",
+        content="# Refunds\n\nRefunds are allowed within 30 days.\n\n# Exceptions\n\nNo refunds on digital items."
+    )
+    db_session.add(doc)
+    db_session.flush()
+
+    chunk1 = PolicyChunk(document_id=doc.id, section_heading="Refunds", content_snippet="Refunds are allowed within 30 days.", chunk_index=0)
+    chunk2 = PolicyChunk(document_id=doc.id, section_heading="Exceptions", content_snippet="No refunds on digital items.", chunk_index=1)
+    
+    db_session.add_all([chunk1, chunk2])
+    db_session.commit()
+    db_session.refresh(doc)
+    return doc
+
+
+@pytest.fixture(scope="function")
+def active_shipping_delay_policy(db_session):
+    from backend.policies.models import PolicyDocument, PolicyChunk
+    doc = PolicyDocument(
+        title="Shipping Delays",
+        version="v1.1",
+        status="APPROVED",
+        content="# Delays\n\nWe compensate for shipping delays over 7 days."
+    )
+    db_session.add(doc)
+    db_session.flush()
+    chunk1 = PolicyChunk(document_id=doc.id, section_heading="Delays", content_snippet="We compensate for shipping delays over 7 days.", chunk_index=0)
+    db_session.add(chunk1)
+    db_session.commit()
+    return doc
+
+
+@pytest.fixture(scope="function")
+def archived_policy(db_session):
+    from backend.policies.models import PolicyDocument, PolicyChunk
+    doc = PolicyDocument(
+        title="Old Returns",
+        version="v0.9",
+        status="ARCHIVED",
+        content="# Old Rules\n\nReturns used to be 14 days."
+    )
+    db_session.add(doc)
+    db_session.flush()
+    chunk1 = PolicyChunk(document_id=doc.id, section_heading="Old Rules", content_snippet="Returns used to be 14 days.", chunk_index=0)
+    db_session.add(chunk1)
+    db_session.commit()
+    return doc
