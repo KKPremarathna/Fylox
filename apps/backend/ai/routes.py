@@ -22,6 +22,9 @@ def classify_message_endpoint(payload: ClassifyRequest):
     return execute_triage(payload)
 
 
+from backend.ai.schemas import AIReplyResponse, ClassifyRequest, BillingAnalysisRequest, BillingAnalysisResponse
+from backend.ai.billing_analysis import run_billing_analysis
+
 # Mounted explicitly overlapping Ticket domains natively utilizing established security middleware bounds
 @router.post("/tickets/{ticket_id}/ai-reply", response_model=AIReplyResponse)
 def generate_ticket_ai_reply(
@@ -39,3 +42,22 @@ def generate_ticket_ai_reply(
          raise HTTPException(status_code=404, detail="Ticket not found")
 
     return process_ticket_ai_reply(db=db, ticket=authorized_ticket, message=payload.message)
+
+@router.post("/tickets/{ticket_id}/billing-analysis", response_model=BillingAnalysisResponse)
+def get_billing_analysis_endpoint(
+    ticket_id: int, 
+    payload: BillingAnalysisRequest,
+    db: Session = Depends(get_db), 
+    current_user: User = Depends(get_current_user)
+):
+    if current_user.role != "ADMIN":
+        raise HTTPException(status_code=403, detail="Only admins can request billing analyses.")
+        
+    ticket = get_ticket_for_owner_or_admin(db, ticket_id, current_user)
+    if not ticket:
+        raise HTTPException(status_code=404, detail="Ticket not found")
+        
+    try:
+        return run_billing_analysis(db, ticket, payload.order_id, current_user)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))

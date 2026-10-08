@@ -150,3 +150,19 @@ export type AIReplyResponse = {
   routing_decision: RoutingDecision;
   action_taken: string;
 };
+
+export type BillingAnalysisResponse = {
+  id: number;
+  ticket_id: number;
+  order_id: number;
+  admin_id: number | null;
+  summary: string;
+  evidence_ids: number[];
+  policy_source_ids: number[];
+  recommended_next_steps: string[];
+  reply_draft: string;
+  requires_human_review: boolean;
+  escalation_reason?: string | null;
+  analysis_source: string;
+  fallback_reason?: string | null;
+};

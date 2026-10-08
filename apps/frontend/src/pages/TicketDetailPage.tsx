@@ -14,12 +14,13 @@ import { ActivityTimeline } from "../components/ActivityTimeline";
 import { Conversation } from "../components/Conversation";
 import { MessageForm } from "../components/MessageForm";
 import { useAuth } from "../context/AuthContext";
-import { generateTicketAiReply } from "../api/ai";
+import { generateTicketAiReply, generateBillingAnalysis } from "../api/ai";
 import type {
   Ticket,
   TicketActivity,
   TicketCategory,
   TicketMessage,
+  BillingAnalysisResponse,
 } from "../types/api";
 
 
@@ -81,6 +82,12 @@ export function TicketDetailPage() {
   const [categoryError, setCategoryError] = useState<string | null>(null);
   const [aiAnalysisDetails, setAiAnalysisDetails] = useState<{ reason?: string; source?: string } | null>(null);
 
+  // Billing Analysis State
+  const [orderIdStr, setOrderIdStr] = useState("");
+  const [billingAnalysis, setBillingAnalysis] = useState<BillingAnalysisResponse | null>(null);
+  const [isBillingAnalysisLoading, setIsBillingAnalysisLoading] = useState(false);
+  const [billingAnalysisError, setBillingAnalysisError] = useState<string | null>(null);
+
   const numericTicketId = Number(ticketId);
 
   const backPath =
@@ -94,6 +101,31 @@ export function TicketDetailPage() {
       : "← Back to tickets";
 
   const isAdmin = user?.role === "ADMIN";
+
+  async function handleGenerateBillingAnalysis() {
+    if (!token || !Number.isInteger(numericTicketId)) return;
+    const orderId = Number(orderIdStr);
+    if (!Number.isInteger(orderId) || orderId <= 0) {
+      setBillingAnalysisError("Please enter a valid positive Order ID.");
+      return;
+    }
+    
+    setBillingAnalysisError(null);
+    setIsBillingAnalysisLoading(true);
+    setBillingAnalysis(null);
+
+    try {
+      const resp = await generateBillingAnalysis(token, numericTicketId, orderId);
+      setBillingAnalysis(resp);
+      await refreshTicketAndActivity();
+    } catch (caughtError) {
+      setBillingAnalysisError(
+        caughtError instanceof Error ? caughtError.message : "Unable to generate billing analysis."
+      );
+    } finally {
+      setIsBillingAnalysisLoading(false);
+    }
+  }
 
   const loadTicketData = useCallback(async () => {
     if (!token || !Number.isInteger(numericTicketId)) {
@@ -447,6 +479,85 @@ export function TicketDetailPage() {
             <p className="form-error" role="alert">
               {categoryError}
             </p>
+          ) : null}
+        </section>
+      ) : null}
+
+      {isAdmin ? (
+        <section className="panel billing-analysis-panel" style={{ marginTop: "1.5rem" }}>
+          <div className="crp-header">
+            <div className="crp-header-text">
+              <p className="eyebrow">BILLING DIAGNOSTICS</p>
+              <h2 className="crp-title">AI Billing Analysis</h2>
+            </div>
+            <span className="crp-badge">
+              {billingAnalysis ? "✦ Analysis ready" : "Awaiting order"}
+            </span>
+          </div>
+
+          <div className="crp-manual-row" style={{ marginTop: "1rem" }}>
+            <label className="crp-manual-label" htmlFor="order-id">
+              Order ID
+            </label>
+            <div className="crp-manual-controls">
+              <input
+                id="order-id"
+                type="number"
+                placeholder="e.g. 1"
+                className="crp-select"
+                value={orderIdStr}
+                disabled={isBillingAnalysisLoading}
+                onChange={(e) => setOrderIdStr(e.target.value)}
+              />
+              <button
+                className="primary-button crp-save-btn"
+                type="button"
+                disabled={isBillingAnalysisLoading}
+                onClick={() => void handleGenerateBillingAnalysis()}
+              >
+                {isBillingAnalysisLoading ? "Analysing…" : "Generate Analysis"}
+              </button>
+            </div>
+          </div>
+
+          {billingAnalysisError ? (
+            <p className="form-error" role="alert" style={{ marginTop: "1rem" }}>
+              {billingAnalysisError}
+            </p>
+          ) : null}
+
+          {billingAnalysis ? (
+            <div className="crp-suggestion-block" style={{ marginTop: "1rem", outline: billingAnalysis.requires_human_review ? '2px solid orange' : 'none' }}>
+              <div style={{ marginBottom: "1rem" }}>
+                <p className="crp-meta-label">Summary</p>
+                <p style={{ fontWeight: 'bold' }}>{billingAnalysis.summary}</p>
+              </div>
+
+              <div style={{ marginBottom: "1rem" }}>
+                <p className="crp-meta-label">Recommended Next Steps</p>
+                <ul style={{ paddingLeft: "1.5rem", fontSize: "0.9rem" }}>
+                  {billingAnalysis.recommended_next_steps.map((step, idx) => (
+                    <li key={idx}>{step}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div style={{ marginBottom: "1rem" }}>
+                <p className="crp-meta-label">Suggested Reply Draft</p>
+                <blockquote style={{ borderLeft: "4px solid #e5e7eb", paddingLeft: "1rem", fontStyle: "italic", margin: "0.5rem 0", color: "#4b5563" }}>
+                  {billingAnalysis.reply_draft}
+                </blockquote>
+              </div>
+
+              <div style={{ fontSize: "0.85rem", color: "#666", display: "flex", gap: "1rem", flexWrap: "wrap", backgroundColor: "#f9fafb", padding: "0.75rem", borderRadius: "0.25rem" }}>
+                <span><strong>Source:</strong> {billingAnalysis.analysis_source}</span>
+                {billingAnalysis.fallback_reason && <span><strong>Fallback Reason:</strong> {billingAnalysis.fallback_reason}</span>}
+                {billingAnalysis.escalation_reason && <span style={{ color: "orange" }}><strong>Escalation:</strong> {billingAnalysis.escalation_reason}</span>}
+                <span><strong>Evidence IDs:</strong> {billingAnalysis.evidence_ids.join(", ") || "None"}</span>
+                <span><strong>Policy IDs:</strong> {billingAnalysis.policy_source_ids.join(", ") || "None"}</span>
+                <span><strong>Requires Review:</strong> {billingAnalysis.requires_human_review ? "Yes" : "No"}</span>
+              </div>
+            </div>
           ) : null}
         </section>
       ) : null}

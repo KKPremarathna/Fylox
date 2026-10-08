@@ -35,3 +35,27 @@ class AIReplyResponse(BaseModel):
     message_content: Optional[str]
     routing_decision: RoutingDecision
     action_taken: str
+
+
+class BillingAnalysisRequest(BaseModel):
+    order_id: int
+
+
+class BillingAnalysisResponse(BaseModel):
+    id: int
+    ticket_id: int
+    order_id: int
+    admin_id: Optional[int]
+    
+    summary: str
+    evidence_ids: list[int] 
+    policy_source_ids: list[int]
+    recommended_next_steps: list[str]
+    reply_draft: str
+    
+    requires_human_review: bool
+    escalation_reason: Optional[str] = None
+    analysis_source: str
+    fallback_reason: Optional[str] = None
+
+    model_config = ConfigDict(from_attributes=True)

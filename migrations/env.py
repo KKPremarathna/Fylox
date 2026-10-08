@@ -15,6 +15,10 @@ from backend.messages.models import TicketMessage
 from backend.tickets.models import Ticket
 from backend.users.models import User
 from backend.activity.models import TicketActivity
+from backend.orders.models import Order
+from backend.payments.models import Payment
+from backend.policies.models import PolicyDocument, PolicyChunk
+from backend.ai.models import BillingAnalysisRecord
 
 config = context.config
 
