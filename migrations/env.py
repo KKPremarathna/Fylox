@@ -5,6 +5,8 @@ from pathlib import Path
 from alembic import context
 from sqlalchemy import engine_from_config, pool
 
+
+
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 APPS_DIR = PROJECT_ROOT / "apps"
 
@@ -19,6 +21,8 @@ from backend.orders.models import Order
 from backend.payments.models import Payment
 from backend.policies.models import PolicyDocument, PolicyChunk
 from backend.ai.models import BillingAnalysisRecord
+from backend.shipments.models import Shipment
+from backend.approvals.models import ApprovalRequest
 
 config = context.config
 
