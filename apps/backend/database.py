@@ -1,5 +1,7 @@
 from pathlib import Path
+from typing import Literal
 
+from pydantic import Field, SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from sqlalchemy import create_engine
 from sqlalchemy.orm import DeclarativeBase, sessionmaker
@@ -12,6 +14,20 @@ class Settings(BaseSettings):
     jwt_secret_key: str
     jwt_algorithm: str = "HS256"
     access_token_expire_minutes: int = 60
+
+    billing_ai_provider: Literal[
+        "deterministic",
+        "gemini",
+    ] = "deterministic"
+
+    gemini_api_key: SecretStr = SecretStr("")
+    gemini_model: str = ""
+
+    billing_ai_timeout_ms: int = Field(
+        default=10000,
+        ge=1000,
+        le=60000,
+    )
 
     model_config = SettingsConfigDict(
         env_file=PROJECT_ROOT / ".env",

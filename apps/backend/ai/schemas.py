@@ -1,6 +1,6 @@
 from enum import Enum
 from typing import Optional
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class RoutingCategory(str, Enum):
@@ -59,3 +59,37 @@ class BillingAnalysisResponse(BaseModel):
     fallback_reason: Optional[str] = None
 
     model_config = ConfigDict(from_attributes=True)
+
+class BillingAgentOutput(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+        strict=True,
+    )
+
+    summary: str = Field(
+        min_length=1,
+        max_length=1500,
+    )
+
+    evidence_ids: list[int] = Field(
+        max_length=50,
+    )
+
+    policy_source_ids: list[int] = Field(
+        max_length=20,
+    )
+
+    recommended_next_steps: list[str] = Field(
+        min_length=1,
+        max_length=6,
+    )
+
+    reply_draft: str = Field(
+        min_length=1,
+        max_length=2500,
+    )
+
+    escalation_reason: Optional[str] = Field(
+        default=None,
+        max_length=500,
+    )
