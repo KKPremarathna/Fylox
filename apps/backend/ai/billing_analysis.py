@@ -1,19 +1,124 @@
+import logging
+from typing import Any
+
+import httpx
+from google.genai import errors
+from pydantic import ValidationError
 from sqlalchemy.orm import Session
 
+from backend.activity.service import record_activity
 from backend.ai.models import BillingAnalysisRecord
 from backend.ai.provider import (
     execute_billing_analysis,
     generate_fallback_analysis,
 )
-from backend.ai.schemas import BillingAnalysisResponse
-from backend.activity.service import record_activity
+from backend.ai.schemas import (
+    BillingAgentOutput,
+    BillingAnalysisResponse,
+)
 from backend.orders.service import get_order_for_owner_or_admin
 from backend.payments.models import Payment
 from backend.payments.service import check_duplicate_charges
-from backend.policies.models import PolicyChunk
 from backend.policies.service import search_policies
 from backend.tickets.models import Ticket
 from backend.users.models import User
+
+
+logger = logging.getLogger(__name__)
+
+
+SAFE_PROVIDER_CODES = {
+    "MISSING_API_KEY",
+    "MISSING_MODEL",
+    "UNSUPPORTED_PROVIDER",
+    "NO_CANDIDATE",
+    "INCOMPLETE_OR_BLOCKED_OUTPUT",
+    "EMPTY_OUTPUT",
+    "INVALID_EVIDENCE_IDS",
+    "INVALID_POLICY_IDS",
+}
+
+
+class InvalidBillingOutput(ValueError):
+    pass
+
+
+def safe_failure_code(error: Exception) -> str:
+    if isinstance(error, InvalidBillingOutput):
+        return str(error)
+
+    if isinstance(error, ValidationError):
+        return "INVALID_PROVIDER_OUTPUT"
+
+    if isinstance(error, (TimeoutError, httpx.TimeoutException)):
+        return "PROVIDER_TIMEOUT"
+
+    if isinstance(error, errors.APIError):
+        if error.code == 429:
+            return "PROVIDER_RATE_LIMITED"
+
+        if error.code in (401, 403):
+            return "PROVIDER_ACCESS_DENIED"
+
+        return "PROVIDER_API_ERROR"
+
+    if isinstance(error, httpx.RequestError):
+        return "PROVIDER_CONNECTION_ERROR"
+
+    if isinstance(error, ValueError):
+        code = str(error)
+
+        if code in SAFE_PROVIDER_CODES:
+            return code
+
+        return "INVALID_PROVIDER_OUTPUT"
+
+    return "PROVIDER_ERROR"
+
+
+def validate_provider_payload(
+    raw: Any,
+    valid_payment_ids: set[int],
+    valid_policy_ids: set[int],
+) -> tuple[BillingAgentOutput, str, str | None]:
+    if not isinstance(raw, dict):
+        raise InvalidBillingOutput("INVALID_PROVIDER_OUTPUT")
+
+    source = raw.get("analysis_source")
+
+    if source not in ("LLM", "FALLBACK"):
+        raise InvalidBillingOutput("INVALID_ANALYSIS_SOURCE")
+
+    fallback_reason = raw.get("fallback_reason")
+
+    if source == "LLM" and fallback_reason is not None:
+        raise InvalidBillingOutput("INVALID_ANALYSIS_SOURCE")
+
+    if source == "FALLBACK":
+        if fallback_reason != "LIVE_PROVIDER_DISABLED":
+            raise InvalidBillingOutput("INVALID_FALLBACK_REASON")
+
+    backend_fields = {
+        "analysis_source",
+        "fallback_reason",
+        "requires_human_review",
+    }
+
+    content = {
+        key: value
+        for key, value in raw.items()
+        if key not in backend_fields
+    }
+
+    output = BillingAgentOutput.model_validate(content)
+
+    if not set(output.evidence_ids).issubset(valid_payment_ids):
+        raise InvalidBillingOutput("INVALID_EVIDENCE_IDS")
+
+    if not set(output.policy_source_ids).issubset(valid_policy_ids):
+        raise InvalidBillingOutput("INVALID_POLICY_IDS")
+
+    return output, source, fallback_reason
 
 
 def run_billing_analysis(
@@ -39,7 +144,9 @@ def run_billing_analysis(
         .all()
     )
 
-    valid_payment_ids = {payment.id for payment in payments}
+    valid_payment_ids = {
+        payment.id for payment in payments
+    }
 
     payment_check = check_duplicate_charges(
         order.id,
@@ -63,32 +170,21 @@ def run_billing_analysis(
         ticket.description,
     )
 
-    valid_policy_ids = set()
-    policies_data = []
+    policies_data = [
+        {
+            "id": result.chunk_id,
+            "text": result.snippet_text,
+            "title": result.document_title,
+        }
+        for result in policy_results
+    ]
 
-    # Transitional lookup: replace with source IDs from policy search.
-    for result in policy_results:
-        chunk = (
-            db.query(PolicyChunk)
-            .filter(
-                PolicyChunk.content_snippet == result.snippet_text
-            )
-            .first()
-        )
-
-        if chunk is not None:
-            valid_policy_ids.add(chunk.id)
-
-            policies_data.append(
-                {
-                    "id": chunk.id,
-                    "text": chunk.content_snippet,
-                    "title": result.document_title,
-                }
-            )
+    valid_policy_ids = {
+        policy["id"] for policy in policies_data
+    }
 
     try:
-        raw_llm_dict = execute_billing_analysis(
+        raw = execute_billing_analysis(
             sanitized_payment_findings=(
                 sanitized_payment_findings
             ),
@@ -96,75 +192,63 @@ def run_billing_analysis(
             ticket_text=ticket.description,
         )
 
-        essential_keys = [
-            "summary",
-            "evidence_ids",
-            "policy_source_ids",
-            "recommended_next_steps",
-            "reply_draft",
-        ]
-
-        if not all(
-            key in raw_llm_dict for key in essential_keys
-        ):
-            raise ValueError("Provider Output Missing Keys")
-
-        for evidence_id in raw_llm_dict["evidence_ids"]:
-            if evidence_id not in valid_payment_ids:
-                raise ValueError(
-                    "Provider hallucinated evidence ID "
-                    f"{evidence_id}"
-                )
-
-        for policy_id in raw_llm_dict["policy_source_ids"]:
-            if policy_id not in valid_policy_ids:
-                raise ValueError(
-                    "Provider hallucinated policy ID "
-                    f"{policy_id}"
-                )
-
-        analysis_source = raw_llm_dict.get(
-            "analysis_source",
-            "LLM",
+        output, analysis_source, fallback_reason = (
+            validate_provider_payload(
+                raw,
+                valid_payment_ids,
+                valid_policy_ids,
+            )
         )
 
-        fallback_reason = raw_llm_dict.get(
-            "fallback_reason"
+    except (
+        ValidationError,
+        ValueError,
+        TimeoutError,
+        httpx.RequestError,
+        errors.APIError,
+    ) as error:
+        fallback_reason = safe_failure_code(error)
+
+        logger.warning(
+            "Billing provider fallback: ticket_id=%s reason=%s",
+            ticket.id,
+            fallback_reason,
         )
 
-        escalation_reason = raw_llm_dict.get(
-            "escalation_reason"
-        )
-
-    except Exception as error:
-        # Transitional behavior; safe error mapping is the next step.
-        fallback_reason = str(error)
-
-        raw_llm_dict = generate_fallback_analysis(
+        fallback = generate_fallback_analysis(
             sanitized_payment_findings,
             fallback_reason=fallback_reason,
         )
 
-        analysis_source = "FALLBACK"
+        fallback_content = {
+            key: value
+            for key, value in fallback.items()
+            if key not in {
+                "analysis_source",
+                "fallback_reason",
+                "requires_human_review",
+            }
+        }
 
-        escalation_reason = (
-            "AI analysis could not be completed. "
-            "Human review is required."
+        output = BillingAgentOutput.model_validate(
+            fallback_content
         )
+
+        analysis_source = "FALLBACK"
 
     record = BillingAnalysisRecord(
         ticket_id=ticket.id,
         order_id=order.id,
         admin_id=current_admin.user_id,
-        summary=raw_llm_dict["summary"],
+        summary=output.summary,
         recommended_next_steps=(
-            raw_llm_dict["recommended_next_steps"]
+            output.recommended_next_steps
         ),
-        reply_draft=raw_llm_dict["reply_draft"],
-        evidence_ids=raw_llm_dict["evidence_ids"],
-        policy_source_ids=raw_llm_dict["policy_source_ids"],
+        reply_draft=output.reply_draft,
+        evidence_ids=output.evidence_ids,
+        policy_source_ids=output.policy_source_ids,
         requires_human_review=True,
-        escalation_reason=escalation_reason,
+        escalation_reason=output.escalation_reason,
         analysis_source=analysis_source,
         fallback_reason=fallback_reason,
     )
