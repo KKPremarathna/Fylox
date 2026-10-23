@@ -33,17 +33,38 @@ def test_classify_low_confidence_mock_llm(client):
     assert decision["classifier_type"] == ClassifierType.FALLBACK
 
 
-def test_ticket_ai_reply_writes_message_for_allowed_category(customer_client, customer_ticket, active_refund_policy):
-    res = customer_client.post(f"/ai/tickets/{customer_ticket.id}/ai-reply", json={
-        "message": "What is your policy on returns?"
-    })
-    assert res.status_code == 200
-    data = res.json()
-    assert data["routing_decision"]["category"] == RoutingCategory.POLICY_SUPPORT
-    assert data["message_content"] is not None
-    assert "Based on the" in data["message_content"]
-    assert data["action_taken"] == "REPLIED_VIA_POLICY_SUPPORT"
+def test_ticket_ai_reply_writes_message_for_allowed_category(
+    customer_client,
+    customer_ticket,
+    active_refund_policy,
+):
+    response = customer_client.post(
+        f"/ai/tickets/{customer_ticket.id}/ai-reply",
+        json={
+            "message": "What is your refund policy?"
+        },
+    )
 
+    assert response.status_code == 200
+
+    data = response.json()
+
+    assert (
+        data["routing_decision"]["category"]
+        == RoutingCategory.POLICY_SUPPORT
+    )
+
+    reply = data["message_content"]
+
+    assert reply is not None
+    assert active_refund_policy.title in reply
+    assert "Refunds are allowed within 30 days." in reply
+    assert "does not confirm eligibility" in reply
+
+    assert (
+        data["action_taken"]
+        == "REPLIED_VIA_POLICY_SUPPORT"
+    )
 
 def test_ticket_ai_reply_withholds_message_for_billing(customer_client, customer_ticket):
     res = customer_client.post(f"/ai/tickets/{customer_ticket.id}/ai-reply", json={

@@ -17,8 +17,6 @@ from backend.policies.routes import router as policies_router
 from backend.policies.routes import admin_router as policies_admin_router
 from backend.policies.routes import search_router as policy_search_router
 from backend.ai.routes import router as ai_router
-from backend.policies.routes import admin_router as policies_admin_router
-from backend.policies.routes import search_router as policy_search_router
 
 app = FastAPI(
     title="Fylox API",
@@ -49,7 +47,6 @@ app.include_router(approvals_admin_router)
 app.include_router(tickets_router)
 app.include_router(messages_router)
 app.include_router(admin_router)
-app.include_router(activity_router)
 app.include_router(activity_router)
 app.include_router(activity_admin_router)
 app.include_router(shipments_router)

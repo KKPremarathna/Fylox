@@ -25,13 +25,34 @@ STOP_WORDS = {
 }
 
 
+TOKEN_NORMALIZATION = {
+    "refunds": "refund",
+    "returns": "return",
+    "payments": "payment",
+    "charges": "charge",
+    "duplicates": "duplicate",
+    "orders": "order",
+    "shipments": "shipment",
+    "policies": "policy",
+    "windows": "window",
+}
+
+
 def tokenize(value: str) -> set[str]:
+    """
+    Normalize supported English word forms.
+
+    Uses whole tokens rather than substring matching.
+    Refunds and product returns remain distinct concepts.
+    """
+    tokens = re.findall(
+        r"[a-z0-9]+",
+        value.casefold(),
+    )
+
     return {
-        token
-        for token in re.findall(
-            r"[a-z0-9]+",
-            value.casefold(),
-        )
+        TOKEN_NORMALIZATION.get(token, token)
+        for token in tokens
         if len(token) > 1 and token not in STOP_WORDS
     }
 
@@ -89,7 +110,7 @@ def search_policies(
     query: str,
 ) -> list[PolicySearchResultItem]:
     """
-    Rank approved chunks using English whole-token overlap.
+    Rank approved chunks using normalized token overlap.
 
     Ranking does not establish policy applicability.
     """
@@ -125,6 +146,7 @@ def search_policies(
         heading_matches = query_tokens & heading_tokens
         title_matches = query_tokens & title_tokens
 
+        # A title match alone is insufficient to select a chunk.
         if not content_matches and not heading_matches:
             continue
 

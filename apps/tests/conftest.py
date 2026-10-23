@@ -1,17 +1,20 @@
+import secrets
+from decimal import Decimal
+
 import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
-from sqlalchemy.pool import StaticPool
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.pool import StaticPool
 
-from backend.database import Base, get_db
+from backend.database import Base, get_db, settings
 from backend.main import app
 from backend.security import get_current_user
 from backend.tickets.rate_limit import reset_rate_limiter
 
-# Import every model so all table definitions are registered in Base.metadata.
+# Register all model tables in Base.metadata.
 from backend.activity.models import TicketActivity
-from backend.activity.models import TicketActivity
+from backend.ai.models import BillingAnalysisRecord
 from backend.approvals.models import ApprovalRequest
 from backend.messages.models import TicketMessage
 from backend.orders.models import Order
@@ -20,6 +23,7 @@ from backend.policies.models import PolicyDocument, PolicyChunk
 from backend.shipments.models import Shipment
 from backend.tickets.models import Ticket
 from backend.users.models import User
+
 
 test_engine = create_engine(
     "sqlite://",
@@ -33,31 +37,67 @@ TestingSessionLocal = sessionmaker(
     bind=test_engine,
 )
 
+
 def override_get_db():
     db = TestingSessionLocal()
+
     try:
         yield db
     finally:
         db.close()
 
+
+@pytest.fixture(autouse=True)
+def isolated_test_jwt_secret(monkeypatch):
+    """
+    Use an independent secret for each test.
+
+    Does not modify .env or the deployment configuration.
+    """
+    monkeypatch.setattr(
+        settings,
+        "jwt_secret_key",
+        secrets.token_hex(32),
+    )
+
+
+@pytest.fixture(autouse=True)
+def clear_rate_limiter():
+    """
+    Prevent rate-limit state from leaking between tests.
+    """
+    reset_rate_limiter()
+
+    try:
+        yield
+    finally:
+        reset_rate_limiter()
+
+
 @pytest.fixture(scope="function")
 def db_session():
     Base.metadata.create_all(bind=test_engine)
     db = TestingSessionLocal()
+
     try:
         yield db
     finally:
         db.close()
         Base.metadata.drop_all(bind=test_engine)
 
+
 @pytest.fixture(scope="function")
 def client(db_session):
+    previous_overrides = app.dependency_overrides.copy()
     app.dependency_overrides[get_db] = override_get_db
 
-    with TestClient(app) as test_client:
-        yield test_client
+    try:
+        with TestClient(app) as test_client:
+            yield test_client
+    finally:
+        app.dependency_overrides.clear()
+        app.dependency_overrides.update(previous_overrides)
 
-    app.dependency_overrides.clear()
 
 @pytest.fixture(scope="function")
 def admin_user(db_session):
@@ -65,12 +105,15 @@ def admin_user(db_session):
         username="admin_user",
         email="admin@example.com",
         password_hash="fakehash",
-        role="ADMIN"
+        role="ADMIN",
     )
+
     db_session.add(user)
     db_session.commit()
     db_session.refresh(user)
+
     return user
+
 
 @pytest.fixture(scope="function")
 def customer_user(db_session):
@@ -78,12 +121,31 @@ def customer_user(db_session):
         username="customer_user",
         email="customer@example.com",
         password_hash="fakehash",
-        role="CUSTOMER"
+        role="CUSTOMER",
     )
+
     db_session.add(user)
     db_session.commit()
     db_session.refresh(user)
+
     return user
+
+
+@pytest.fixture(scope="function")
+def second_customer_user(db_session):
+    user = User(
+        username="other_customer",
+        email="other@example.com",
+        password_hash="fakehash",
+        role="CUSTOMER",
+    )
+
+    db_session.add(user)
+    db_session.commit()
+    db_session.refresh(user)
+
+    return user
+
 
 @pytest.fixture(scope="function")
 def customer_ticket(db_session, customer_user):
@@ -91,65 +153,45 @@ def customer_ticket(db_session, customer_user):
         customer_id=customer_user.user_id,
         subject="Sample ticket for AI",
         description="This is a test description",
-        status="OPEN"
+        status="OPEN",
     )
+
     db_session.add(ticket)
     db_session.commit()
     db_session.refresh(ticket)
+
     return ticket
+
 
 @pytest.fixture(scope="function")
 def admin_client(client, admin_user):
-    app.dependency_overrides[get_current_user] = lambda: admin_user
+    app.dependency_overrides[get_current_user] = (
+        lambda: admin_user
+    )
+
     yield client
-    # app.dependency_overrides is cleared by the base client fixture.
+
 
 @pytest.fixture(scope="function")
 def customer_client(client, customer_user):
-    app.dependency_overrides[get_current_user] = lambda: customer_user
-    yield client
-    # app.dependency_overrides is cleared by the base client fixture.
-
-
-@pytest.fixture(scope="function")
-def second_customer_user(db_session):
-    """A second distinct customer who does not own customer_ticket."""
-    user = User(
-        username="other_customer",
-        email="other@example.com",
-        password_hash="fakehash",
-        role="CUSTOMER",
+    app.dependency_overrides[get_current_user] = (
+        lambda: customer_user
     )
-    db_session.add(user)
-    db_session.commit()
-    db_session.refresh(user)
-    return user
+
+    yield client
 
 
 @pytest.fixture(scope="function")
 def second_customer_client(client, second_customer_user):
-    """TestClient authenticated as the second (non-owning) customer."""
-    app.dependency_overrides[get_current_user] = lambda: second_customer_user
+    app.dependency_overrides[get_current_user] = (
+        lambda: second_customer_user
+    )
+
     yield client
-    # app.dependency_overrides is cleared by the base client fixture.
-
-
-@pytest.fixture(autouse=True)
-def clear_rate_limiter():
-    """
-    Runs automatically around every test function.
-    Clears the in-memory sliding-window log before the test starts and again
-    after it finishes, so no quota state leaks between test functions.
-    """
-    reset_rate_limiter()
-    yield
-    reset_rate_limiter()
 
 
 @pytest.fixture(scope="function")
 def customer_order(db_session, customer_user):
-    from decimal import Decimal
-    from backend.orders.models import Order
     order = Order(
         order_number="ORD-1001",
         customer_id=customer_user.user_id,
@@ -157,16 +199,19 @@ def customer_order(db_session, customer_user):
         total_amount=Decimal("149.99"),
         currency="USD",
     )
+
     db_session.add(order)
     db_session.commit()
     db_session.refresh(order)
+
     return order
 
 
 @pytest.fixture(scope="function")
-def second_customer_order(db_session, second_customer_user):
-    from decimal import Decimal
-    from backend.orders.models import Order
+def second_customer_order(
+    db_session,
+    second_customer_user,
+):
     order = Order(
         order_number="ORD-1002",
         customer_id=second_customer_user.user_id,
@@ -174,16 +219,16 @@ def second_customer_order(db_session, second_customer_user):
         total_amount=Decimal("250.00"),
         currency="USD",
     )
+
     db_session.add(order)
     db_session.commit()
     db_session.refresh(order)
+
     return order
 
 
 @pytest.fixture(scope="function")
 def customer_payment(db_session, customer_order):
-    from decimal import Decimal
-    from backend.payments.models import Payment
     payment = Payment(
         order_id=customer_order.id,
         provider_reference="ch_cust_123",
@@ -192,16 +237,19 @@ def customer_payment(db_session, customer_order):
         status="SUCCEEDED",
         payment_method="CARD",
     )
+
     db_session.add(payment)
     db_session.commit()
     db_session.refresh(payment)
+
     return payment
 
 
 @pytest.fixture(scope="function")
-def second_customer_payment(db_session, second_customer_order):
-    from decimal import Decimal
-    from backend.payments.models import Payment
+def second_customer_payment(
+    db_session,
+    second_customer_order,
+):
     payment = Payment(
         order_id=second_customer_order.id,
         provider_reference="ch_second_456",
@@ -210,92 +258,145 @@ def second_customer_payment(db_session, second_customer_order):
         status="SUCCEEDED",
         payment_method="CARD",
     )
+
     db_session.add(payment)
     db_session.commit()
     db_session.refresh(payment)
+
     return payment
 
 
 @pytest.fixture(scope="function")
 def customer_shipment(db_session, customer_order):
-    from backend.shipments.models import Shipment
     shipment = Shipment(
         order_id=customer_order.id,
         carrier="UPS",
         tracking_number="1Z9999999999999999",
-        status="IN_TRANSIT"
+        status="IN_TRANSIT",
     )
+
     db_session.add(shipment)
     db_session.commit()
     db_session.refresh(shipment)
+
     return shipment
 
 
 @pytest.fixture(scope="function")
-def second_customer_shipment(db_session, second_customer_order):
-    from backend.shipments.models import Shipment
+def second_customer_shipment(
+    db_session,
+    second_customer_order,
+):
     shipment = Shipment(
         order_id=second_customer_order.id,
         carrier="FEDEX",
         tracking_number="770000000000",
-        status="DELIVERED"
+        status="DELIVERED",
     )
+
     db_session.add(shipment)
     db_session.commit()
     db_session.refresh(shipment)
+
     return shipment
 
 
 @pytest.fixture(scope="function")
 def active_refund_policy(db_session):
-    from backend.policies.models import PolicyDocument, PolicyChunk
-    doc = PolicyDocument(
+    document = PolicyDocument(
         title="Refund Policy",
         version="v1.0",
         status="APPROVED",
-        content="# Refunds\n\nRefunds are allowed within 30 days.\n\n# Exceptions\n\nNo refunds on digital items."
+        content=(
+            "# Refunds\n\n"
+            "Refunds are allowed within 30 days.\n\n"
+            "# Exceptions\n\n"
+            "No refunds on digital items."
+        ),
     )
-    db_session.add(doc)
+
+    db_session.add(document)
     db_session.flush()
 
-    chunk1 = PolicyChunk(document_id=doc.id, section_heading="Refunds", content_snippet="Refunds are allowed within 30 days.", chunk_index=0)
-    chunk2 = PolicyChunk(document_id=doc.id, section_heading="Exceptions", content_snippet="No refunds on digital items.", chunk_index=1)
-    
-    db_session.add_all([chunk1, chunk2])
+    chunks = [
+        PolicyChunk(
+            document_id=document.id,
+            section_heading="Refunds",
+            content_snippet=(
+                "Refunds are allowed within 30 days."
+            ),
+            chunk_index=0,
+        ),
+        PolicyChunk(
+            document_id=document.id,
+            section_heading="Exceptions",
+            content_snippet=(
+                "No refunds on digital items."
+            ),
+            chunk_index=1,
+        ),
+    ]
+
+    db_session.add_all(chunks)
     db_session.commit()
-    db_session.refresh(doc)
-    return doc
+    db_session.refresh(document)
+
+    return document
 
 
 @pytest.fixture(scope="function")
 def active_shipping_delay_policy(db_session):
-    from backend.policies.models import PolicyDocument, PolicyChunk
-    doc = PolicyDocument(
+    document = PolicyDocument(
         title="Shipping Delays",
         version="v1.1",
         status="APPROVED",
-        content="# Delays\n\nWe compensate for shipping delays over 7 days."
+        content=(
+            "# Delays\n\n"
+            "We compensate for shipping delays over 7 days."
+        ),
     )
-    db_session.add(doc)
+
+    db_session.add(document)
     db_session.flush()
-    chunk1 = PolicyChunk(document_id=doc.id, section_heading="Delays", content_snippet="We compensate for shipping delays over 7 days.", chunk_index=0)
-    db_session.add(chunk1)
+
+    chunk = PolicyChunk(
+        document_id=document.id,
+        section_heading="Delays",
+        content_snippet=(
+            "We compensate for shipping delays over 7 days."
+        ),
+        chunk_index=0,
+    )
+
+    db_session.add(chunk)
     db_session.commit()
-    return doc
+
+    return document
 
 
 @pytest.fixture(scope="function")
 def archived_policy(db_session):
-    from backend.policies.models import PolicyDocument, PolicyChunk
-    doc = PolicyDocument(
+    document = PolicyDocument(
         title="Old Returns",
         version="v0.9",
         status="ARCHIVED",
-        content="# Old Rules\n\nReturns used to be 14 days."
+        content=(
+            "# Old Rules\n\n"
+            "Returns used to be 14 days."
+        ),
     )
-    db_session.add(doc)
+
+    db_session.add(document)
     db_session.flush()
-    chunk1 = PolicyChunk(document_id=doc.id, section_heading="Old Rules", content_snippet="Returns used to be 14 days.", chunk_index=0)
-    db_session.add(chunk1)
+
+    chunk = PolicyChunk(
+        document_id=document.id,
+        section_heading="Old Rules",
+        content_snippet="Returns used to be 14 days.",
+        chunk_index=0,
+    )
+
+    db_session.add(chunk)
     db_session.commit()
-    return doc
+
+    return document
