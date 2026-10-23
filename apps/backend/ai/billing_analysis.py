@@ -165,9 +165,18 @@ def run_billing_analysis(
         "payment_ids": sorted(valid_payment_ids),
     }
 
+    ticket_text = "\n".join(
+        part
+        for part in (
+            ticket.subject,
+            ticket.description,
+        )
+        if part
+    )
+
     policy_results = search_policies(
         db,
-        ticket.description,
+        ticket_text,
     )
 
     policies_data = [
@@ -189,7 +198,7 @@ def run_billing_analysis(
                 sanitized_payment_findings
             ),
             matching_policies=policies_data,
-            ticket_text=ticket.description,
+            ticket_text=ticket_text,
         )
 
         output, analysis_source, fallback_reason = (

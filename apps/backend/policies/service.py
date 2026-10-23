@@ -1,3 +1,5 @@
+import re
+
 from sqlalchemy.orm import Session, joinedload
 
 from backend.policies.models import (
@@ -8,6 +10,30 @@ from backend.policies.schemas import (
     PolicyDocumentCreate,
     PolicySearchResultItem,
 )
+
+
+STOP_WORDS = {
+    "a", "an", "and", "are", "as", "at",
+    "be", "been", "but", "by", "can",
+    "could", "do", "does", "for", "from",
+    "had", "has", "have", "i", "if",
+    "in", "is", "it", "its", "me", "my",
+    "of", "on", "or", "our", "please",
+    "the", "their", "them", "there",
+    "this", "to", "was", "we", "were",
+    "will", "with", "would", "you", "your",
+}
+
+
+def tokenize(value: str) -> set[str]:
+    return {
+        token
+        for token in re.findall(
+            r"[a-z0-9]+",
+            value.casefold(),
+        )
+        if len(token) > 1 and token not in STOP_WORDS
+    }
 
 
 def ingest_markdown_policy(
@@ -63,12 +89,13 @@ def search_policies(
     query: str,
 ) -> list[PolicySearchResultItem]:
     """
-    Return approved policy chunks using deterministic
-    keyword-overlap scoring.
-    """
-    normalized_query = query.strip().lower()
+    Rank approved chunks using English whole-token overlap.
 
-    if not normalized_query:
+    Ranking does not establish policy applicability.
+    """
+    query_tokens = tokenize(query)
+
+    if not query_tokens:
         return []
 
     chunks = (
@@ -81,32 +108,33 @@ def search_policies(
         .all()
     )
 
-    query_tokens = set(normalized_query.split())
     scored_results = []
 
     for chunk in chunks:
-        text_lower = chunk.content_snippet.lower()
-
-        heading_lower = (
+        content_tokens = tokenize(
+            chunk.content_snippet
+        )
+        heading_tokens = tokenize(
             chunk.section_heading or ""
-        ).lower()
+        )
+        title_tokens = tokenize(
+            chunk.document.title
+        )
 
-        title_lower = chunk.document.title.lower()
+        content_matches = query_tokens & content_tokens
+        heading_matches = query_tokens & heading_tokens
+        title_matches = query_tokens & title_tokens
 
-        score = 0.0
+        if not content_matches and not heading_matches:
+            continue
 
-        for token in query_tokens:
-            if token in text_lower:
-                score += 1.0
+        score = (
+            len(content_matches)
+            + 1.5 * len(heading_matches)
+            + 0.5 * len(title_matches)
+        )
 
-            if token in heading_lower:
-                score += 1.5
-
-            if token in title_lower:
-                score += 2.0
-
-        if score > 0:
-            scored_results.append((score, chunk))
+        scored_results.append((score, chunk))
 
     scored_results.sort(
         key=lambda item: (
@@ -123,9 +151,7 @@ def search_policies(
             chunk_id=chunk.id,
             document_title=chunk.document.title,
             version=chunk.document.version,
-            effective_date=(
-                chunk.document.effective_from
-            ),
+            effective_date=chunk.document.effective_from,
             section_heading=chunk.section_heading,
             snippet_text=chunk.content_snippet,
             relevance_score=score,

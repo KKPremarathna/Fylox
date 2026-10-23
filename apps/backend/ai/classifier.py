@@ -1,95 +1,209 @@
 import re
-from backend.ai.schemas import RoutingCategory, RoutingDecision, ClassifierType
+
+from backend.ai.schemas import (
+    ClassifierType,
+    RoutingCategory,
+    RoutingDecision,
+)
+
+
+INJECTION_PATTERNS = (
+    "ignore previous instructions",
+    "you are now a",
+    "system prompt",
+    "forget all rules",
+)
+
+
+def normalize_message(message: str) -> str:
+    return " ".join(message.casefold().split())
 
 
 def detect_injection(message: str) -> bool:
     """
-    Very basic heuristic injection pattern detection.
-    Looks for prompt hijacking instructions.
+    Basic phrase-based guardrail.
+
+    This is not comprehensive prompt-injection detection.
     """
-    lower = message.lower()
-    dangerous_patterns = [
-        "ignore previous instructions",
-        "you are now a",
-        "system prompt",
-        "forget all rules",
-    ]
-    return any(p in lower for p in dangerous_patterns)
+    normalized = normalize_message(message)
+
+    return any(
+        pattern in normalized
+        for pattern in INJECTION_PATTERNS
+    )
 
 
-def run_deterministic_fast_path(message: str) -> tuple[RoutingCategory | None, float]:
+def matches(pattern: str, message: str) -> bool:
+    return re.search(pattern, message) is not None
+
+
+def run_deterministic_fast_path(
+    message: str,
+) -> tuple[RoutingCategory | None, float]:
     """
-    Evaluates message deterministically against strict keywords for fast pathing.
-    Returns (Category, confidence) if a highly confident match is found.
+    Apply ordered routing rules.
+
+    Scores are fixed routing heuristics, not calibrated
+    probabilities of correctness.
     """
-    lower = message.lower()
-    
-    # Check for direct escalation intents
-    if re.search(r'\b(sue you|lawsuit|lawyer|human|agent|operator)\b', lower):
+    normalized = normalize_message(message)
+
+    if not normalized:
+        return None, 0.0
+
+    # Explicit human-contact requests and legal concerns.
+    human_request = matches(
+        r"\b(?:speak|talk|connect|transfer|escalate)"
+        r"\s+(?:me\s+)?(?:directly\s+)?"
+        r"(?:(?:to|with)\s+)?(?:a\s+|an\s+)?"
+        r"(?:human|agent|operator|representative)\b",
+        normalized,
+    )
+
+    human_request = human_request or matches(
+        r"\b(?:i\s+)?(?:want|need)"
+        r"\s+(?:a\s+|an\s+)?"
+        r"(?:human|agent|operator|representative)\b",
+        normalized,
+    )
+
+    if (
+        human_request
+        or normalized in {
+            "human",
+            "agent",
+            "operator",
+            "representative",
+            "human agent",
+        }
+        or matches(
+            r"\b(?:sue you|lawsuit|lawyer)\b",
+            normalized,
+        )
+    ):
         return RoutingCategory.HUMAN_ESCALATION, 1.0
-        
-    # Check Billing rules
-    if re.search(r'\b(charge|refund|duplicate|billed twice|money back)\b', lower):
-        return RoutingCategory.BILLING_SUPPORT, 0.95
-        
-    # Check Order rules
-    if re.search(r'\b(shipping|tracking code|where is my package|order status|shipment)\b', lower):
-        return RoutingCategory.ORDER_SUPPORT, 0.95
-        
-    # Check Policy rules
-    if re.search(r'\b(what is your policy|return window|guarantee)\b', lower):
+
+    # Route policy questions before generic refund keywords.
+    policy_question = matches(
+        r"\b(?:policy|policies|return window|guarantee)\b",
+        normalized,
+    )
+
+    billing_action = matches(
+        r"\b(?:"
+        r"(?:i\s+)?(?:want|need|request)"
+        r"\s+(?:a\s+)?refund"
+        r"|refund\s+(?:me|my\s+payment)"
+        r"|money back"
+        r"|charged twice"
+        r"|billed twice"
+        r"|duplicate\s+(?:charge|payment)"
+        r")\b",
+        normalized,
+    )
+
+    if policy_question and not billing_action:
         return RoutingCategory.POLICY_SUPPORT, 0.90
-        
+
+    if matches(
+        r"\b(?:"
+        r"charge|charged|charges"
+        r"|refund|refunds"
+        r"|duplicate"
+        r"|billed twice|charged twice"
+        r"|money back"
+        r"|billing"
+        r"|payment|payments"
+        r")\b",
+        normalized,
+    ):
+        return RoutingCategory.BILLING_SUPPORT, 0.95
+
+    if matches(
+        r"\b(?:"
+        r"shipping"
+        r"|tracking(?: code| number)?"
+        r"|where is my package"
+        r"|order status"
+        r"|shipment"
+        r"|cancel (?:my |the )?order"
+        r")\b",
+        normalized,
+    ):
+        return RoutingCategory.ORDER_SUPPORT, 0.95
+
+    if matches(
+        r"\border\s*#\s*[a-z0-9]"
+        r"|\border\s+(?:number|no\.?)\s*[:#]?\s*[a-z0-9]",
+        normalized,
+    ):
+        return RoutingCategory.ORDER_SUPPORT, 0.95
+
+    if normalized in {
+        "hi",
+        "hello",
+        "hey",
+        "good morning",
+        "good afternoon",
+        "good evening",
+        "thanks",
+        "thank you",
+        "help",
+        "help me",
+    }:
+        return RoutingCategory.GENERAL_SUPPORT, 0.90
+
     return None, 0.0
-
-
-def run_mock_llm_adapter(message: str) -> tuple[RoutingCategory, float]:
-    """
-    A stand-in for an external LLM classification call (e.g. OpenAI).
-    In this capstone slice, we mock behavior behind this clean boundary.
-    """
-    # Simple simulated processing boundary
-    # Because LLM acts as fallback, if it reaches here and we don't have a clear mapping,
-    # it's usually safest to hand off to human or general.
-    if len(message.split()) < 3:
-        # Probable small talk "Hi", "Hello"
-        return RoutingCategory.GENERAL_SUPPORT, 0.85
-        
-    return RoutingCategory.HUMAN_ESCALATION, 0.60
 
 
 def classify_message(message: str) -> RoutingDecision:
     """
-    The main routing orchestrator.
-    Determines safety, fast-paths securely, and falls back gracefully.
+    Route using phrase guardrails and deterministic rules.
+
+    No external LLM is called.
     """
-    if detect_injection(message):
+    normalized = normalize_message(message)
+
+    if not normalized:
+        return RoutingDecision(
+            category=RoutingCategory.GENERAL_SUPPORT,
+            confidence=0.0,
+            classifier_type=ClassifierType.FALLBACK,
+            escalation_reason=None,
+        )
+
+    if detect_injection(normalized):
         return RoutingDecision(
             category=RoutingCategory.HUMAN_ESCALATION,
             confidence=1.0,
             classifier_type=ClassifierType.SAFETY_GUARDRAIL,
-            escalation_reason="Prompt injection heuristic identified"
+            escalation_reason=(
+                "Prompt-injection phrase heuristic matched; "
+                "human review is required."
+            ),
         )
-        
-    cat, conf = run_deterministic_fast_path(message)
-    if cat is not None and conf > 0.8:
+
+    category, score = run_deterministic_fast_path(normalized)
+
+    if category is not None:
         return RoutingDecision(
-            category=cat,
-            confidence=conf,
-            classifier_type=ClassifierType.DETERMINISTIC
+            category=category,
+            confidence=score,
+            classifier_type=ClassifierType.DETERMINISTIC,
+            escalation_reason=(
+                "Explicit human-contact or legal-concern "
+                "routing rule matched."
+                if category == RoutingCategory.HUMAN_ESCALATION
+                else None
+            ),
         )
-        
-    llm_cat, llm_conf = run_mock_llm_adapter(message)
-    if llm_conf < 0.7:
-         return RoutingDecision(
-            category=RoutingCategory.HUMAN_ESCALATION,
-            confidence=llm_conf,
-            classifier_type=ClassifierType.FALLBACK,
-            escalation_reason="Low LLM confidence"
-        )
-         
+
     return RoutingDecision(
-        category=llm_cat,
-        confidence=llm_conf,
-        classifier_type=ClassifierType.LLM
+        category=RoutingCategory.HUMAN_ESCALATION,
+        confidence=0.0,
+        classifier_type=ClassifierType.FALLBACK,
+        escalation_reason=(
+            "No supported deterministic routing rule matched; "
+            "human review is required."
+        ),
     )
