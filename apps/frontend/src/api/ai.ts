@@ -5,11 +5,12 @@ export async function generateTicketAiReply(
   token: string,
   ticketId: number,
   message: string,
+  clientToken?: string,
 ): Promise<AIReplyResponse> {
   return apiRequest<AIReplyResponse>(`/ai/tickets/${ticketId}/ai-reply`, {
     method: "POST",
     token,
-    body: JSON.stringify({ message }),
+    body: JSON.stringify({ message, client_token: clientToken }),
   });
 }
 

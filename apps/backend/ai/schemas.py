@@ -2,6 +2,8 @@ from enum import Enum
 from typing import Optional
 from pydantic import BaseModel, ConfigDict, Field
 
+from backend.messages.schemas import TicketMessageResponse
+
 
 class RoutingCategory(str, Enum):
     ORDER_SUPPORT = "ORDER_SUPPORT"
@@ -20,6 +22,7 @@ class ClassifierType(str, Enum):
 
 class ClassifyRequest(BaseModel):
     message: str
+    client_token: Optional[str] = None
 
 
 class RoutingDecision(BaseModel):
@@ -35,6 +38,8 @@ class AIReplyResponse(BaseModel):
     message_content: Optional[str]
     routing_decision: RoutingDecision
     action_taken: str
+    user_message: Optional[TicketMessageResponse] = None
+    ai_message: Optional[TicketMessageResponse] = None
 
 
 class BillingAnalysisRequest(BaseModel):

@@ -33,7 +33,7 @@ target_metadata = Base.metadata
 
 
 def run_migrations_offline() -> None:
-    url = settings.database_url
+    url = config.get_main_option("sqlalchemy.url") or settings.database_url
 
     context.configure(
         url=url,
@@ -56,7 +56,9 @@ def run_migrations_online() -> None:
     if configuration is None:
         raise RuntimeError("Alembic configuration section is missing")
 
-    configuration["sqlalchemy.url"] = settings.database_url
+    url_opt = config.get_main_option("sqlalchemy.url")
+    db_url = url_opt if (url_opt and "driver://" not in url_opt) else settings.database_url
+    configuration["sqlalchemy.url"] = db_url
 
     connectable = engine_from_config(
         configuration,

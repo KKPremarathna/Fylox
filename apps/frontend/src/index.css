@@ -816,6 +816,47 @@ button:disabled {
   border: 1px solid var(--border-color);
 }
 
+.message-bubble-ai {
+  justify-self: start;
+  color: var(--text-main);
+  background: var(--bg-surface);
+  border: 1px solid #6366f1;
+  box-shadow: 0 1px 3px rgba(99, 102, 241, 0.1);
+}
+
+.ai-notice-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  margin-top: 1rem;
+  border-radius: 0.375rem;
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  color: #0369a1;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.ai-notice-banner p {
+  margin: 0;
+}
+
+.ai-notice-dismiss {
+  background: transparent;
+  border: none;
+  color: #0369a1;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  line-height: 1;
+}
+
+.ai-notice-dismiss:hover {
+  color: #0c4a6e;
+}
+
 /* Empty State Inner */
 .empty-state-inner {
   padding: 1.5rem 0;

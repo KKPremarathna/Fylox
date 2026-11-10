@@ -41,7 +41,13 @@ def generate_ticket_ai_reply(
     if not authorized_ticket:
          raise HTTPException(status_code=404, detail="Ticket not found")
 
-    return process_ticket_ai_reply(db=db, ticket=authorized_ticket, message=payload.message)
+    return process_ticket_ai_reply(
+        db=db,
+        ticket=authorized_ticket,
+        message=payload.message,
+        current_user=current_user,
+        client_token=payload.client_token,
+    )
 
 @router.post("/tickets/{ticket_id}/billing-analysis", response_model=BillingAnalysisResponse)
 def get_billing_analysis_endpoint(

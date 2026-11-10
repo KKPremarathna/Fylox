@@ -27,25 +27,30 @@ export function Conversation({
   return (
     <div className="conversation">
       {messages.map((message) => {
-        const isCurrentUser = message.sender_id === currentUserId;
+        const isCurrentUser =
+          message.sender_id != null && message.sender_id === currentUserId;
+
         const senderName =
           message.sender_type === "AI"
             ? "AI Assistant"
             : message.sender_type === "ADMIN"
-              ? "Support team"
+              ? isCurrentUser
+                ? "You (Support team)"
+                : "Support team"
               : isCurrentUser
                 ? "You"
                 : "Customer";
 
+        const bubbleVariant =
+          message.sender_type === "AI"
+            ? "message-bubble-ai"
+            : isCurrentUser
+              ? "message-bubble-own"
+              : "message-bubble-other";
+
         return (
           <article
-            className={[
-              "message-bubble",
-              isCurrentUser || message.sender_type === "AI"
-                ? "message-bubble-own"
-                : "message-bubble-other",
-              message.sender_type === "AI" ? "message-bubble-ai" : "",
-            ].join(" ")}
+            className={`message-bubble ${bubbleVariant}`}
             key={message.id}
           >
             <div className="message-meta">

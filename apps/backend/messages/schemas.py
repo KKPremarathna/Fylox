@@ -17,7 +17,7 @@ class TicketMessageCreate(BaseModel):
 class TicketMessageResponse(BaseModel):
     id: int
     ticket_id: int
-    sender_id: int
+    sender_id: int | None = None
     sender_type: Literal["CUSTOMER", "ADMIN", "AI"]
     content: str
     created_at: datetime

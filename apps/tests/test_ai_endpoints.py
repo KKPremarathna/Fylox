@@ -1,4 +1,5 @@
 import pytest
+from sqlalchemy.exc import IntegrityError
 
 from backend.ai import billing_analysis
 from backend.ai import provider
@@ -203,16 +204,247 @@ def test_order_reply_uses_authenticated_customers_order(
     assert customer_order.order_number in body["message_content"]
     assert customer_order.status in body["message_content"]
 
-    saved_message = (
+    messages = (
         db_session.query(TicketMessage)
-        .filter(
-            TicketMessage.ticket_id == customer_ticket.id
-        )
-        .one()
+        .filter(TicketMessage.ticket_id == customer_ticket.id)
+        .order_by(TicketMessage.id.asc())
+        .all()
     )
 
-    assert saved_message.sender_type == "AI"
-    assert saved_message.content == body["message_content"]
+    # Customer message saved with customer authorship, AI reply saved with NULL sender_id
+    assert len(messages) == 2
+    assert messages[0].sender_type == "CUSTOMER"
+    assert messages[0].sender_id == customer_ticket.customer_id
+    assert customer_order.order_number in messages[0].content
+
+    assert messages[1].sender_type == "AI"
+    assert messages[1].sender_id is None
+    assert messages[1].content == body["message_content"]
+
+
+def test_admin_ai_reply_attributes_input_to_admin(
+    admin_client,
+    admin_user,
+    customer_ticket,
+    customer_order,
+    db_session,
+):
+    response = admin_client.post(
+        f"/ai/tickets/{customer_ticket.id}/ai-reply",
+        json={
+            "message": f"Check order status for order #{customer_order.order_number}"
+        },
+    )
+
+    assert response.status_code == 200, response.text
+
+    messages = (
+        db_session.query(TicketMessage)
+        .filter(TicketMessage.ticket_id == customer_ticket.id)
+        .order_by(TicketMessage.id.asc())
+        .all()
+    )
+
+    assert len(messages) == 2
+    # Admin message MUST be attributed to admin, never to customer
+    assert messages[0].sender_type == "ADMIN"
+    assert messages[0].sender_id == admin_user.user_id
+    assert messages[0].sender_id != customer_ticket.customer_id
+
+    # AI message has sender_id NULL
+    assert messages[1].sender_type == "AI"
+    assert messages[1].sender_id is None
+
+
+def test_no_reply_routing_retains_submitted_input_and_exposes_outcome(
+    customer_client,
+    customer_ticket,
+    db_session,
+):
+    response = customer_client.post(
+        f"/ai/tickets/{customer_ticket.id}/ai-reply",
+        json={"message": "I was charged twice, please refund my payment."},
+    )
+
+    assert response.status_code == 200, response.text
+    body = response.json()
+
+    assert body["action_taken"] == "ROUTED_WITHOUT_REPLY"
+    assert body["message_content"] is None
+    assert body["routing_decision"]["category"] == "BILLING_SUPPORT"
+
+    messages = (
+        db_session.query(TicketMessage)
+        .filter(TicketMessage.ticket_id == customer_ticket.id)
+        .all()
+    )
+
+    # Submitted customer input is retained in conversation
+    assert len(messages) == 1
+    assert messages[0].sender_type == "CUSTOMER"
+    assert messages[0].sender_id == customer_ticket.customer_id
+    assert "charged twice" in messages[0].content
+
+    # Activities recorded: message creation and routing decision
+    activities = (
+        db_session.query(TicketActivity)
+        .filter(TicketActivity.ticket_id == customer_ticket.id)
+        .all()
+    )
+    event_types = {a.event_type for a in activities}
+    assert "MESSAGE_CREATED" in event_types
+    assert "AI_ROUTED" in event_types
+
+
+def test_empty_or_whitespace_input_rejected_no_writes(
+    customer_client,
+    customer_ticket,
+    db_session,
+):
+    for empty_input in ["", "   ", "\n\t"]:
+        response = customer_client.post(
+            f"/ai/tickets/{customer_ticket.id}/ai-reply",
+            json={"message": empty_input},
+        )
+        assert response.status_code == 422
+        assert "empty" in response.json()["detail"].lower()
+
+    # Verify no writes occurred
+    assert (
+        db_session.query(TicketMessage)
+        .filter(TicketMessage.ticket_id == customer_ticket.id)
+        .count()
+        == 0
+    )
+    assert (
+        db_session.query(TicketActivity)
+        .filter(TicketActivity.ticket_id == customer_ticket.id)
+        .count()
+        == 0
+    )
+
+
+def test_duplicate_submission_blocked_within_cooldown(
+    customer_client,
+    customer_ticket,
+    customer_order,
+    db_session,
+):
+    payload = {
+        "message": f"Check order status for order #{customer_order.order_number}"
+    }
+
+    # First submission succeeds
+    first_res = customer_client.post(
+        f"/ai/tickets/{customer_ticket.id}/ai-reply",
+        json=payload,
+    )
+    assert first_res.status_code == 200
+
+    # Rapid second submission with identical payload is rejected
+    second_res = customer_client.post(
+        f"/ai/tickets/{customer_ticket.id}/ai-reply",
+        json=payload,
+    )
+    assert second_res.status_code == 409
+    assert "Duplicate message" in second_res.json()["detail"]
+
+    # Message count should only be from the first request (1 user msg + 1 AI msg)
+    assert (
+        db_session.query(TicketMessage)
+        .filter(TicketMessage.ticket_id == customer_ticket.id)
+        .count()
+        == 2
+    )
+
+
+def test_failure_rollback_behavior_without_partial_writes(
+    customer_client,
+    customer_ticket,
+    db_session,
+    monkeypatch,
+):
+    from backend.ai import service
+
+    def exploding_specialist(*args, **kwargs):
+        raise RuntimeError("Simulated unhandled failure")
+
+    monkeypatch.setattr(
+        service,
+        "run_specialist_delegation",
+        exploding_specialist,
+    )
+
+    with pytest.raises(RuntimeError, match="Simulated unhandled failure"):
+        customer_client.post(
+            f"/ai/tickets/{customer_ticket.id}/ai-reply",
+            json={"message": "Where is my shipment?"},
+        )
+
+    # Transaction rolled back: 0 messages, 0 activities
+    assert (
+        db_session.query(TicketMessage)
+        .filter(TicketMessage.ticket_id == customer_ticket.id)
+        .count()
+        == 0
+    )
+    assert (
+        db_session.query(TicketActivity)
+        .filter(TicketActivity.ticket_id == customer_ticket.id)
+        .count()
+        == 0
+    )
+
+
+def test_check_constraint_enforces_ai_null_and_human_non_null(
+    db_session,
+    customer_ticket,
+):
+    # Valid AI message: sender_id is None
+    valid_ai = TicketMessage(
+        ticket_id=customer_ticket.id,
+        sender_id=None,
+        sender_type="AI",
+        content="I am an AI.",
+    )
+    db_session.add(valid_ai)
+    db_session.commit()
+
+    # Invalid: AI with non-null sender_id
+    invalid_ai = TicketMessage(
+        ticket_id=customer_ticket.id,
+        sender_id=customer_ticket.customer_id,
+        sender_type="AI",
+        content="Invalid AI message.",
+    )
+    db_session.add(invalid_ai)
+    with pytest.raises(IntegrityError):
+        db_session.commit()
+    db_session.rollback()
+
+    # Invalid: CUSTOMER with NULL sender_id
+    invalid_customer = TicketMessage(
+        ticket_id=customer_ticket.id,
+        sender_id=None,
+        sender_type="CUSTOMER",
+        content="Invalid customer message.",
+    )
+    db_session.add(invalid_customer)
+    with pytest.raises(IntegrityError):
+        db_session.commit()
+    db_session.rollback()
+
+    # Invalid: ADMIN with NULL sender_id
+    invalid_admin = TicketMessage(
+        ticket_id=customer_ticket.id,
+        sender_id=None,
+        sender_type="ADMIN",
+        content="Invalid admin message.",
+    )
+    db_session.add(invalid_admin)
+    with pytest.raises(IntegrityError):
+        db_session.commit()
+    db_session.rollback()
 
 
 def test_order_reply_does_not_disclose_another_customers_order(

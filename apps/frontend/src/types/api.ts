@@ -47,7 +47,7 @@ export type Ticket = {
 export type TicketMessage = {
   id: number;
   ticket_id: number;
-  sender_id: number;
+  sender_id: number | null;
   sender_type: "CUSTOMER" | "ADMIN" | "AI";
   content: string;
   created_at: string;
@@ -149,6 +149,8 @@ export type AIReplyResponse = {
   message_content: string | null;
   routing_decision: RoutingDecision;
   action_taken: string;
+  user_message?: TicketMessage | null;
+  ai_message?: TicketMessage | null;
 };
 
 export type BillingAnalysisResponse = {

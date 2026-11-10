@@ -81,6 +81,7 @@ export function TicketDetailPage() {
   const [error, setError] = useState<string | null>(null);
   const [categoryError, setCategoryError] = useState<string | null>(null);
   const [aiAnalysisDetails, setAiAnalysisDetails] = useState<{ reason?: string; source?: string } | null>(null);
+  const [aiNotice, setAiNotice] = useState<string | null>(null);
 
   // Billing Analysis State
   const [orderIdStr, setOrderIdStr] = useState("");
@@ -191,6 +192,7 @@ export function TicketDetailPage() {
     if (!token || !Number.isInteger(numericTicketId)) {
       throw new Error("Your session has expired. Please sign in again.");
     }
+    setAiNotice(null);
 
     const newMessage = await createTicketMessage(
       token,
@@ -215,15 +217,16 @@ export function TicketDetailPage() {
     if (!token || !Number.isInteger(numericTicketId)) {
       throw new Error("Your session has expired. Please sign in again.");
     }
+    setAiNotice(null);
     
-    // Calls the AI layer
-    await generateTicketAiReply(
+    // Orchestrated AI reply call saves user query and optional AI response
+    const replyResponse = await generateTicketAiReply(
       token,
       numericTicketId,
       content,
     );
 
-    // Refresh everything directly after AI execution (safe messages are implicitly written)
+    // Refresh conversation and activity from server
     const [updatedMessages, updatedActivity] = await Promise.all([
       getTicketMessages(token, numericTicketId),
       getTicketActivity(token, numericTicketId),
@@ -231,6 +234,12 @@ export function TicketDetailPage() {
 
     setMessages(updatedMessages);
     setActivity(updatedActivity);
+
+    if (replyResponse.action_taken === "ROUTED_WITHOUT_REPLY") {
+      setAiNotice(
+        "Your message has been saved to the ticket. This inquiry requires human review, so no automated reply was generated."
+      );
+    }
   }
 
   async function handleGetAiSuggestion() {
@@ -576,6 +585,20 @@ export function TicketDetailPage() {
             messages={messages}
             currentUserId={user?.user_id}
           />
+
+          {aiNotice ? (
+            <div className="ai-notice-banner" role="status" aria-live="polite">
+              <p>{aiNotice}</p>
+              <button
+                type="button"
+                className="ai-notice-dismiss"
+                onClick={() => setAiNotice(null)}
+                aria-label="Dismiss notice"
+              >
+                ✕
+              </button>
+            </div>
+          ) : null}
 
           <MessageForm onSubmit={handleSendMessage} onAiSubmit={handleAiMessage} />
         </section>

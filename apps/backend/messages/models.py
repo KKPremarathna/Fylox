@@ -1,6 +1,6 @@
 from datetime import datetime, timezone
 
-from sqlalchemy import DateTime, ForeignKey, Integer, String, Text
+from sqlalchemy import CheckConstraint, DateTime, ForeignKey, Integer, String, Text
 from sqlalchemy.orm import Mapped, mapped_column
 
 from backend.database import Base
@@ -8,6 +8,13 @@ from backend.database import Base
 
 class TicketMessage(Base):
     __tablename__ = "ticket_messages"
+
+    __table_args__ = (
+        CheckConstraint(
+            "(sender_type = 'AI' AND sender_id IS NULL) OR (sender_type != 'AI' AND sender_id IS NOT NULL)",
+            name="ck_ticket_messages_sender_attribution",
+        ),
+    )
 
     id: Mapped[int] = mapped_column(
         Integer,
@@ -21,10 +28,10 @@ class TicketMessage(Base):
         nullable=False,
     )
 
-    sender_id: Mapped[int] = mapped_column(
+    sender_id: Mapped[int | None] = mapped_column(
         ForeignKey("users.user_id", ondelete="RESTRICT"),
         index=True,
-        nullable=False,
+        nullable=True,
     )
 
     sender_type: Mapped[str] = mapped_column(
